@@ -1,0 +1,93 @@
+@import "tailwindcss";
+
+/*
+  Design tokens extracted from the Growing Minds flyer.
+  See handoff/design-tokens.md. Two background colours max per view:
+  cream plus one of white / sage-soft / deep. Amber only in the status banner.
+*/
+@theme {
+  --color-deep: #1b4a2c;
+  --color-deep-press: #123620;
+  --color-leaf: #2f6b3a;
+  --color-leaf-light: #4a7c3f;
+  --color-sage: #dce8ce;
+  --color-sage-mid: #c9d8b8;
+  --color-sage-soft: #eef3e6;
+  --color-sage-deep: #a9c293;
+  --color-cream: #f7f6f1;
+  --color-ink: #24302a;
+  --color-body: #3e4c44;
+  --color-body-soft: #4c5b51;
+  --color-muted: #7a8a7e;
+  --color-on-dark: #cfe0c0;
+  --color-line: #e4e9de;
+  --color-field: #fcfdfa;
+  --color-field-border: #d7decf;
+  --color-amber: #f2c14e;
+  --color-amber-ink: #3a2e0b;
+  --color-error: #b3261e;
+
+  --font-display: var(--font-oswald), system-ui, sans-serif;
+  --font-body: var(--font-nunito), system-ui, sans-serif;
+  --font-script: var(--font-caveat), cursive;
+
+  --radius-card: 22px;
+  --radius-sm: 14px;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-cream);
+  color: var(--color-body);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Display headings: Oswald, uppercase, tight. */
+.font-display {
+  font-family: var(--font-display);
+  letter-spacing: 0.005em;
+  text-transform: uppercase;
+}
+
+.font-script {
+  font-family: var(--font-script);
+  text-transform: none;
+}
+
+.eyebrow {
+  font-family: var(--font-body);
+  font-weight: 800;
+  font-size: 13px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--color-leaf-light);
+}
+
+/* Section vertical rhythm — 78px "playful" density from the tokens. */
+.section-y {
+  padding-top: clamp(48px, 8vw, 78px);
+  padding-bottom: clamp(48px, 8vw, 78px);
+}
+
+.container-page {
+  max-width: 1120px;
+  margin-inline: auto;
+  padding-inline: 24px;
+}
+
+/* Focus ring used across interactive elements for AA keyboard support. */
+:where(a, button, input, textarea, select):focus-visible {
+  outline: none;
+  border-color: var(--color-leaf);
+  box-shadow: 0 0 0 3px rgba(47, 107, 58, 0.24);
+}
+
+@keyframes gmspin {
+  to {
+    transform: rotate(360deg);
+  }
+}

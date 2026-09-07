@@ -1,0 +1,30 @@
+{
+  "name": "growing-minds-tutoring",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Growing Minds Tutoring — KS1 specialist tutoring in Portsmouth and online.",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "lucide-react": "^1.42.0",
+    "next": "^15.5.25",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "resend": "^6.26.0",
+    "zod": "^4.5.4"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4.3.3",
+    "@types/node": "^22.10.0",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "eslint": "^9.17.0",
+    "eslint-config-next": "^15.5.25",
+    "tailwindcss": "^4.3.3",
+    "typescript": "^5.7.0"
+  }
+}
