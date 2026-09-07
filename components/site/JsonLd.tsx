@@ -10,7 +10,7 @@ function JsonLd({ data }: { data: Record<string, unknown> }) {
   );
 }
 
-/** Service-area LocalBusiness — no street address, areaServed from site.ts. */
+/** Service-area LocalBusiness, no street address, areaServed from site.ts. */
 export function OrganizationJsonLd() {
   const sameAs = hasHref(site.business.facebookUrl)
     ? [site.business.facebookUrl]

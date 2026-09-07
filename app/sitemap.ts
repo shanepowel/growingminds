@@ -7,13 +7,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/",
     "/about",
     "/tutoring",
-    "/how-it-works",
     "/tutoring-portsmouth",
-    "/pricing",
     "/faqs",
+    "/pupil-area",
     "/contact",
-    "/privacy",
-    "/terms",
+    "/policies",
   ];
   const now = new Date();
   return routes.map((route) => ({

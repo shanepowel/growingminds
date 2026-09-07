@@ -1,36 +1,59 @@
 import Link from "next/link";
 import { site } from "@/content/site";
-import { legalItems, navItems } from "@/lib/nav";
+import { primaryNav, secondaryNav, legalItems } from "@/lib/nav";
+import { resolveHref } from "@/lib/content";
 
 export function Footer() {
+  const fbHref = resolveHref(site.business.facebookUrl);
+
   return (
     <footer className="bg-deep-press text-on-dark">
-      <div className="container-page grid grid-cols-[repeat(auto-fit,minmax(220px,1fr))] gap-[30px] py-11 pt-11">
-        <div>
+      <div className="container-page grid grid-cols-2 gap-x-8 gap-y-10 py-14 md:grid-cols-[1.4fr_1fr_1fr_1.1fr]">
+        <div className="col-span-2 md:col-span-1">
           <div className="font-display text-[19px] font-semibold tracking-[0.04em] text-white">
             Growing Minds Tutoring
           </div>
-          <div className="mt-2 text-[14.5px] leading-[1.7]">
+          <p className="mt-2 max-w-[30ch] text-[14.5px] leading-[1.7]">
             KS1 specialist tutoring, Portsmouth and online.
-            <br />
-            <a href={site.business.phoneHref} className="hover:text-white">
+          </p>
+          <div className="mt-3 flex flex-col gap-1 text-[14.5px]">
+            <a href={site.business.phoneHref} className="font-bold text-white hover:underline">
               {site.business.phone}
             </a>
-            <br />
+            <a href={`mailto:${site.business.email}`} className="hover:text-white">
+              {site.business.email}
+            </a>
             <a
-              href={`mailto:${site.business.email}`}
+              href={fbHref}
+              target={fbHref === "#" ? undefined : "_blank"}
+              rel="noreferrer"
               className="hover:text-white"
             >
-              {site.business.email}
+              {site.business.facebookPageName} on Facebook
             </a>
           </div>
         </div>
 
-        <nav aria-label="Footer pages">
-          <div className="mb-2.5 text-[12.5px] font-extrabold tracking-[0.14em] text-sage-deep">
-            PAGES
+        <nav aria-label="Explore">
+          <div className="mb-3 text-[12.5px] font-extrabold tracking-[0.14em] text-sage-deep">
+            EXPLORE
           </div>
-          {navItems.map((item) => (
+          {[{ label: "Home", href: "/" }, ...primaryNav].map((item) => (
+            <Link
+              key={item.href}
+              href={item.href}
+              className="block py-[3px] text-[14.5px] text-on-dark hover:text-white"
+            >
+              {item.label}
+            </Link>
+          ))}
+        </nav>
+
+        <nav aria-label="More">
+          <div className="mb-3 text-[12.5px] font-extrabold tracking-[0.14em] text-sage-deep">
+            MORE
+          </div>
+          {secondaryNav.map((item) => (
             <Link
               key={item.href}
               href={item.href}
@@ -42,33 +65,27 @@ export function Footer() {
         </nav>
 
         <div>
-          <div className="mb-2.5 text-[12.5px] font-extrabold tracking-[0.14em] text-sage-deep">
+          <div className="mb-3 text-[12.5px] font-extrabold tracking-[0.14em] text-sage-deep">
             AREAS COVERED
           </div>
           <div className="text-[14.5px] leading-[1.8]">
             {site.business.areasCovered.join(" · ")}
           </div>
         </div>
-
-        <nav aria-label="Legal">
-          <div className="mb-2.5 text-[12.5px] font-extrabold tracking-[0.14em] text-sage-deep">
-            LEGAL
-          </div>
-          {legalItems.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              className="block py-[3px] text-[14.5px] text-on-dark hover:text-white"
-            >
-              {item.label}
-            </Link>
-          ))}
-        </nav>
       </div>
 
-      <div className="border-t border-sage/20">
-        <div className="container-page py-3.5 text-[13.5px] text-[#8fa884]">
-          © {new Date().getFullYear()} {site.business.name}. {site.legalNote}
+      <div className="border-t border-sage/18">
+        <div className="container-page flex flex-col gap-2 py-4 text-[13.5px] text-[#8fa884] sm:flex-row sm:items-center sm:justify-between">
+          <span>
+            © {new Date().getFullYear()} {site.business.name}. {site.legalNote}
+          </span>
+          <span className="flex gap-4">
+            {legalItems.map((item) => (
+              <Link key={item.href} href={item.href} className="hover:text-white">
+                {item.label}
+              </Link>
+            ))}
+          </span>
         </div>
       </div>
     </footer>

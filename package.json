@@ -2,7 +2,7 @@
   "name": "growing-minds-tutoring",
   "version": "0.1.0",
   "private": true,
-  "description": "Growing Minds Tutoring — KS1 specialist tutoring in Portsmouth and online.",
+  "description": "Growing Minds Tutoring: KS1 specialist tutoring in Portsmouth and online.",
   "scripts": {
     "dev": "next dev",
     "build": "next build",

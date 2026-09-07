@@ -2,7 +2,7 @@ import { site } from "@/content/site";
 
 /**
  * Parent testimonials. Every quote is a [QUOTE] placeholder until Sam supplies real
- * ones with written permission — see the note the design reference keeps here.
+ * ones with written permission. See the note the design reference keeps here.
  */
 export function Testimonials({
   heading = "What parents say",

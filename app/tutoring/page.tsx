@@ -3,17 +3,19 @@ import { site } from "@/content/site";
 import { getIcon } from "@/lib/icons";
 import { CheckItem } from "@/components/site/Check";
 import { Cta } from "@/components/site/Cta";
+import { HowItWorks } from "@/components/site/HowItWorks";
 
 export const metadata: Metadata = {
-  title: "What I tutor",
+  title: "Subjects, sessions and prices",
   description:
-    "KS1 tutoring in Maths, Early Reading, Phonics, Handwriting and Literacy, aligned to the Year 1 and Year 2 national curriculum.",
+    "KS1 tutoring in Maths, Early Reading, Phonics, Handwriting and Literacy, how a session works online or face to face, and simple pricing with no contract.",
   alternates: { canonical: "/tutoring" },
 };
 
 export default function TutoringPage() {
   return (
     <>
+      {/* Subjects */}
       <section className="container-page section-y">
         <h1 className="font-display m-0 mb-3.5 text-[clamp(36px,5.4vw,58px)] font-bold leading-none text-deep">
           What I tutor
@@ -79,6 +81,100 @@ export default function TutoringPage() {
           </p>
         </div>
       </section>
+
+      {/* How a session works */}
+      <section
+        id="how-it-works"
+        className="scroll-mt-[120px] border-y border-sage bg-sage-soft"
+      >
+        <div className="container-page section-y">
+          <p className="eyebrow mb-2.5">How a session works</p>
+          <h2 className="font-display m-0 mb-3.5 text-[clamp(30px,4.4vw,44px)] font-semibold leading-[1.05] text-deep">
+            Three ways to learn
+          </h2>
+          <p className="m-0 mb-8 max-w-[62ch] text-[17px] leading-[1.65] text-body">
+            Pick whatever fits your family. You can mix them, and change your
+            mind after a few weeks if something else would suit better.
+          </p>
+
+          <HowItWorks />
+
+          <div className="mt-11">
+            <h3 className="font-display m-0 mb-6 text-[clamp(24px,3.4vw,32px)] font-semibold text-deep">
+              Getting started
+            </h3>
+            <div className="grid grid-cols-[repeat(auto-fit,minmax(210px,1fr))] gap-[18px]">
+              {site.gettingStarted.map((step) => (
+                <div
+                  key={step.n}
+                  className="rounded-[var(--radius-card)] border border-sage-mid bg-white p-[22px]"
+                >
+                  <div className="font-display mb-2 text-[34px] font-bold leading-none text-sage-deep">
+                    {step.n}
+                  </div>
+                  <div className="mb-1.5 text-[18px] font-extrabold text-deep">
+                    {step.title}
+                  </div>
+                  <div className="text-[15.5px] leading-[1.55] text-body-soft">
+                    {step.body}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Pricing */}
+      <section id="pricing" className="container-page section-y scroll-mt-[120px]">
+        <p className="eyebrow mb-2.5">Pricing</p>
+        <h2 className="font-display m-0 mb-3.5 text-[clamp(30px,4.4vw,44px)] font-semibold leading-none text-deep">
+          Simple and clear
+        </h2>
+        <p className="m-0 mb-8 max-w-[62ch] text-[18px] leading-[1.65] text-body">
+          No joining fee and no contract. Pay for the sessions you have, one at a
+          time or in a block if you prefer to lock in a regular slot.
+        </p>
+
+        <div className="grid grid-cols-[repeat(auto-fit,minmax(250px,1fr))] gap-5">
+          {site.pricing.map((p) => (
+            <div
+              key={p.label}
+              className="flex flex-col gap-2 rounded-[var(--radius-card)] border border-line bg-white p-7 shadow-[0_2px_12px_rgba(27,74,44,.05)]"
+            >
+              <div className="text-[18px] font-extrabold text-deep">
+                {p.label}
+              </div>
+              <div className="font-display text-[44px] font-bold leading-none text-leaf">
+                {p.price}
+              </div>
+              <div className="text-[15px] font-bold text-leaf-light">
+                {p.duration}
+              </div>
+              <div className="mt-1 text-[15.5px] leading-[1.6] text-body-soft">
+                {p.note}
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <div className="mt-[34px] grid grid-cols-[repeat(auto-fit,minmax(280px,1fr))] gap-5">
+          {site.policies.map((pol) => (
+            <div
+              key={pol.title}
+              className="rounded-[var(--radius-card)] border border-sage-mid bg-sage-soft p-[26px]"
+            >
+              <div className="font-display mb-2.5 text-[21px] font-semibold text-deep">
+                {pol.title}
+              </div>
+              <div className="text-[16px] leading-[1.65] text-[#33453a]">
+                {pol.body}
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
       <Cta />
     </>
   );

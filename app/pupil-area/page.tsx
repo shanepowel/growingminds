@@ -2,17 +2,18 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { site } from "@/content/site";
 import { getIcon } from "@/lib/icons";
-import { resolveHref } from "@/lib/content";
+import { resolveHref, pupilSignInHref } from "@/lib/content";
+import { LinkButton } from "@/components/site/Button";
 
 export const metadata: Metadata = {
   title: "Pupil area",
   description:
     "For current families: everything for your child's sessions lives in your own Google Classroom, plus the session whiteboard and video link.",
   alternates: { canonical: "/pupil-area" },
-  robots: { index: false },
 };
 
 export default function PupilAreaPage() {
+  const signInHref = pupilSignInHref();
   return (
     <section className="mx-auto max-w-[1000px] px-6 section-y">
       <p className="eyebrow mb-3">For current families</p>
@@ -22,9 +23,17 @@ export default function PupilAreaPage() {
       <p className="m-0 mb-2.5 max-w-[62ch] text-[18px] leading-[1.65] text-body">
         {site.pupilArea.intro}
       </p>
-      <p className="m-0 mb-[34px] max-w-[62ch] text-[16px] leading-[1.65] text-body-soft">
+      <p className="m-0 mb-6 max-w-[62ch] text-[16px] leading-[1.65] text-body-soft">
         {site.pupilArea.note}
       </p>
+      <div className="mb-[34px]">
+        <LinkButton
+          href={signInHref}
+          target={signInHref === "#" ? undefined : "_blank"}
+        >
+          {site.pupilArea.signIn.cta}: sign in with Google
+        </LinkButton>
+      </div>
 
       <div className="grid grid-cols-[repeat(auto-fit,minmax(250px,1fr))] gap-[18px]">
         {site.pupilArea.links.map((l) => {
@@ -63,7 +72,7 @@ export default function PupilAreaPage() {
               {i === site.pupilArea.records.length - 1 ? (
                 <>
                   {r} See the{" "}
-                  <Link href="/privacy" className="underline">
+                  <Link href="/policies#privacy" className="underline">
                     privacy notice
                   </Link>
                   .

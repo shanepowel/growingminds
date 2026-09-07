@@ -31,15 +31,15 @@ const caveat = Caveat({
 export const metadata: Metadata = {
   metadataBase: new URL(site.business.url),
   title: {
-    default: `${site.business.name} — ${site.business.tagline}`,
-    template: `%s — ${site.business.name}`,
+    default: `${site.business.name} · ${site.business.tagline}`,
+    template: `%s · ${site.business.name}`,
   },
   description: site.hero.body,
   openGraph: {
     type: "website",
     locale: "en_GB",
     siteName: site.business.name,
-    title: `${site.business.name} — ${site.business.tagline}`,
+    title: `${site.business.name} · ${site.business.tagline}`,
     description: site.hero.body,
     url: site.business.url,
   },

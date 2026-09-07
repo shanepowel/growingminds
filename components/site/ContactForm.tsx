@@ -247,7 +247,7 @@ export function ContactForm() {
           <span className="text-[14.5px] leading-[1.55] text-body">
             I am happy for Sam to use these details to reply to my enquiry, as
             described in the{" "}
-            <Link href="/privacy" className="underline">
+            <Link href="/policies#privacy" className="underline">
               privacy notice
             </Link>
             .

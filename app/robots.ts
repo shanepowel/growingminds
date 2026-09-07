@@ -6,7 +6,6 @@ export default function robots(): MetadataRoute.Robots {
     rules: {
       userAgent: "*",
       allow: "/",
-      disallow: "/pupil-area",
     },
     sitemap: `${site.business.url}/sitemap.xml`,
   };

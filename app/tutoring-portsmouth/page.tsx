@@ -35,7 +35,7 @@ export default function PortsmouthPage() {
             </LinkButton>
           </div>
           <ImageSlot
-            label="travel radius map — Portsmouth city centre outward"
+            label="travel radius map, Portsmouth city centre outward"
             minHeight={280}
             onDark
           />

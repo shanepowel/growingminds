@@ -67,7 +67,7 @@ body {
   color: var(--color-leaf-light);
 }
 
-/* Section vertical rhythm — 78px "playful" density from the tokens. */
+/* Section vertical rhythm: 78px "playful" density from the tokens. */
 .section-y {
   padding-top: clamp(48px, 8vw, 78px);
   padding-bottom: clamp(48px, 8vw, 78px);

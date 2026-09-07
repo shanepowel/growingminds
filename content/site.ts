@@ -1,4 +1,4 @@
-// content/site.ts — the whole CMS. Sam edits this in GitHub's web editor; every save deploys.
+// content/site.ts: the whole CMS. Sam edits this in GitHub's web editor; every save deploys.
 // [SQUARE BRACKETS] mark data still to come from Sam. Do not invent values.
 
 export type Status = "accepting" | "waitlist" | "paused";
@@ -416,6 +416,14 @@ export const site = {
   /** /pupil-area. Signposting only in v1: no auth on this site, Google Classroom is the login. */
   pupilArea: {
     enabled: true,
+    // When appEnabled is true, sign in affordances point at the pupil app (appUrl).
+    // When false, they point at Google Classroom directly (links[0].href).
+    appEnabled: false,
+    appUrl: "https://pupils.growingmindstutoring.co.uk",
+    signIn: {
+      cta: "Pupil area",
+      lead: "For current families. Sign in with the Google account you use for Classroom.",
+    },
     intro:
       "Everything for your child's sessions lives in one place: your own Google Classroom. There is no separate password for this website, and nothing for your child to remember.",
     note: "You sign in with the Google account you gave me when we started. Your classroom is private to your family, and only you and I can see it.",

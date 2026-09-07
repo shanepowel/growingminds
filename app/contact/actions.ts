@@ -113,7 +113,7 @@ async function sendEmails(data: {
   await resend.emails.send({
     from,
     to: data.email,
-    subject: "Thank you for your enquiry — Growing Minds Tutoring",
+    subject: "Thank you for your enquiry, Growing Minds Tutoring",
     text: [
       `Hi ${data.name},`,
       "",

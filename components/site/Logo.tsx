@@ -1,7 +1,7 @@
 import Link from "next/link";
 
 /**
- * Logo lockup. The mascot is a deliberate placeholder circle — the real vector
+ * Logo lockup. The mascot is a deliberate placeholder circle; the real vector
  * mascot comes from Sam's flyer designer (see handoff README). Do not redraw it.
  */
 export function Logo() {
@@ -9,7 +9,7 @@ export function Logo() {
     <Link
       href="/"
       className="flex flex-shrink-0 items-center gap-2.5"
-      aria-label={`${"Growing Minds Tutoring"} — home`}
+      aria-label="Growing Minds Tutoring, home"
     >
       <span
         aria-hidden

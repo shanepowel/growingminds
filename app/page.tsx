@@ -10,7 +10,7 @@ import { Testimonials } from "@/components/site/Testimonials";
 export default function HomePage() {
   return (
     <>
-      {/* Hero — flyer split */}
+      {/* Hero: flyer split */}
       <section className="grid grid-cols-[repeat(auto-fit,minmax(320px,1fr))] bg-cream">
         <div className="section-y flex flex-col justify-center gap-[18px] px-8 lg:pl-[max(24px,calc((100vw-1120px)/2))]">
           <p className="font-script text-[38px] leading-none text-leaf-light">
@@ -119,7 +119,7 @@ export default function HomePage() {
               return (
                 <Link
                   key={m.id}
-                  href="/how-it-works"
+                  href="/tutoring#how-it-works"
                   className="flex items-center gap-4 rounded-[var(--radius-card)] border border-line bg-white px-[22px] py-5 no-underline shadow-[0_2px_12px_rgba(27,74,44,.05)] transition-all hover:border-sage-deep hover:shadow-[0_6px_18px_rgba(27,74,44,.09)]"
                 >
                   <span className="flex h-[46px] w-[46px] flex-shrink-0 items-center justify-center rounded-full bg-sage-soft text-deep">
@@ -171,7 +171,7 @@ export default function HomePage() {
           <p className="mb-5 text-[15.5px] leading-[1.6] text-sage">
             {site.pricingSummary.note}
           </p>
-          <LinkButton href="/pricing" variant="onDark">
+          <LinkButton href="/tutoring#pricing" variant="onDark">
             See full pricing
           </LinkButton>
         </div>
