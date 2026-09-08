@@ -131,7 +131,7 @@ NEXT_PUBLIC_SUPABASE_ANON_KEY
 SUPABASE_SERVICE_ROLE_KEY          server only, used by the sign in callback to check the allow list
 TUTOR_EMAIL                        Sam's Google account
 RESEND_API_KEY
-RESEND_FROM                        notes@growingmindstutoring.co.uk
+RESEND_FROM                        notes@growingmindstutoring.co
 NEXT_PUBLIC_MARKETING_URL          https://growingmindstutoring.co.uk
 PUPIL_APP_ENABLED                  true/false, mirrors site.pupilArea.appEnabled
 ```

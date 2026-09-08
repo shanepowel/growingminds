@@ -85,7 +85,7 @@ async function sendEmails(data: {
   const to = process.env.CONTACT_TO_EMAIL || site.business.email;
   const from =
     process.env.RESEND_FROM ||
-    `Growing Minds Tutoring <hello@${site.business.domain}>`;
+    `Growing Minds Tutoring <${site.business.email}>`;
   const subjects = data.subjects.length ? data.subjects.join(", ") : "Not specified";
   const modeLabel =
     site.form.modeOptions.find((m) => m.id === data.mode)?.label ?? "Not specified";

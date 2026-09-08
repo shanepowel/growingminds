@@ -23,7 +23,7 @@ export const site = {
       "Enhanced DBS certificate, registered on the DBS Update Service. Annual safeguarding training. Happy to show both at our first session.",
     dbsLine: "Enhanced DBS checked, registered on the DBS Update Service.",
     phoneNote: "Tap to call, weekdays after 4pm",
-    email: "hello@growingmindstutoring.co.uk",
+    email: "hello@growingmindstutoring.co",
     facebookUrl: "[FACEBOOK PAGE URL]",
     facebookPageName: "Growing Minds Tutoring",
     domain: "growingmindstutoring.co.uk",
@@ -430,7 +430,7 @@ export const site = {
       sections: [
         {
           h: "Who I am",
-          p: "Growing Minds Tutoring is run by [FULL NAME], a self employed qualified teacher based in Portsmouth. I am the data controller for the information described here. You can reach me at hello@growingmindstutoring.co.uk.",
+          p: "Growing Minds Tutoring is run by [FULL NAME], a self employed qualified teacher based in Portsmouth. I am the data controller for the information described here. You can reach me at hello@growingmindstutoring.co.",
         },
         {
           h: "What I collect",
