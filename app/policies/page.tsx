@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Section } from "@/components/Section";
 import { Policies } from "@/components/site/Policies";
 
 export const metadata: Metadata = {
@@ -9,5 +10,9 @@ export const metadata: Metadata = {
 };
 
 export default function PoliciesPage() {
-  return <Policies />;
+  return (
+    <Section narrow>
+      <Policies />
+    </Section>
+  );
 }

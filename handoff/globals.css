@@ -37,10 +37,10 @@
   --color-rule:       #E2E0D4; /* hairline on paper                    */
   --color-rule-soft:  #E4E9DE; /* card borders                         */
 
-  /* --- type: exactly three families (bound to next/font in app/layout.tsx) --- */
-  --font-display: var(--font-source-serif), "Source Serif 4", Georgia, serif;  /* h1-h3, prices  */
-  --font-body:    var(--font-nunito), Nunito, system-ui, sans-serif;           /* everything else */
-  --font-script:  var(--font-caveat), Caveat, cursive;                         /* accents only    */
+  /* --- type: exactly three families --- */
+  --font-display: "Source Serif 4", Georgia, serif;  /* h1-h3, prices  */
+  --font-body:    Nunito, system-ui, sans-serif;     /* everything else */
+  --font-script:  Caveat, cursive;                   /* accents only    */
 
   /* --- type scale (clamped, mobile first) --- */
   --text-h1:      clamp(42px, 5.6vw, 68px);

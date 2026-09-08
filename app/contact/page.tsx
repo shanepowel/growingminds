@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import { Hourglass, Phone } from "lucide-react";
 import { site } from "@/content/site";
 import { facebookHref, hasHref } from "@/lib/content";
+import { Section } from "@/components/Section";
 import { ContactForm } from "@/components/site/ContactForm";
-import { FacebookGlyph } from "@/components/site/FacebookGlyph";
 
 export const metadata: Metadata = {
   title: "Get in touch",
@@ -19,114 +19,99 @@ export default function ContactPage() {
   const calConfigured = hasHref(site.booking.calUrl);
 
   return (
-    <section className="container-page section-y">
-      <h1 className="font-display m-0 mb-3.5 text-[clamp(36px,5.4vw,58px)] font-bold leading-none text-deep">
-        Get in touch
-      </h1>
-      <p className="m-0 mb-7 max-w-[60ch] text-[18px] leading-[1.65] text-body">
-        Tell me a little about your child and I will come back to you within one
-        working day. There is no obligation, and a free 15 minute chat is the
-        easiest way to work out whether I can help.
+    <Section>
+      <h1 style={{ fontSize: "var(--text-h1-page)", marginBottom: 14 }}>Get in touch</h1>
+      <p className="gm-lead" style={{ maxWidth: "60ch", marginBottom: 28 }}>
+        Tell me a little about your child and I will come back to you within one working day. There is no obligation, and
+        a free 15 minute chat is the easiest way to work out whether I can help.
       </p>
 
-      <div className="grid grid-cols-[repeat(auto-fit,minmax(300px,1fr))] items-start gap-7">
+      <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: 28, alignItems: "start" }}>
         {paused ? (
-          <div className="rounded-[var(--radius-card)] border border-line bg-white p-[30px] shadow-[0_2px_14px_rgba(27,74,44,.05)]">
-            <div className="mb-4 flex h-[54px] w-[54px] items-center justify-center rounded-full bg-amber text-amber-ink">
-              <Hourglass size={26} aria-hidden />
+          <div className="gm-card">
+            <div
+              aria-hidden
+              style={{ width: 54, height: 54, borderRadius: "50%", background: "var(--color-warn)", color: "#3A2E0B", display: "grid", placeItems: "center", marginBottom: 16 }}
+            >
+              <Hourglass size={26} />
             </div>
-            <h2 className="font-display m-0 mb-2.5 text-[26px] font-semibold text-deep">
-              {site.form.paused.title}
-            </h2>
-            <p className="m-0 text-[16.5px] leading-[1.7] text-body-soft">
-              {site.form.paused.lead}
-            </p>
+            <h2 style={{ fontSize: 26, margin: "0 0 10px" }}>{site.form.paused.title}</h2>
+            <p style={{ margin: 0, fontSize: "16.5px", lineHeight: 1.7, color: "var(--color-body)" }}>{site.form.paused.lead}</p>
           </div>
         ) : (
           <ContactForm />
         )}
 
-        <div className="grid gap-[18px]">
-          <div className="rounded-[var(--radius-card)] bg-deep p-7 text-white">
-            <div className="font-display mb-3.5 text-[22px] font-semibold">
-              Or reach me directly
-            </div>
+        <div style={{ display: "grid", gap: 18 }}>
+          <div className="gm-card-dark">
+            <h2 style={{ color: "#fff", fontSize: 22, margin: "0 0 14px" }}>Or reach me directly</h2>
             <a
               href={site.business.phoneHref}
-              className="mb-2.5 flex items-center gap-3.5 rounded-[14px] border border-sage/30 bg-white/10 p-4 text-white no-underline hover:bg-white/20"
+              style={{ display: "flex", alignItems: "center", gap: 14, background: "rgba(255,255,255,.08)", border: "1px solid rgba(220,232,206,.3)", borderRadius: 14, padding: "15px 16px", marginBottom: 10, color: "#fff" }}
             >
-              <span className="flex h-10 w-10 items-center justify-center rounded-full bg-sage text-deep">
-                <Phone size={18} aria-hidden />
+              <span aria-hidden style={{ width: 40, height: 40, borderRadius: "50%", background: "var(--color-sage)", color: "var(--color-ink)", display: "grid", placeItems: "center" }}>
+                <Phone size={18} />
               </span>
               <span>
-                <span className="block text-[18px] font-extrabold">
-                  {site.business.phone}
-                </span>
-                <span className="block text-[14px] text-on-dark">
-                  {site.business.phoneNote}
-                </span>
+                <span style={{ display: "block", fontWeight: 800, fontSize: 18 }}>{site.business.phone}</span>
+                <span style={{ display: "block", fontSize: 14, color: "var(--color-on-dark)" }}>{site.business.phoneNote}</span>
               </span>
             </a>
             <a
               href={fbHref}
               target="_blank"
               rel="noreferrer"
-              className="flex items-center gap-3.5 rounded-[14px] border border-sage/30 bg-white/10 p-4 text-white no-underline hover:bg-white/20"
+              style={{ display: "flex", alignItems: "center", gap: 14, background: "rgba(255,255,255,.08)", border: "1px solid rgba(220,232,206,.3)", borderRadius: 14, padding: "15px 16px", color: "#fff" }}
             >
-              <span className="flex h-10 w-10 items-center justify-center rounded-full bg-sage text-deep">
-                <FacebookGlyph size={19} />
+              <span aria-hidden style={{ width: 40, height: 40, borderRadius: "50%", background: "var(--color-sage)", color: "var(--color-ink)", display: "grid", placeItems: "center", fontFamily: "var(--font-display)", fontWeight: 700, fontSize: 19 }}>
+                f
               </span>
               <span>
-                <span className="block text-[18px] font-extrabold">
-                  {site.business.facebookPageName}
-                </span>
-                <span className="block text-[14px] text-on-dark">
-                  Message me on Facebook for enquiries and bookings
-                </span>
+                <span style={{ display: "block", fontWeight: 800, fontSize: 18 }}>{site.business.facebookPageName}</span>
+                <span style={{ display: "block", fontSize: 14, color: "var(--color-on-dark)" }}>Message me on Facebook for enquiries and bookings</span>
               </span>
             </a>
-            <div className="mt-3.5 text-[14.5px] leading-[1.6] text-on-dark">
+            <p style={{ margin: "14px 0 0", fontSize: "14.5px", lineHeight: 1.6, color: "var(--color-on-dark)" }}>
               Email:{" "}
-              <a
-                href={`mailto:${site.business.email}`}
-                className="text-on-dark underline"
-              >
+              <a href={`mailto:${site.business.email}`} style={{ color: "var(--color-on-dark)", textDecoration: "underline" }}>
                 {site.business.email}
               </a>
-            </div>
+            </p>
           </div>
 
           {showBooking && (
-            <div className="rounded-[var(--radius-card)] border border-line bg-white p-7 shadow-[0_2px_12px_rgba(27,74,44,.05)]">
-              <div className="font-display mb-2 text-[22px] font-semibold text-deep">
-                {site.booking.title}
-              </div>
-              <p className="m-0 mb-4 text-[15.5px] leading-[1.6] text-body-soft">
-                {site.booking.body}
-              </p>
+            <div className="gm-card">
+              <h2 style={{ fontSize: 22, margin: "0 0 8px" }}>{site.booking.title}</h2>
+              <p style={{ margin: "0 0 16px", fontSize: "15.5px", lineHeight: 1.6, color: "var(--color-body)" }}>{site.booking.body}</p>
               {calConfigured ? (
                 <iframe
                   src={site.booking.calUrl}
                   title="Book a free 15 minute chat"
-                  className="min-h-[420px] w-full rounded-[14px] border border-sage-mid"
+                  style={{ width: "100%", minHeight: 420, border: "1px solid var(--color-sage-line)", borderRadius: 14 }}
                 />
               ) : (
                 <div
-                  className="flex min-h-[190px] items-center justify-center rounded-[14px] border border-dashed border-sage-mid p-4 text-center font-mono text-[12px] text-[#5f7355]"
                   style={{
-                    background:
-                      "repeating-linear-gradient(135deg,#EEF3E6 0 9px,#F7FAF4 9px 18px)",
+                    display: "grid",
+                    placeItems: "center",
+                    minHeight: 190,
+                    padding: 16,
+                    textAlign: "center",
+                    fontFamily: "ui-monospace, monospace",
+                    fontSize: 12,
+                    color: "#5f7355",
+                    borderRadius: 14,
+                    border: "1px dashed var(--color-sage-line)",
+                    background: "linear-gradient(135deg, var(--color-sage-pale), var(--color-peach))",
                   }}
                 >
-                  Cal.com booking embed
-                  <br />
-                  (add booking.calUrl in content/site.ts to enable)
+                  Cal.com booking embed (add booking.calUrl in content/site.ts to enable)
                 </div>
               )}
             </div>
           )}
         </div>
       </div>
-    </section>
+    </Section>
   );
 }

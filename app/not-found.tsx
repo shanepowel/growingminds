@@ -1,29 +1,21 @@
-import { LinkButton } from "@/components/site/Button";
-import { ImageSlot } from "@/components/site/ImageSlot";
+import { LeafMark } from "@/components/LeafMark";
+import { Button } from "@/components/Button";
+import { ScriptNote } from "@/components/ScriptNote";
 
 export default function NotFound() {
   return (
-    <section className="mx-auto max-w-[640px] px-6 pb-[120px] pt-[100px] text-center">
-      <div className="mx-auto mb-[26px] h-[150px] w-[150px]">
-        <ImageSlot
-          label="mascot spot illustration"
-          minHeight={150}
-          className="!rounded-full"
-        />
+    <section className="gm-container-narrow" style={{ paddingBlock: "100px 120px", textAlign: "center" }}>
+      <div style={{ display: "grid", placeItems: "center", marginBottom: 20 }}>
+        <LeafMark size={72} />
       </div>
-      <p className="font-script text-[34px] text-leaf-light">Oops</p>
-      <h1 className="font-display m-0 mb-3 mt-0.5 text-[clamp(34px,6vw,54px)] font-bold leading-none text-deep">
-        This page has wandered off
-      </h1>
-      <p className="m-0 mb-6 text-[17.5px] leading-[1.65] text-body">
-        It happens to the best of us. Let&rsquo;s get you back to somewhere
-        useful.
+      <ScriptNote>Oops</ScriptNote>
+      <h1 style={{ fontSize: "var(--text-h1-page)", margin: "6px 0 12px" }}>This page has wandered off</h1>
+      <p style={{ margin: "0 auto 24px", maxWidth: "48ch", fontSize: "17.5px", lineHeight: 1.65, color: "var(--color-body-dark)" }}>
+        It happens to the best of us. Let&rsquo;s get you back to somewhere useful.
       </p>
-      <div className="flex flex-wrap justify-center gap-3">
-        <LinkButton href="/">Back to the home page</LinkButton>
-        <LinkButton href="/contact" variant="secondary">
-          Get in touch
-        </LinkButton>
+      <div style={{ display: "flex", gap: 12, justifyContent: "center", flexWrap: "wrap" }}>
+        <Button href="/">Back to the home page</Button>
+        <Button href="/contact" variant="secondary">Get in touch</Button>
       </div>
     </section>
   );

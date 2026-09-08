@@ -15,33 +15,33 @@ function slugify(h: string) {
 export function Policies() {
   const [tab, setTab] = useState<Tab>("privacy");
 
-  // Deep links: /policies#privacy and /policies#terms select the tab.
+  // Deep links: /policies?tab=terms (and legacy #terms) select the tab.
   useEffect(() => {
-    const h = window.location.hash.replace("#", "");
-    if (h === "terms" || h === "privacy") setTab(h);
+    const params = new URLSearchParams(window.location.search);
+    const q = params.get("tab");
+    const hash = window.location.hash.replace("#", "");
+    if (q === "terms" || hash === "terms") setTab("terms");
+    else if (q === "privacy" || hash === "privacy") setTab("privacy");
   }, []);
 
   const select = (t: Tab) => {
     setTab(t);
     if (typeof history !== "undefined") {
-      history.replaceState(null, "", `#${t}`);
+      history.replaceState(null, "", t === "terms" ? "?tab=terms" : "?tab=privacy");
     }
   };
 
   const doc = tab === "privacy" ? site.legal.privacy : site.legal.terms;
-
   const tabs: { id: Tab; label: string }[] = [
     { id: "privacy", label: "Privacy notice" },
     { id: "terms", label: "Tutoring terms" },
   ];
 
   return (
-    <section className="mx-auto max-w-[1000px] px-6 section-y">
-      <h1 className="font-display m-0 mb-4 text-[clamp(32px,4.6vw,50px)] font-bold leading-none text-deep">
-        Policies
-      </h1>
+    <>
+      <h1 style={{ fontSize: "var(--text-h1-page)", marginBottom: 16 }}>Policies</h1>
 
-      <div role="tablist" aria-label="Policies" className="mb-8 flex flex-wrap gap-2">
+      <div role="tablist" aria-label="Policies" style={{ display: "flex", flexWrap: "wrap", gap: 8, marginBottom: 30 }}>
         {tabs.map((t) => {
           const selected = t.id === tab;
           return (
@@ -51,11 +51,8 @@ export function Policies() {
               role="tab"
               aria-selected={selected}
               onClick={() => select(t.id)}
-              className={`min-h-[44px] rounded-full border-2 px-5 py-2.5 text-[15.5px] font-extrabold transition-colors ${
-                selected
-                  ? "border-deep bg-deep text-white"
-                  : "border-field-border bg-white text-[#33453a] hover:bg-sage-soft"
-              }`}
+              className={`gm-chip ${selected ? "gm-chip-on" : ""}`}
+              style={{ cursor: "pointer" }}
             >
               {t.label}
             </button>
@@ -63,41 +60,32 @@ export function Policies() {
         })}
       </div>
 
-      <div className="mb-[30px] text-[14.5px] text-muted">
+      <p style={{ margin: "0 0 30px", fontSize: "14.5px", color: "var(--color-muted)" }}>
         Last updated {doc.updated}
-      </div>
+      </p>
 
-      <div className="grid grid-cols-1 items-start gap-[34px] md:grid-cols-[minmax(200px,240px)_minmax(0,1fr)]">
-        <nav
-          aria-label="On this page"
-          className="rounded-[var(--radius-card)] border border-sage-mid bg-sage-soft p-[22px] md:sticky md:top-[130px]"
-        >
-          <div className="mb-3 text-[12.5px] font-extrabold tracking-[0.14em] text-leaf-light">
-            ON THIS PAGE
-          </div>
+      <nav aria-label="On this page" className="gm-card-sage" style={{ marginBottom: 34 }}>
+        <p className="gm-eyebrow" style={{ margin: "0 0 12px" }}>
+          On this page
+        </p>
+        <div style={{ display: "flex", flexWrap: "wrap", gap: "6px 20px" }}>
           {doc.sections.map((s) => (
-            <a
-              key={s.h}
-              href={`#${slugify(s.h)}`}
-              className="block py-[5px] text-[15px] font-bold leading-[1.4] text-leaf hover:text-deep"
-            >
+            <a key={s.h} href={`#${slugify(s.h)}`} style={{ fontWeight: 700, fontSize: 15 }}>
               {s.h}
             </a>
           ))}
-        </nav>
-        <div className="min-w-0">
-          {doc.sections.map((s) => (
-            <div key={s.h} id={slugify(s.h)} className="mb-7 scroll-mt-[130px]">
-              <h2 className="font-display m-0 mb-2.5 text-[22px] font-semibold text-deep">
-                {s.h}
-              </h2>
-              <p className="m-0 max-w-[68ch] text-[16.5px] leading-[1.75] text-body">
-                {s.p}
-              </p>
-            </div>
-          ))}
         </div>
+      </nav>
+      <div style={{ minWidth: 0 }}>
+        {doc.sections.map((s) => (
+          <div key={s.h} id={slugify(s.h)} style={{ marginBottom: 28, scrollMarginTop: 130 }}>
+            <h2 style={{ fontSize: 22, margin: "0 0 10px" }}>{s.h}</h2>
+            <p style={{ margin: 0, maxWidth: "68ch", fontSize: "16.5px", lineHeight: 1.75, color: "var(--color-body-dark)" }}>
+              {s.p}
+            </p>
+          </div>
+        ))}
       </div>
-    </section>
+    </>
   );
 }

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
-import { Cta } from "@/components/site/Cta";
+import { Section } from "@/components/Section";
+import { Cta } from "@/components/Cta";
 import { Faqs } from "@/components/site/Faqs";
 import { FaqJsonLd } from "@/components/site/JsonLd";
 
@@ -14,16 +15,14 @@ export default function FaqsPage() {
   return (
     <>
       <FaqJsonLd />
-      <section className="mx-auto max-w-[900px] px-6 section-y">
-        <h1 className="font-display m-0 mb-3.5 text-[clamp(36px,5.4vw,58px)] font-bold leading-none text-deep">
-          Questions parents ask
-        </h1>
-        <p className="m-0 mb-[34px] text-[18px] leading-[1.65] text-body">
-          If yours is not here, message me on Facebook or call and I will answer
-          honestly, even if the answer is that I am not the right fit.
+      <Section narrow>
+        <h1 style={{ fontSize: "var(--text-h1-page)", marginBottom: 14 }}>Questions parents ask</h1>
+        <p className="gm-lead" style={{ maxWidth: "62ch", marginBottom: 34 }}>
+          If yours is not here, message me on Facebook or call and I will answer honestly, even if the answer is that I
+          am not the right fit.
         </p>
         <Faqs />
-      </section>
+      </Section>
       <Cta />
     </>
   );

@@ -3,7 +3,8 @@
 import { useState } from "react";
 import { site } from "@/content/site";
 import { CheckItem } from "./Check";
-import { ImageSlot } from "./ImageSlot";
+import { BlobImage } from "@/components/BlobImage";
+import { Chip } from "@/components/Chip";
 
 export function HowItWorks() {
   const [activeId, setActiveId] = useState<string>(site.modes[0].id);
@@ -11,11 +12,7 @@ export function HowItWorks() {
 
   return (
     <>
-      <div
-        role="tablist"
-        aria-label="Delivery modes"
-        className="mb-[26px] flex flex-wrap gap-2"
-      >
+      <div role="tablist" aria-label="Delivery modes" style={{ display: "flex", flexWrap: "wrap", gap: 8, marginBottom: 26 }}>
         {site.modes.map((m) => {
           const selected = m.id === activeId;
           return (
@@ -25,11 +22,8 @@ export function HowItWorks() {
               role="tab"
               aria-selected={selected}
               onClick={() => setActiveId(m.id)}
-              className={`min-h-[44px] rounded-full border-2 px-5 py-3 text-[15.5px] font-extrabold transition-colors ${
-                selected
-                  ? "border-deep bg-deep text-white"
-                  : "border-field-border bg-white text-[#33453a] hover:bg-sage-soft"
-              }`}
+              className={`gm-chip ${selected ? "gm-chip-on" : ""}`}
+              style={{ cursor: "pointer" }}
             >
               {m.title}
             </button>
@@ -37,15 +31,21 @@ export function HowItWorks() {
         })}
       </div>
 
-      <div className="grid grid-cols-[repeat(auto-fit,minmax(280px,1fr))] items-start gap-[30px] rounded-[var(--radius-card)] border border-line bg-white p-8 shadow-[0_2px_14px_rgba(27,74,44,.05)]">
+      <div
+        className="gm-card"
+        style={{
+          display: "grid",
+          gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
+          gap: 30,
+          alignItems: "start",
+        }}
+      >
         <div>
-          <h2 className="font-display m-0 mb-3 text-[30px] font-semibold text-deep">
-            {active.title}
-          </h2>
-          <p className="m-0 mb-[18px] text-[17px] leading-[1.7] text-body">
+          <h3 style={{ fontSize: 26, margin: "0 0 12px" }}>{active.title}</h3>
+          <p style={{ margin: "0 0 18px", fontSize: 17, lineHeight: 1.7, color: "var(--color-body-dark)" }}>
             {active.intro}
           </p>
-          <ul className="m-0 list-none p-0">
+          <ul style={{ listStyle: "none", margin: 0, padding: 0 }}>
             {active.points.map((p, i) => (
               <CheckItem key={i} size={22}>
                 {p}
@@ -54,18 +54,15 @@ export function HowItWorks() {
           </ul>
         </div>
         <div>
-          <ImageSlot label={active.imageAlt} minHeight={250} className="rounded-[16px]" />
-          {active.showAreas && (
-            <div className="mt-4 flex flex-wrap gap-2">
+          <BlobImage src={active.image} alt={active.imageAlt} variant="b" minHeight={250} />
+          {"showAreas" in active && active.showAreas && (
+            <ul style={{ display: "flex", flexWrap: "wrap", gap: 8, listStyle: "none", margin: "16px 0 0", padding: 0 }}>
               {site.business.areasCovered.map((a) => (
-                <span
-                  key={a}
-                  className="rounded-full border border-sage-mid bg-sage-soft px-3.5 py-[7px] text-[14.5px] font-bold text-deep"
-                >
-                  {a}
-                </span>
+                <li key={a}>
+                  <Chip label={a} />
+                </li>
               ))}
-            </div>
+            </ul>
           )}
         </div>
       </div>

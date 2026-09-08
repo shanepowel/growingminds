@@ -1,6 +1,8 @@
 import { site } from "@/content/site";
 import { hasHref } from "@/lib/content";
 
+const siteUrl = `https://${site.business.domain}`;
+
 function JsonLd({ data }: { data: Record<string, unknown> }) {
   return (
     <script
@@ -21,10 +23,10 @@ export function OrganizationJsonLd() {
       data={{
         "@context": "https://schema.org",
         "@type": ["LocalBusiness", "EducationalOrganization"],
-        "@id": `${site.business.url}/#business`,
+        "@id": `${siteUrl}/#business`,
         name: site.business.name,
         description: site.business.tagline,
-        url: site.business.url,
+        url: siteUrl,
         email: site.business.email,
         telephone: site.business.phone,
         priceRange: "££",
@@ -55,7 +57,7 @@ export function PersonJsonLd() {
         worksFor: {
           "@type": "Organization",
           name: site.business.name,
-          url: site.business.url,
+          url: siteUrl,
         },
         knowsAbout: site.subjects.map((s) => s.title),
         areaServed: site.business.areasCovered,

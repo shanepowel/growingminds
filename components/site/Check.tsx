@@ -9,17 +9,24 @@ export function CheckItem({
   size?: number;
 }) {
   return (
-    <li className="flex items-start gap-3 py-[7px]">
+    <li style={{ display: "flex", alignItems: "flex-start", gap: 12, padding: "7px 0" }}>
       <span
         aria-hidden
-        className="mt-[2px] flex flex-shrink-0 items-center justify-center rounded-full bg-leaf text-white"
-        style={{ width: size, height: size }}
+        style={{
+          marginTop: 2,
+          flex: "0 0 auto",
+          width: size,
+          height: size,
+          borderRadius: "50%",
+          background: "var(--color-green)",
+          color: "#fff",
+          display: "grid",
+          placeItems: "center",
+        }}
       >
         <Check size={size * 0.55} strokeWidth={3} />
       </span>
-      <span className="text-[15.5px] leading-[1.5] text-[#33453a]">
-        {children}
-      </span>
+      <span style={{ fontSize: "15.5px", lineHeight: 1.5, color: "#33453a" }}>{children}</span>
     </li>
   );
 }

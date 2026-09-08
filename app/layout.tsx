@@ -1,17 +1,17 @@
 import type { Metadata } from "next";
-import { Oswald, Nunito, Caveat } from "next/font/google";
+import { Source_Serif_4, Nunito, Caveat } from "next/font/google";
 import "./globals.css";
 import { site } from "@/content/site";
-import { Header } from "@/components/site/Header";
-import { Footer } from "@/components/site/Footer";
-import { StatusBanner } from "@/components/site/StatusBanner";
+import { HeaderBar } from "@/components/HeaderBar";
+import { SiteFooter } from "@/components/SiteFooter";
+import { FooterCta } from "@/components/FooterCta";
+import { StatusBanner } from "@/components/StatusBanner";
 import { OrganizationJsonLd } from "@/components/site/JsonLd";
-import { SpeedInsights } from "@vercel/speed-insights/next";
 
-const oswald = Oswald({
+const sourceSerif = Source_Serif_4({
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-  variable: "--font-oswald",
+  weight: ["600", "700"],
+  variable: "--font-source-serif",
   display: "swap",
 });
 
@@ -24,25 +24,25 @@ const nunito = Nunito({
 
 const caveat = Caveat({
   subsets: ["latin"],
-  weight: ["500", "600", "700"],
+  weight: ["500", "600"],
   variable: "--font-caveat",
   display: "swap",
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL(site.business.url),
+  metadataBase: new URL(`https://${site.business.domain}`),
   title: {
     default: `${site.business.name} · ${site.business.tagline}`,
     template: `%s · ${site.business.name}`,
   },
-  description: site.hero.body,
+  description: site.hero.lead,
   openGraph: {
     type: "website",
     locale: "en_GB",
     siteName: site.business.name,
     title: `${site.business.name} · ${site.business.tagline}`,
-    description: site.hero.body,
-    url: site.business.url,
+    description: site.hero.lead,
+    url: `https://${site.business.domain}`,
   },
   alternates: { canonical: "/" },
 };
@@ -55,14 +55,14 @@ export default function RootLayout({
   return (
     <html lang="en-GB">
       <body
-        className={`${oswald.variable} ${nunito.variable} ${caveat.variable}`}
+        className={`${sourceSerif.variable} ${nunito.variable} ${caveat.variable}`}
       >
-        <Header />
+        <HeaderBar />
         <StatusBanner />
         <main>{children}</main>
-        <Footer />
+        <FooterCta />
+        <SiteFooter />
         <OrganizationJsonLd />
-        <SpeedInsights />
       </body>
     </html>
   );

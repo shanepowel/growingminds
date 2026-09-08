@@ -2,7 +2,7 @@ import type { MetadataRoute } from "next";
 import { site } from "@/content/site";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const base = site.business.url;
+  const base = `https://${site.business.domain}`;
   const routes = [
     "/",
     "/about",

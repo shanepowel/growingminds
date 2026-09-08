@@ -1,8 +1,8 @@
 import { site } from "@/content/site";
 
 /**
- * Parent testimonials. Every quote is a [QUOTE] placeholder until Sam supplies real
- * ones with written permission. See the note the design reference keeps here.
+ * Parent testimonials. Every quote is a [QUOTE] placeholder until Sam supplies
+ * real ones with written permission.
  */
 export function Testimonials({
   heading = "What parents say",
@@ -13,32 +13,47 @@ export function Testimonials({
 }) {
   return (
     <>
-      <h2 className="font-display mb-[26px] text-center text-[clamp(26px,3.6vw,36px)] font-semibold text-deep">
-        {heading}
-      </h2>
-      <div className="grid grid-cols-[repeat(auto-fit,minmax(260px,1fr))] gap-5">
+      <h2 style={{ textAlign: "center", margin: "0 0 26px" }}>{heading}</h2>
+      <div
+        style={{
+          display: "grid",
+          gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))",
+          gap: 20,
+        }}
+      >
         {site.testimonials.map((t, i) => (
-          <figure
-            key={i}
-            className="rounded-[var(--radius-card)] border border-sage bg-white p-[26px] shadow-[0_2px_12px_rgba(27,74,44,.05)]"
-          >
+          <figure key={i} className="gm-card" style={{ margin: 0 }}>
             <div
               aria-hidden
-              className="font-display mb-3 text-[34px] leading-[0.6] text-sage-deep"
+              style={{
+                fontFamily: "var(--font-display)",
+                fontSize: 34,
+                color: "var(--color-green-soft)",
+                lineHeight: 0.6,
+                marginBottom: 12,
+              }}
             >
               &ldquo;
             </div>
-            <blockquote className="m-0 text-[16.5px] leading-[1.6] text-body">
+            <blockquote style={{ margin: 0, fontSize: "16.5px", lineHeight: 1.6, color: "var(--color-body-dark)" }}>
               {t.quote}
             </blockquote>
-            <figcaption className="mt-4 text-[14.5px] font-extrabold text-leaf">
+            <figcaption style={{ marginTop: 16, fontWeight: 800, color: "var(--color-green)", fontSize: "14.5px" }}>
               {t.parentName}, {t.childYear} parent
             </figcaption>
           </figure>
         ))}
       </div>
       {showNote && (
-        <p className="mt-5 text-center font-mono text-[12px] text-[#6b7a6e]">
+        <p
+          style={{
+            textAlign: "center",
+            marginTop: 20,
+            fontFamily: "ui-monospace, monospace",
+            fontSize: 12,
+            color: "var(--color-muted)",
+          }}
+        >
           real quotes to replace [QUOTE] placeholders, with written permission
         </p>
       )}

@@ -242,13 +242,6 @@ export const site = {
     { label: "Free intro chat", price: "Free", duration: "15 minutes, by phone or video", note: "A proper conversation about your child before you decide anything. No sales pitch." },
   ],
 
-  // Short pricing card on the home page. Full pricing lives on /tutoring#pricing.
-  pricingSummary: {
-    headlinePrice: "[PRICE]",
-    per: "per [45] minute session",
-    note: "Blocks of six sessions at [BLOCK PRICE]. No joining fee, no minimum commitment, and the first 15 minute chat is free.",
-  },
-
   policies: [
     { title: "Travel", body: "Included within [X] miles of Portsmouth. Beyond that there is a [TRAVEL FEE] contribution per session. Online sessions have no travel charge at all." },
     { title: "Cancellations", body: "24 hours notice and there is nothing to pay. Inside 24 hours the session is charged, because the slot cannot be filled. If your child is unwell, just tell me and we will rearrange." },
@@ -303,26 +296,15 @@ export const site = {
     },
   ],
 
-  // Three short questions teased on the home page; full set in `faqs`.
-  faqTeaser: [
-    { q: "What ages do you tutor?", a: "Reception, Year 1 and Year 2, roughly ages 4 to 7." },
-    { q: "Do you record sessions?", a: "Only with your written consent, and by default it is the whiteboard rather than your child." },
-    { q: "Do you set homework?", a: "Five or ten minutes a few times a week. Little and often, never an argument." },
-  ],
-
   /** /pupil-area. Signposting only in v1: no auth on this site, Google Classroom is the login. */
   pupilArea: {
     enabled: true,
-    // When appEnabled is true, sign in affordances point at the pupil app (appUrl).
-    // When false, they point at Google Classroom directly (links[0].href or its fallback).
-    appEnabled: false,
-    appUrl: "https://pupils.growingmindstutoring.co.uk",
     intro: "Everything for your child's sessions lives in one place: your own Google Classroom. There is no separate password for this website, and nothing for your child to remember.",
     note: "You sign in with the Google account you gave me when we started. Your classroom is private to your family, and only you and I can see it.",
     links: [
-      { icon: "graduation-cap", title: "Google Classroom", body: "Homework, marked work, my comments and the class stream. One classroom per child, private to your family.", cta: "Sign in with Google", href: "[GOOGLE CLASSROOM URL]", fallback: "https://classroom.google.com" },
-      { icon: "pen-line", title: "Session whiteboard", body: "The shared board we draw on together. Every page from every session is saved here for revision.", cta: "Open your board", href: "[BITPAPER URL]", fallback: "https://bitpaper.io" },
-      { icon: "monitor", title: "Join your session", body: "The video link for your slot. It is the same link every week, and it is also pinned in your Classroom.", cta: "Join the call", href: "[GOOGLE MEET URL]", fallback: "https://meet.google.com" },
+      { icon: "graduation-cap", title: "Google Classroom", body: "Homework, marked work, my comments and the class stream. One classroom per child, private to your family.", cta: "Sign in with Google", href: "[GOOGLE CLASSROOM URL]" },
+      { icon: "pen-line", title: "Session whiteboard", body: "The shared board we draw on together. Every page from every session is saved here for revision.", cta: "Open your board", href: "[BITPAPER URL]" },
+      { icon: "monitor", title: "Join your session", body: "The video link for your slot. It is the same link every week, and it is also pinned in your Classroom.", cta: "Join the call", href: "[GOOGLE MEET URL]" },
     ],
     records: [
       "Homework, marked work and my comments stay in your Google Classroom, which doubles as your child's record of achievement. Whiteboard pages from each session are saved so we can pick up where we left off.",
@@ -400,14 +382,6 @@ export const site = {
   footerNote: "Every child can achieve. With the right support, they will thrive.",
   legalNote: "Enhanced DBS checked, registered on the DBS Update Service.",
 
-  /** The dark closing band shown on most pages (the one dark band per page). */
-  cta: {
-    script: "Let's help your child shine!",
-    heading: "Ready to start?",
-    body: "Send me a message or give me a ring. A free 15 minute chat costs you nothing and tells us both a great deal.",
-    primary: "Send an enquiry",
-  },
-
   footerCta: {
     kicker: "Not sure where to start?",
     body: "Tell me a little about your child and I will come back to you within one working day. The first chat is free and there is no obligation.",
@@ -418,81 +392,4 @@ export const site = {
     "Enhanced DBS certificate, registered on the DBS Update Service. Annual safeguarding training. Happy to show both at our first session.",
   footerAreasHeading: "Tutoring across Portsmouth",
   footerCopyright: "\u00a9 2026 Growing Minds Tutoring. Sole trader, Portsmouth.",
-
-  legal: {
-    privacy: {
-      title: "Privacy notice",
-      updated: "[DATE]",
-      sections: [
-        {
-          h: "Who I am",
-          p: "Growing Minds Tutoring is run by [FULL NAME], a self employed qualified teacher based in Portsmouth. I am the data controller for the information described here. You can reach me at hello@growingmindstutoring.co.uk or on 07921 080947.",
-        },
-        {
-          h: "What I collect",
-          p: "From the enquiry form: your name, email address, optional phone number, your child's year group, the subjects and session type you are interested in, and your message. Once tutoring starts: your child's first name and my session notes. Please do not send me anything more than that. I do not collect dates of birth, medical records or school reports unless you choose to share something relevant, in which case I keep only what I need.",
-        },
-        {
-          h: "Why I collect it, and my lawful basis",
-          p: "To reply to your enquiry and to deliver tutoring. My lawful basis is legitimate interests for responding to an enquiry, and contract for delivering sessions you have booked. Recordings rely on your consent, which is separate and optional.",
-        },
-        {
-          h: "Children's data",
-          p: "My pupils are under 13, so the ICO Children's Code applies and I keep collection to the minimum described above. There is no profiling, no advertising and no sharing with third parties for their own purposes.",
-        },
-        {
-          h: "Recordings",
-          p: "Sessions are only recorded with your written consent. By default I record the whiteboard and my voice, not video of your child. Recordings are stored in the UK or EU, shared only with your family through a link that can be revoked, and deleted after 12 months or when tutoring ends.",
-        },
-        {
-          h: "How long I keep things",
-          p: "Enquiries that do not lead to tutoring are deleted within six months. Pupil records and session notes are deleted 12 months after tutoring ends. Invoices are kept for six years because HMRC requires it.",
-        },
-        {
-          h: "Who else sees it",
-          p: "Only the services that run the website and my email: the enquiry form provider, my email provider and, if you book a call, the booking tool. Each processes data on my instructions only. No one buys or receives your details for marketing.",
-        },
-        {
-          h: "Your rights",
-          p: "You can ask me for a copy of what I hold, ask me to correct or delete it, or withdraw consent for recordings at any time. Email me and I will respond within one month. If you are not happy with how I have handled it you can complain to the Information Commissioner's Office at ico.org.uk.",
-        },
-      ],
-    },
-    terms: {
-      title: "Tutoring terms",
-      updated: "[DATE]",
-      sections: [
-        {
-          h: "1. Booking a session",
-          p: "Sessions are agreed directly between us, by message, email or phone. A regular weekly slot is held for your child as long as sessions continue. There is no contract and no minimum commitment.",
-        },
-        {
-          h: "2. Payment",
-          p: "Payment is by bank transfer, either after each session or in advance for a block of six. Details are on the invoice I send. Blocks are valid for [X] weeks from the first session.",
-        },
-        {
-          h: "3. Cancellations",
-          p: "Please give 24 hours notice where you can and there is nothing to pay. Cancellations inside 24 hours are charged in full, because the slot cannot be filled. If your child is unwell, tell me and we will rearrange, no charge. If I have to cancel, the session is rescheduled or refunded.",
-        },
-        {
-          h: "4. Face to face sessions",
-          p: "For sessions at your home, a parent or carer must be in the property throughout. I do not transport children under any circumstances. For sessions at my home, you are welcome to stay and the address is shared once we have spoken.",
-        },
-        {
-          h: "5. Safeguarding",
-          p: "I hold an Enhanced DBS certificate on the Update Service and follow the safeguarding practice expected of a qualified teacher. If I ever have a concern about a child's welfare I have a duty to raise it with the appropriate local authority service, and I would normally discuss it with you first.",
-        },
-        {
-          h: "6. Recordings",
-          p: "Nothing is recorded without your written consent, which you can withdraw at any time without affecting the tutoring. Recordings are whiteboard and audio by default, shared only with your family through a link I can revoke, and deleted after 12 months or at the end of tutoring, whichever comes first.",
-        },
-        {
-          h: "7. Progress",
-          p: "I will be honest about progress, including when I think tutoring is no longer needed or when your child would be better served by a specialist. I cannot guarantee a particular outcome, level or test result.",
-        },
-      ],
-    },
-  },
 } as const;
-
-export type Site = typeof site;
