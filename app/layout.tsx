@@ -4,7 +4,6 @@ import "./globals.css";
 import { site } from "@/content/site";
 import { HeaderBar } from "@/components/HeaderBar";
 import { SiteFooter } from "@/components/SiteFooter";
-import { FooterCta } from "@/components/FooterCta";
 import { StatusBanner } from "@/components/StatusBanner";
 import { OrganizationJsonLd } from "@/components/site/JsonLd";
 
@@ -60,7 +59,6 @@ export default function RootLayout({
         <HeaderBar />
         <StatusBanner />
         <main>{children}</main>
-        <FooterCta />
         <SiteFooter />
         <OrganizationJsonLd />
       </body>

@@ -5,8 +5,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const base = `https://${site.business.domain}`;
   const routes = [
     "/",
+    "/curriculum",
+    "/costs",
+    "/insights",
     "/about",
-    "/tutoring",
     "/tutoring-portsmouth",
     "/faqs",
     "/pupil-area",

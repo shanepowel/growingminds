@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Section } from "@/components/Section";
-import { PageHero } from "@/components/PageHero";
-import { Cta } from "@/components/Cta";
+import { PageIntro } from "@/components/PageIntro";
+import { CtaBand } from "@/components/CtaBand";
 import { Faqs } from "@/components/site/Faqs";
 import { FaqJsonLd } from "@/components/site/JsonLd";
 
@@ -16,7 +16,7 @@ export default function FaqsPage() {
   return (
     <>
       <FaqJsonLd />
-      <PageHero
+      <PageIntro
         narrow
         title="Questions parents ask"
         lead="If yours is not here, send me an enquiry or message the Facebook page and I will answer honestly, even if the answer is that I am not the right fit."
@@ -24,7 +24,7 @@ export default function FaqsPage() {
       <Section narrow>
         <Faqs />
       </Section>
-      <Cta />
+      <CtaBand />
     </>
   );
 }

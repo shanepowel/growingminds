@@ -8,7 +8,7 @@ import { Section } from "@/components/Section";
 import { Card } from "@/components/Card";
 import { Eyebrow } from "@/components/Eyebrow";
 import { Button } from "@/components/Button";
-import { Cta } from "@/components/Cta";
+import { CtaBand } from "@/components/CtaBand";
 import { Testimonials } from "@/components/site/Testimonials";
 
 export default function HomePage() {
@@ -79,7 +79,7 @@ export default function HomePage() {
               {site.modes.map((m) => {
                 const Icon = getIcon(m.icon);
                 return (
-                  <Card key={m.id} href="/tutoring#how-it-works">
+                  <Card key={m.id} href="/curriculum">
                     <span style={{ display: "flex", gap: 16, alignItems: "center" }}>
                       <span
                         aria-hidden
@@ -143,7 +143,7 @@ export default function HomePage() {
             <p style={{ fontSize: "15.5px", color: "var(--color-on-dark)", lineHeight: 1.6, margin: "0 0 20px" }}>
               {site.pricingSummary.note}
             </p>
-            <Button href="/tutoring#pricing" variant="onDark">
+            <Button href="/costs" variant="onDark">
               See full pricing
             </Button>
           </Card>
@@ -166,7 +166,7 @@ export default function HomePage() {
         </div>
       </Section>
 
-      <Cta />
+      <CtaBand />
     </>
   );
 }

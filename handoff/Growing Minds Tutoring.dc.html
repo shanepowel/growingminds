@@ -26,36 +26,36 @@ h1,h2,h3{letter-spacing:-.015em}
 <div style="--sp: {{ sp }}; --r: {{ r }}; --cp: {{ cp }}; --sc: {{ scr }}">
 
 <div style="background:#EEF3E6;color:#3E5B31">
-  <div style="max-width:1180px;margin:0 auto;padding:7px 24px;display:flex;flex-wrap:wrap;align-items:center;gap:4px 14px;font-size:12.5px;font-weight:700;letter-spacing:.02em">
+  <div style="max-width:1180px;margin:0 auto;padding:6px 24px;display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:2px 10px;font-size:12px;font-weight:700;letter-spacing:.01em;text-align:center">
     <span>Qualified teacher, Enhanced DBS</span>
-    <span style="color:#C97B54">&#10022;</span>
+    <span style="color:#A9603A">&#10022;</span>
     <span>Online and face to face</span>
-    <a href="#facebook" style="margin-left:auto;color:#3E5B31;font-weight:700" style-hover="color:#1B4A2C">Facebook</a>
   </div>
 </div>
 
 <header style="position:sticky;top:0;z-index:40;background:rgba(247,246,241,.97);backdrop-filter:blur(10px);border-bottom:1px solid #E6E3D8">
-  <div style="max-width:1180px;margin:0 auto;padding:12px 24px;display:flex;flex-wrap:wrap;align-items:center;gap:10px 26px">
+  <div style="max-width:1180px;margin:0 auto;padding:9px 24px;display:flex;flex-wrap:wrap;align-items:center;gap:8px 26px">
     <div onClick="{{ goHome }}" style="display:flex;align-items:center;gap:12px;cursor:pointer;flex:0 0 auto">
-      <div style="width:42px;height:42px;flex:0 0 auto;position:relative">
-        <div style="position:absolute;left:2px;top:6px;width:20px;height:28px;border-radius:60% 8% 60% 8%;background:#7FA05F;transform:rotate(-18deg)"></div>
-        <div style="position:absolute;left:12px;top:2px;width:18px;height:26px;border-radius:60% 8% 60% 8%;background:#2F6B3A;transform:rotate(6deg)"></div>
-        <div style="position:absolute;left:23px;top:9px;width:16px;height:24px;border-radius:60% 8% 60% 8%;background:#D89272;transform:rotate(26deg)"></div>
+      <div style="width:38px;height:38px;flex:0 0 auto;position:relative">
+        <div style="position:absolute;left:2px;top:5px;width:18px;height:25px;border-radius:60% 8% 60% 8%;background:#7FA05F;transform:rotate(-18deg)"></div>
+        <div style="position:absolute;left:11px;top:2px;width:16px;height:24px;border-radius:60% 8% 60% 8%;background:#2F6B3A;transform:rotate(6deg)"></div>
+        <div style="position:absolute;left:21px;top:8px;width:14px;height:21px;border-radius:60% 8% 60% 8%;background:#D89272;transform:rotate(26deg)"></div>
       </div>
       <div style="min-width:0">
-        <div style="font-family:'Source Serif 4',Georgia,serif;font-weight:600;font-size:21px;color:#1B4A2C;line-height:1.05;white-space:nowrap">Growing Minds</div>
+        <div style="font-family:'Source Serif 4',Georgia,serif;font-weight:600;font-size:19px;color:#1B4A2C;line-height:1.05;white-space:nowrap">Growing Minds</div>
         <div style="font-family:Nunito,sans-serif;font-size:9.5px;letter-spacing:.3em;color:#4C5B51;font-weight:700;margin-top:1px">TUTORING</div>
       </div>
     </div>
-    <nav style="display:flex;align-items:center;gap:6px;flex:1 1 auto;min-width:0;overflow-x:auto;scrollbar-width:none">
+    <nav style="display:flex;flex-wrap:wrap;align-items:center;gap:2px 6px;flex:1 1 auto;min-width:0">
       <sc-for list="{{ navItems }}" as="item" hint-placeholder-count="4">
-        <div onClick="{{ item.go }}" style="cursor:pointer;font-size:15px;padding:8px 12px 6px;white-space:nowrap;font-weight:{{ item.weight }};color:{{ item.color }};border-bottom:2px solid {{ item.rule }}" style-hover="color:#1B4A2C">{{ item.label }}</div>
+        <div onClick="{{ item.go }}" style="cursor:pointer;font-size:15px;padding:7px 10px 5px;white-space:nowrap;font-weight:{{ item.weight }};color:{{ item.color }};border-bottom:2px solid {{ item.rule }}" style-hover="color:#1B4A2C">{{ item.label }}</div>
       </sc-for>
     </nav>
     <div style="display:flex;align-items:center;gap:10px;flex:0 0 auto">
-      <a href="tel:07921080947" style="display:flex;align-items:center;justify-content:center;gap:8px;background:#2F6B3A;color:#fff;padding:11px 18px;border-radius:999px;font-weight:800;font-size:14.5px;min-height:44px;white-space:nowrap" style-hover="background:#1B4A2C;text-decoration:none">
-        <span style="font-size:14px">&#9742;</span><span>07921 080947</span>
-      </a>
+      <div onClick="{{ goContact }}" style="cursor:pointer;position:relative;display:flex;align-items:center;justify-content:center;gap:10px;background:linear-gradient(165deg,#5A8F49 0%,#3C6E33 55%,#2F6B3A 100%);color:#fff;padding:13px 24px 13px 26px;border-radius:999px;font-weight:800;font-size:15px;min-height:44px;white-space:nowrap;letter-spacing:.01em;box-shadow:0 1px 0 rgba(255,255,255,.28) inset,0 6px 16px -6px rgba(27,74,44,.55),0 0 0 1px rgba(27,74,44,.12);transition:box-shadow .18s ease,transform .18s ease" style-hover="box-shadow:0 1px 0 rgba(255,255,255,.34) inset,0 10px 22px -8px rgba(27,74,44,.62),0 0 0 4px rgba(220,232,206,.75);transform:translateY(-1px)">
+        <span>Contact</span>
+        <span style="display:flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:50%;background:rgba(255,255,255,.18);font-size:13px;line-height:1">&rarr;</span>
+      </div>
       <div onClick="{{ goPupil }}" style="cursor:pointer;display:flex;align-items:center;gap:9px;min-height:44px;padding:0 4px;white-space:nowrap" style-hover="color:#1B4A2C">
         <div style="width:26px;height:26px;border-radius:50%;border:1.6px solid #4A7C3F;color:#4A7C3F;display:flex;align-items:center;justify-content:center;flex:0 0 auto">{{ personIcon }}</div>
         <div style="line-height:1.15">
@@ -134,8 +134,9 @@ h1,h2,h3{letter-spacing:-.015em}
   </section>
   </sc-if>
 
-  <section style="max-width:1120px;margin:0 auto;padding:var(--sp,76px) 24px">
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:34px;align-items:start">
+  <section style="position:relative;overflow:hidden;max-width:1120px;margin:0 auto;padding:var(--sp,76px) 24px">
+    <div style="position:absolute;right:-130px;top:30px;width:300px;height:290px;border-radius:56% 44% 38% 62% / 48% 42% 58% 52%;background:#F6DCCB;opacity:.7;pointer-events:none"></div>
+    <div style="position:relative;display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:34px;align-items:start">
       <div style="background:#EEF3E6;border:1px solid #C9D8B8;border-radius:var(--r,20px);padding:var(--cp,30px)">
         <h2 style="font-family:'Source Serif 4',Georgia,serif;font-weight:600;font-size:26px;letter-spacing:-.012em;color:#1B4A2C;margin:0 0 18px">I specialise in</h2>
         <sc-for list="{{ subjects }}" as="s" hint-placeholder-count="5">
@@ -171,8 +172,9 @@ h1,h2,h3{letter-spacing:-.015em}
     </div>
   </section>
 
-  <section style="background:#EEF3E6;border-top:1px solid #DCE8CE;border-bottom:1px solid #DCE8CE">
-    <div style="max-width:1120px;margin:0 auto;padding:var(--sp,76px) 24px">
+  <section style="position:relative;overflow:hidden;background:#EEF3E6;border-top:1px solid #DCE8CE;border-bottom:1px solid #DCE8CE">
+    <div style="position:absolute;left:-120px;bottom:-100px;width:280px;height:260px;border-radius:56% 44% 52% 48% / 44% 52% 48% 56%;background:#F6DCCB;opacity:.55;pointer-events:none"></div>
+    <div style="position:relative;max-width:1120px;margin:0 auto;padding:var(--sp,76px) 24px">
       <h2 style="font-family:'Source Serif 4',Georgia,serif;font-weight:600;font-size:clamp(26px,3.6vw,36px);color:#1B4A2C;margin:0 0 26px;text-align:center">What parents say</h2>
       <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px">
         <sc-for list="{{ testimonials }}" as="q" hint-placeholder-count="3">
@@ -214,9 +216,12 @@ h1,h2,h3{letter-spacing:-.015em}
 
 <!-- ============ ABOUT ============ -->
 <sc-if value="{{ isAbout }}" hint-placeholder-val="{{ false }}">
-<section style="max-width:1120px;margin:0 auto;padding:var(--sp,76px) 24px">
+<section style="position:relative;overflow:hidden;max-width:1120px;margin:0 auto;padding:var(--sp,76px) 24px">
+  <div style="position:absolute;left:-130px;top:40px;width:300px;height:280px;border-radius:56% 44% 38% 62% / 48% 42% 58% 52%;background:#F6DCCB;pointer-events:none"></div>
+  <div style="position:absolute;right:-110px;bottom:120px;width:240px;height:230px;border-radius:56% 44% 52% 48% / 44% 52% 48% 56%;background:#DCE8CE;opacity:.6;pointer-events:none"></div>
+  <div style="position:relative">
   <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:34px;align-items:start">
-    <div style="background:linear-gradient(155deg,#E4EEDA 0%,#F1E4DA 100%);border-radius:var(--r,20px);min-height:420px;display:flex;align-items:center;justify-content:center;font-family:ui-monospace,monospace;font-size:12px;color:#3E5B31;text-align:center;padding:20px">portrait of Sam<br>(daylight, 4:5)</div>
+    <div style="background:linear-gradient(155deg,#E4EEDA 0%,#F1E4DA 100%);border-radius:56% 44% 38% 62% / 48% 42% 58% 52%;min-height:440px;display:flex;align-items:center;justify-content:center;font-family:ui-monospace,monospace;font-size:12px;color:#3E5B31;text-align:center;padding:44px">portrait of Sam<br>(daylight, 4:5)</div>
     <div>
       <div style="font-family:Caveat,cursive;font-size:calc(30px * var(--sc,1));color:#4A7C3F;line-height:1">Hello, I'm Sam</div>
       <h1 style="font-family:'Source Serif 4',Georgia,serif;font-weight:700;font-size:clamp(34px,5vw,52px);color:#1B4A2C;margin:4px 0 6px;line-height:1">Qualified primary school teacher</h1>
@@ -247,86 +252,122 @@ h1,h2,h3{letter-spacing:-.015em}
     <h2 style="font-family:'Source Serif 4',Georgia,serif;font-weight:600;font-size:clamp(24px,3.2vw,32px);color:#1B4A2C;margin:0 0 12px">Why I tutor</h2>
     <p style="font-size:17.5px;line-height:1.7;color:#3E4C44;margin:0">[WHY I TUTOR] One paragraph in Sam's own words. The honest version works best here: what she loves about the moment a child stops guessing and starts knowing.</p>
   </div>
+  </div>
 </section>
 </sc-if>
 
-<!-- ============ TUTORING ============ -->
-<sc-if value="{{ isTutoring }}" hint-placeholder-val="{{ false }}">
-<section style="max-width:1120px;margin:0 auto;padding:var(--sp,76px) 24px">
-  <h1 style="font-family:'Source Serif 4',Georgia,serif;font-weight:700;font-size:clamp(36px,5.4vw,58px);color:#1B4A2C;margin:0 0 14px;line-height:1">What I tutor</h1>
-  <p style="font-size:18px;line-height:1.65;color:#3E4C44;margin:0 0 40px;max-width:62ch">Everything here is aligned to the Key Stage 1 national curriculum for Year 1 and Year 2, and to the phonics scheme your child's school follows. We start with a quick, gentle look at where they are, then build from there.</p>
-  <sc-for list="{{ subjects }}" as="s" hint-placeholder-count="5">
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:28px;padding:30px 0;border-top:1px dashed #C9D8B8">
-      <div>
-        <div style="display:flex;gap:14px;align-items:center;margin-bottom:12px">
-          <div style="width:50px;height:50px;border-radius:50%;background:#EEF3E6;display:flex;align-items:center;justify-content:center;font-size:22px;color:#1B4A2C">{{ s.icon }}</div>
-          <h2 style="font-family:'Source Serif 4',Georgia,serif;font-weight:600;font-size:30px;color:#1B4A2C;margin:0">{{ s.title }}</h2>
-        </div>
-        <p style="font-size:17px;line-height:1.65;color:#3E4C44;margin:0 0 6px">{{ s.long }}</p>
-      </div>
-      <div style="background:#fff;border:1px solid #E4E9DE;border-radius:var(--r,20px);padding:var(--cp,26px);box-shadow:0 2px 12px rgba(27,74,44,.05)">
-        <div style="font-weight:800;font-size:14px;letter-spacing:.1em;color:#4A7C3F;margin-bottom:12px">WHAT WE WORK ON</div>
-        <sc-for list="{{ s.outcomes }}" as="o" hint-placeholder-count="4">
-          <div style="display:flex;gap:11px;align-items:flex-start;padding:6px 0">
-            <div style="flex:0 0 auto;width:20px;height:20px;border-radius:50%;background:#2F6B3A;color:#fff;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;margin-top:3px">&#10003;</div>
-            <div style="font-size:15.5px;color:#33453A;line-height:1.5">{{ o }}</div>
+<!-- ============ CURRICULUM: HOW A SESSION WORKS ============ -->
+<sc-if value="{{ isHow }}" hint-placeholder-val="{{ false }}">
+<div>
+  <section style="position:relative;overflow:hidden;background:#F7F6F1">
+    <div style="position:absolute;right:-120px;top:-90px;width:340px;height:320px;border-radius:56% 44% 38% 62% / 48% 42% 58% 52%;background:#F6DCCB"></div>
+    <div style="position:absolute;left:-90px;bottom:-110px;width:260px;height:240px;border-radius:56% 44% 52% 48% / 44% 52% 48% 56%;background:#DCE8CE;opacity:.7"></div>
+    <div style="position:relative;max-width:1120px;margin:0 auto;padding:var(--sp,76px) 24px 40px">
+      <div style="font-family:Caveat,cursive;font-size:calc(28px * var(--sc,1));color:#A9603A;line-height:1;margin-bottom:6px">What we actually do</div>
+      <h1 style="font-family:'Source Serif 4',Georgia,serif;font-weight:600;font-size:clamp(38px,5.6vw,64px);color:#1B4A2C;margin:0 0 16px;line-height:1.02;max-width:15ch">Curriculum</h1>
+      <p style="font-size:19px;line-height:1.55;color:#4C5B51;margin:0 0 26px;max-width:54ch;text-wrap:pretty">How a session works, then everything I teach. All of it aligned to the Key Stage 1 national curriculum and to the phonics scheme your child's school follows.</p>
+      <div style="display:flex;flex-wrap:wrap;gap:8px">
+        <sc-for list="{{ subjects }}" as="s" hint-placeholder-count="5">
+          <div style="display:flex;align-items:center;gap:9px;background:#fff;border:1px solid {{ s.line }};color:#1B4A2C;padding:9px 16px 9px 10px;border-radius:999px;font-size:15px;font-weight:700">
+            <span style="width:26px;height:26px;border-radius:50%;background:{{ s.tint }};display:flex;align-items:center;justify-content:center;color:#2F6B3A">{{ s.chipIcon }}</span>{{ s.title }}
           </div>
         </sc-for>
-        <div style="border-top:1px dashed #DCE8CE;margin:14px 0 12px"></div>
-        <div style="font-weight:800;font-size:14px;letter-spacing:.1em;color:#4A7C3F;margin-bottom:8px">A TYPICAL SESSION</div>
-        <div style="font-size:15.5px;color:#4C5B51;line-height:1.6">{{ s.session }}</div>
       </div>
     </div>
-  </sc-for>
-  <div style="border-top:1px dashed #C9D8B8;padding-top:30px;margin-top:10px;text-align:center">
-    <div style="font-family:Caveat,cursive;font-size:calc(34px * var(--sc,1));color:#4A7C3F">Every session is personalised</div>
-    <p style="font-size:17px;line-height:1.65;color:#3E4C44;margin:8px auto 0;max-width:58ch">No two children need the same thing, so no two sessions look the same. I plan around your child, their school's methods and whatever is worrying them most this week.</p>
-  </div>
-</section>
-</sc-if>
+  </section>
 
-<!-- ============ HOW IT WORKS ============ -->
-<sc-if value="{{ isHow }}" hint-placeholder-val="{{ false }}">
-<section style="max-width:1120px;margin:0 auto;padding:var(--sp,76px) 24px;border-top:1px dashed #C9D8B8">
-  <h2 style="font-family:'Source Serif 4',Georgia,serif;font-weight:700;font-size:clamp(30px,4.4vw,46px);color:#1B4A2C;margin:0 0 14px;line-height:1">How a session works</h2>
-  <p style="font-size:18px;line-height:1.65;color:#3E4C44;margin:0 0 30px;max-width:62ch">Three ways to have a session. You can mix them, and you can change your mind after a few weeks if something else would suit better.</p>
-  <div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:26px">
-    <sc-for list="{{ modeTabs }}" as="t" hint-placeholder-count="3">
-      <div onClick="{{ t.go }}" style="cursor:pointer;padding:12px 20px;border-radius:999px;font-weight:800;font-size:15.5px;border:2px solid {{ t.border }};background:{{ t.bg }};color:{{ t.color }}">{{ t.label }}</div>
-    </sc-for>
-  </div>
-  <div style="background:#fff;border:1px solid #E4E9DE;border-radius:var(--r,20px);padding:var(--cp,32px);box-shadow:0 2px 14px rgba(27,74,44,.05);display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:30px;align-items:start">
-    <div>
-      <h2 style="font-family:'Source Serif 4',Georgia,serif;font-weight:600;font-size:30px;color:#1B4A2C;margin:0 0 12px">{{ activeMode.title }}</h2>
-      <p style="font-size:17px;line-height:1.7;color:#3E4C44;margin:0 0 18px">{{ activeMode.intro }}</p>
-      <sc-for list="{{ activeMode.points }}" as="p" hint-placeholder-count="4">
-        <div style="display:flex;gap:12px;align-items:flex-start;padding:7px 0">
-          <div style="flex:0 0 auto;width:22px;height:22px;border-radius:50%;background:#2F6B3A;color:#fff;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:800;margin-top:2px">&#10003;</div>
-          <div style="font-size:16px;color:#33453A;line-height:1.55">{{ p }}</div>
-        </div>
-      </sc-for>
-    </div>
-    <div>
-      <div style="background:linear-gradient(155deg,#E4EEDA 0%,#F1E4DA 100%);border-radius:16px;min-height:250px;display:flex;align-items:center;justify-content:center;font-family:ui-monospace,monospace;font-size:12px;color:#3E5B31;text-align:center;padding:18px">{{ activeMode.media }}</div>
-      <sc-if value="{{ activeMode.isTravel }}" hint-placeholder-val="{{ false }}">
-        <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:16px">
-          <sc-for list="{{ areas }}" as="a" hint-placeholder-count="10">
-            <div style="background:#EEF3E6;border:1px solid #C9D8B8;color:#1B4A2C;padding:7px 14px;border-radius:999px;font-size:14.5px;font-weight:700">{{ a }}</div>
+  <section style="background:#EEF3E6;border-top:1px solid #DFE7D3;border-bottom:1px solid #DFE7D3">
+    <div style="max-width:1120px;margin:0 auto;padding:var(--sp,76px) 24px">
+      <h2 style="font-family:'Source Serif 4',Georgia,serif;font-weight:600;font-size:clamp(26px,3.6vw,38px);color:#1B4A2C;margin:0 0 12px;line-height:1.05">How a session works</h2>
+      <p style="font-size:17px;line-height:1.65;color:#3E4C44;margin:0 0 26px;max-width:62ch">Three ways to have a session. You can mix them, and you can change your mind after a few weeks if something else would suit better.</p>
+      <div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:26px">
+        <sc-for list="{{ modeTabs }}" as="t" hint-placeholder-count="3">
+          <div onClick="{{ t.go }}" style="cursor:pointer;padding:12px 22px;border-radius:999px;font-weight:800;font-size:15.5px;border:1.5px solid {{ t.border }};background:{{ t.bg }};color:{{ t.color }}">{{ t.label }}</div>
+        </sc-for>
+      </div>
+      <div style="background:#fff;border:1px solid #E4E9DE;border-radius:var(--r,20px);padding:var(--cp,32px);box-shadow:0 2px 14px rgba(27,74,44,.05);display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:34px;align-items:start">
+        <div style="min-width:0">
+          <h3 style="font-family:'Source Serif 4',Georgia,serif;font-weight:600;font-size:29px;color:#1B4A2C;margin:0 0 12px">{{ activeMode.title }}</h3>
+          <p style="font-size:17px;line-height:1.7;color:#3E4C44;margin:0 0 18px">{{ activeMode.intro }}</p>
+          <sc-for list="{{ activeMode.points }}" as="p" hint-placeholder-count="4">
+            <div style="display:flex;gap:12px;align-items:flex-start;padding:7px 0">
+              <div style="flex:0 0 auto;width:22px;height:22px;border-radius:50%;background:#2F6B3A;color:#fff;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:800;margin-top:2px">&#10003;</div>
+              <div style="font-size:16px;color:#33453A;line-height:1.55">{{ p }}</div>
+            </div>
           </sc-for>
         </div>
-      </sc-if>
+        <div style="min-width:0">
+          <div style="background:linear-gradient(155deg,#E4EEDA 0%,#F1E4DA 100%);border-radius:56% 44% 52% 48% / 44% 52% 48% 56%;min-height:280px;display:flex;align-items:center;justify-content:center;font-family:ui-monospace,monospace;font-size:12px;color:#3E5B31;text-align:center;padding:38px">{{ activeMode.media }}</div>
+          <sc-if value="{{ activeMode.isTravel }}" hint-placeholder-val="{{ false }}">
+            <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:18px">
+              <sc-for list="{{ areas }}" as="a" hint-placeholder-count="10">
+                <div style="background:#fff;border:1px solid #C9D8B8;color:#1B4A2C;padding:7px 14px;border-radius:999px;font-size:14.5px;font-weight:700">{{ a }}</div>
+              </sc-for>
+            </div>
+          </sc-if>
+        </div>
+      </div>
     </div>
-  </div>
-  <div style="margin-top:44px">
-    <h2 style="font-family:'Source Serif 4',Georgia,serif;font-weight:600;font-size:clamp(26px,3.6vw,36px);color:#1B4A2C;margin:0 0 24px">Getting started</h2>
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:18px">
+  </section>
+
+  <section style="position:relative;overflow:hidden;max-width:1120px;margin:0 auto;padding:var(--sp,76px) 24px 0">
+    <h2 style="font-family:'Source Serif 4',Georgia,serif;font-weight:600;font-size:clamp(26px,3.6vw,38px);color:#1B4A2C;margin:0 0 8px">Getting started</h2>
+    <p style="font-size:17px;line-height:1.65;color:#3E4C44;margin:0 0 26px;max-width:58ch">Four steps, no paperwork, nothing to sign.</p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:20px">
       <sc-for list="{{ steps }}" as="st" hint-placeholder-count="4">
-        <div style="background:#EEF3E6;border:1px solid #C9D8B8;border-radius:var(--r,20px);padding:22px">
-          <div style="font-family:'Source Serif 4',Georgia,serif;font-size:34px;font-weight:700;color:#A9C293;line-height:1;margin-bottom:8px">{{ st.n }}</div>
+        <div style="position:relative;padding-top:14px">
+          <div style="width:56px;height:56px;border-radius:{{ st.radius }};background:{{ st.blob }};display:flex;align-items:center;justify-content:center;font-family:'Source Serif 4',Georgia,serif;font-size:24px;font-weight:700;color:#1B4A2C;margin-bottom:14px">{{ st.n }}</div>
           <div style="font-weight:800;font-size:18px;color:#1B4A2C;margin-bottom:6px">{{ st.title }}</div>
           <div style="font-size:15.5px;color:#4C5B51;line-height:1.55">{{ st.body }}</div>
         </div>
       </sc-for>
+    </div>
+  </section>
+</div>
+</sc-if>
+
+<!-- ============ CURRICULUM: SUBJECTS ============ -->
+<sc-if value="{{ isTutoring }}" hint-placeholder-val="{{ false }}">
+<section style="max-width:1120px;margin:0 auto;padding:var(--sp,76px) 24px">
+  <h2 style="font-family:'Source Serif 4',Georgia,serif;font-weight:600;font-size:clamp(26px,3.6vw,38px);color:#1B4A2C;margin:0 0 10px;line-height:1.05">What I teach</h2>
+  <p style="font-size:17px;line-height:1.65;color:#3E4C44;margin:0 0 34px;max-width:60ch">Five subjects, all KS1 aligned. We start with a quick, gentle look at where your child is, then build from there.</p>
+  <div style="display:grid;gap:26px">
+    <sc-for list="{{ subjects }}" as="s" hint-placeholder-count="5">
+      <div style="position:relative;overflow:hidden;background:{{ s.tint }};border:1px solid {{ s.line }};border-radius:var(--r,20px);padding:var(--cp,30px)">
+        <div style="position:absolute;right:-70px;top:-70px;width:200px;height:190px;border-radius:{{ s.radius }};background:{{ s.blob }};opacity:.55"></div>
+        <div style="position:relative;display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:30px;align-items:start">
+          <div style="min-width:0;order:{{ s.order }}">
+            <div style="display:flex;gap:14px;align-items:center;margin-bottom:14px">
+              <div style="width:52px;height:52px;border-radius:{{ s.radius }};background:#fff;display:flex;align-items:center;justify-content:center;color:#2F6B3A;flex:0 0 auto">{{ s.icon }}</div>
+              <div>
+                <div style="font-family:'Source Serif 4',Georgia,serif;font-size:15px;font-weight:700;color:#A9603A;line-height:1">{{ s.n }}</div>
+                <h3 style="font-family:'Source Serif 4',Georgia,serif;font-weight:600;font-size:30px;color:#1B4A2C;margin:0;line-height:1.05">{{ s.title }}</h3>
+              </div>
+            </div>
+            <p style="font-size:17px;line-height:1.7;color:#3E4C44;margin:0 0 18px">{{ s.long }}</p>
+            <div style="background:#fff;border:1px solid {{ s.line }};border-radius:16px;padding:18px 20px">
+              <div style="font-weight:800;font-size:13px;letter-spacing:.14em;color:#4A7C3F;margin-bottom:8px">A TYPICAL SESSION</div>
+              <div style="font-size:15.5px;color:#4C5B51;line-height:1.6">{{ s.session }}</div>
+            </div>
+          </div>
+          <div style="min-width:0">
+            <div style="font-weight:800;font-size:13px;letter-spacing:.14em;color:#4A7C3F;margin-bottom:12px">WHAT WE WORK ON</div>
+            <sc-for list="{{ s.outcomes }}" as="o" hint-placeholder-count="4">
+              <div style="display:flex;gap:12px;align-items:flex-start;padding:7px 0;border-bottom:1px solid {{ s.line }}">
+                <div style="flex:0 0 auto;width:20px;height:20px;border-radius:50%;background:#2F6B3A;color:#fff;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;margin-top:3px">&#10003;</div>
+                <div style="font-size:15.5px;color:#33453A;line-height:1.5">{{ o }}</div>
+              </div>
+            </sc-for>
+          </div>
+        </div>
+      </div>
+    </sc-for>
+  </div>
+  <div style="position:relative;overflow:hidden;margin-top:34px;background:#F7F6F1;border:1px dashed #C9D8B8;border-radius:var(--r,20px);padding:var(--cp,30px);text-align:center">
+    <div style="position:absolute;left:-60px;bottom:-70px;width:180px;height:170px;border-radius:56% 44% 38% 62% / 48% 42% 58% 52%;background:#F6DCCB;opacity:.7"></div>
+    <div style="position:relative">
+      <div style="font-family:Caveat,cursive;font-size:calc(32px * var(--sc,1));color:#A9603A">Every session is personalised</div>
+      <p style="font-size:17px;line-height:1.65;color:#3E4C44;margin:8px auto 0;max-width:58ch">No two children need the same thing, so no two sessions look the same. I plan around your child, their school's methods and whatever is worrying them most this week.</p>
     </div>
   </div>
 </section>
@@ -343,10 +384,13 @@ h1,h2,h3{letter-spacing:-.015em}
         <p style="font-size:18px;line-height:1.65;color:#DCE8CE;margin:0 0 22px;max-width:52ch">I am a Portsmouth based primary school teacher offering one to one tutoring for Reception, Year 1 and Year 2 children, online, at my home, or at yours across the city and nearby towns.</p>
         <div onClick="{{ goContact }}" style="cursor:pointer;display:inline-block;background:#DCE8CE;color:#1B4A2C;padding:15px 26px;border-radius:999px;font-weight:800;font-size:16px" style-hover="background:#fff">Enquire about a Portsmouth slot</div>
       </div>
-      <div style="background:rgba(220,232,206,.16);border:1px solid rgba(220,232,206,.35);border-radius:var(--r,20px);min-height:280px;display:flex;align-items:center;justify-content:center;font-family:ui-monospace,monospace;font-size:12px;color:#DCE8CE;text-align:center;padding:18px">travel radius map<br>Portsmouth city centre outward</div>
+      <div style="background:rgba(220,232,206,.16);border:1px solid rgba(220,232,206,.35);border-radius:56% 44% 52% 48% / 44% 52% 48% 56%;min-height:300px;display:flex;align-items:center;justify-content:center;font-family:ui-monospace,monospace;font-size:12px;color:#DCE8CE;text-align:center;padding:18px">travel radius map<br>Portsmouth city centre outward</div>
     </div>
   </section>
-  <section style="max-width:1120px;margin:0 auto;padding:var(--sp,76px) 24px">
+  <section style="position:relative;overflow:hidden;max-width:1120px;margin:0 auto;padding:var(--sp,76px) 24px">
+    <div style="position:absolute;right:-130px;top:-70px;width:300px;height:290px;border-radius:56% 44% 38% 62% / 48% 42% 58% 52%;background:#F6DCCB;opacity:.85;pointer-events:none"></div>
+    <div style="position:absolute;left:-110px;bottom:-90px;width:240px;height:230px;border-radius:56% 44% 52% 48% / 44% 52% 48% 56%;background:#DCE8CE;opacity:.55;pointer-events:none"></div>
+    <div style="position:relative">
     <h2 style="font-family:'Source Serif 4',Georgia,serif;font-weight:600;font-size:clamp(26px,3.6vw,36px);color:#1B4A2C;margin:0 0 8px">Areas I cover around Portsmouth</h2>
     <p style="font-size:17px;line-height:1.65;color:#3E4C44;margin:0 0 20px;max-width:62ch">Face to face sessions at your home in any of these areas. Anywhere further afield, online works just as well and there is no travel to pay for.</p>
     <div style="display:flex;flex-wrap:wrap;gap:9px;margin-bottom:40px">
@@ -363,9 +407,11 @@ h1,h2,h3{letter-spacing:-.015em}
         </div>
       </sc-for>
     </div>
+    </div>
   </section>
-  <section style="background:#EEF3E6;border-top:1px solid #DCE8CE">
-    <div style="max-width:1120px;margin:0 auto;padding:var(--sp,76px) 24px">
+  <section style="position:relative;overflow:hidden;background:#EEF3E6;border-top:1px solid #DCE8CE">
+    <div style="position:absolute;left:-120px;bottom:-100px;width:280px;height:260px;border-radius:56% 44% 52% 48% / 44% 52% 48% 56%;background:#F6DCCB;opacity:.5;pointer-events:none"></div>
+    <div style="position:relative;max-width:1120px;margin:0 auto;padding:var(--sp,76px) 24px">
       <h2 style="font-family:'Source Serif 4',Georgia,serif;font-weight:600;font-size:clamp(24px,3.4vw,32px);color:#1B4A2C;margin:0 0 24px;text-align:center">From Portsmouth parents</h2>
       <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px">
         <sc-for list="{{ testimonials }}" as="q" hint-placeholder-count="3">
@@ -382,8 +428,11 @@ h1,h2,h3{letter-spacing:-.015em}
 
 <!-- ============ PRICING ============ -->
 <sc-if value="{{ isPricing }}" hint-placeholder-val="{{ false }}">
-<section id="pricing" style="max-width:1120px;margin:0 auto;padding:var(--sp,76px) 24px;border-top:1px dashed #C9D8B8">
-  <h2 style="font-family:'Source Serif 4',Georgia,serif;font-weight:700;font-size:clamp(30px,4.4vw,46px);color:#1B4A2C;margin:0 0 14px;line-height:1">What it costs</h2>
+<section id="pricing" style="position:relative;overflow:hidden;max-width:1120px;margin:0 auto;padding:var(--sp,76px) 24px">
+  <div style="position:absolute;right:-120px;top:-80px;width:300px;height:290px;border-radius:56% 44% 38% 62% / 48% 42% 58% 52%;background:#F6DCCB;pointer-events:none"></div>
+  <div style="position:absolute;left:-100px;bottom:-90px;width:230px;height:220px;border-radius:56% 44% 52% 48% / 44% 52% 48% 56%;background:#DCE8CE;opacity:.6;pointer-events:none"></div>
+  <div style="position:relative">
+  <h1 style="font-family:'Source Serif 4',Georgia,serif;font-weight:600;font-size:clamp(36px,5.4vw,58px);color:#1B4A2C;margin:0 0 14px;line-height:1.02">Costs</h1>
   <p style="font-size:18px;line-height:1.65;color:#3E4C44;margin:0 0 34px;max-width:62ch">No joining fee and no contract. Pay for the sessions you have, one at a time or in a block if you prefer to lock in a regular slot.</p>
   <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px">
     <sc-for list="{{ pricing }}" as="p" hint-placeholder-count="3">
@@ -403,12 +452,15 @@ h1,h2,h3{letter-spacing:-.015em}
       </div>
     </sc-for>
   </div>
+  </div>
 </section>
 </sc-if>
 
 <!-- ============ FAQS ============ -->
 <sc-if value="{{ isFaqs }}" hint-placeholder-val="{{ false }}">
-<section style="max-width:900px;margin:0 auto;padding:var(--sp,76px) 24px">
+<section style="position:relative;overflow:hidden;max-width:900px;margin:0 auto;padding:var(--sp,76px) 24px">
+  <div style="position:absolute;right:-130px;top:-60px;width:280px;height:270px;border-radius:56% 44% 52% 48% / 44% 52% 48% 56%;background:#F6DCCB;pointer-events:none"></div>
+  <div style="position:relative">
   <h1 style="font-family:'Source Serif 4',Georgia,serif;font-weight:700;font-size:clamp(36px,5.4vw,58px);color:#1B4A2C;margin:0 0 14px;line-height:1">Questions parents ask</h1>
   <p style="font-size:18px;line-height:1.65;color:#3E4C44;margin:0 0 34px">If yours is not here, message me on Facebook or call and I will answer honestly, even if the answer is that I am not the right fit.</p>
   <sc-for list="{{ faqGroups }}" as="g" hint-placeholder-count="5">
@@ -427,12 +479,15 @@ h1,h2,h3{letter-spacing:-.015em}
       </sc-for>
     </div>
   </sc-for>
+  </div>
 </section>
 </sc-if>
 
 <!-- ============ CONTACT ============ -->
 <sc-if value="{{ isContact }}" hint-placeholder-val="{{ false }}">
-<section style="max-width:1120px;margin:0 auto;padding:var(--sp,76px) 24px">
+<section style="position:relative;overflow:hidden;max-width:1120px;margin:0 auto;padding:var(--sp,76px) 24px">
+  <div style="position:absolute;left:-130px;top:120px;width:290px;height:280px;border-radius:56% 44% 38% 62% / 48% 42% 58% 52%;background:#F6DCCB;opacity:.85;pointer-events:none"></div>
+  <div style="position:relative">
   <h1 style="font-family:'Source Serif 4',Georgia,serif;font-weight:700;font-size:clamp(36px,5.4vw,58px);color:#1B4A2C;margin:0 0 14px;line-height:1">Get in touch</h1>
   <p style="font-size:18px;line-height:1.65;color:#3E4C44;margin:0 0 12px;max-width:60ch">Tell me a little about your child and I will come back to you within one working day. There is no obligation, and a free 15 minute chat is the easiest way to work out whether I can help.</p>
   <div style="display:flex;flex-wrap:wrap;gap:7px;align-items:center;margin:0 0 28px;font-family:ui-monospace,monospace;font-size:11.5px;color:#6B7A6E">
@@ -456,7 +511,7 @@ h1,h2,h3{letter-spacing:-.015em}
           <div style="font-family:'Source Serif 4',Georgia,serif;font-weight:600;font-size:26px;color:#1B4A2C;margin-bottom:10px">Thank you, that is with me</div>
           <p style="font-size:16.5px;line-height:1.7;color:#4C5B51;margin:0 0 18px">I will reply within one working day. If you would rather not wait, or your email has gone astray, both of these reach me quickly.</p>
           <div style="display:flex;flex-wrap:wrap;gap:10px">
-            <a href="tel:07921080947" style="background:#1B4A2C;color:#fff;padding:13px 22px;border-radius:999px;font-weight:800;font-size:15.5px" style-hover="background:#123620;text-decoration:none">Call 07921 080947</a>
+            <a href="mailto:hello@growingmindstutoring.co" style="background:#1B4A2C;color:#fff;padding:13px 22px;border-radius:999px;font-weight:800;font-size:15.5px" style-hover="background:#123620;text-decoration:none">Email me</a>
             <a href="#facebook" style="background:#EEF3E6;color:#1B4A2C;border:2px solid #C9D8B8;padding:11px 22px;border-radius:999px;font-weight:800;font-size:15.5px" style-hover="background:#DCE8CE;text-decoration:none">Message on Facebook</a>
           </div>
         </div>
@@ -538,11 +593,11 @@ h1,h2,h3{letter-spacing:-.015em}
     <div style="display:grid;gap:18px">
       <div style="background:#1B4A2C;border-radius:var(--r,20px);padding:var(--cp,28px);color:#fff">
         <div style="font-family:'Source Serif 4',Georgia,serif;font-weight:600;font-size:22px;margin-bottom:14px">Or reach me directly</div>
-        <a href="tel:07921080947" style="display:flex;align-items:center;gap:14px;background:rgba(255,255,255,.08);border:1px solid rgba(220,232,206,.3);border-radius:14px;padding:15px 16px;margin-bottom:10px;color:#fff" style-hover="background:rgba(255,255,255,.16);text-decoration:none">
-          <div style="width:40px;height:40px;border-radius:50%;background:#DCE8CE;color:#1B4A2C;display:flex;align-items:center;justify-content:center;font-size:18px">&#9742;</div>
-          <div>
-            <div style="font-weight:800;font-size:18px">07921 080947</div>
-            <div style="font-size:14px;color:#CFE0C0">Tap to call, weekdays after 4pm</div>
+        <a href="mailto:hello@growingmindstutoring.co" style="display:flex;align-items:center;gap:14px;background:rgba(255,255,255,.08);border:1px solid rgba(220,232,206,.3);border-radius:14px;padding:15px 16px;margin-bottom:10px;color:#fff" style-hover="background:rgba(255,255,255,.16);text-decoration:none">
+          <div style="width:40px;height:40px;border-radius:50%;background:#DCE8CE;color:#1B4A2C;display:flex;align-items:center;justify-content:center;font-size:18px">&#9993;</div>
+          <div style="min-width:0">
+            <div style="font-weight:800;font-size:18px">Email me</div>
+            <div style="font-size:14px;color:#CFE0C0;overflow-wrap:anywhere">hello@growingmindstutoring.co</div>
           </div>
         </a>
         <a href="#facebook" style="display:flex;align-items:center;gap:14px;background:rgba(255,255,255,.08);border:1px solid rgba(220,232,206,.3);border-radius:14px;padding:15px 16px;color:#fff" style-hover="background:rgba(255,255,255,.16);text-decoration:none">
@@ -552,7 +607,7 @@ h1,h2,h3{letter-spacing:-.015em}
             <div style="font-size:14px;color:#CFE0C0">Message me on Facebook for enquiries and bookings</div>
           </div>
         </a>
-        <div style="margin-top:14px;font-size:14.5px;color:#CFE0C0;line-height:1.6">Email: hello@growingmindstutoring.co.uk</div>
+        <div style="margin-top:14px;font-size:14.5px;color:#CFE0C0;line-height:1.6">I reply within one working day, usually sooner.</div>
       </div>
       <sc-if value="{{ showBooking }}" hint-placeholder-val="{{ true }}">
         <div style="background:#fff;border:1px solid #E4E9DE;border-radius:var(--r,20px);padding:var(--cp,28px);box-shadow:0 2px 12px rgba(27,74,44,.05)">
@@ -563,12 +618,16 @@ h1,h2,h3{letter-spacing:-.015em}
       </sc-if>
     </div>
   </div>
+  </div>
 </section>
 </sc-if>
 
 <!-- ============ LEGAL ============ -->
 <sc-if value="{{ isLegal }}" hint-placeholder-val="{{ false }}">
-<section style="max-width:1000px;margin:0 auto;padding:var(--sp,76px) 24px">
+<section style="position:relative;overflow:hidden;max-width:1000px;margin:0 auto;padding:var(--sp,76px) 24px">
+  <div style="position:absolute;right:-130px;top:-80px;width:290px;height:280px;border-radius:56% 44% 38% 62% / 48% 42% 58% 52%;background:#F6DCCB;opacity:.8;pointer-events:none"></div>
+  <div style="position:absolute;left:-120px;bottom:-90px;width:250px;height:240px;border-radius:56% 44% 52% 48% / 44% 52% 48% 56%;background:#DCE8CE;opacity:.5;pointer-events:none"></div>
+  <div style="position:relative">
   <h1 style="font-family:'Source Serif 4',Georgia,serif;font-weight:700;font-size:clamp(32px,4.6vw,50px);color:#1B4A2C;margin:0 0 8px;line-height:1">{{ legal.title }}</h1>
   <div style="font-size:14.5px;color:#6E7E72;margin-bottom:20px">Last updated [DATE]</div>
   <div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:34px">
@@ -592,13 +651,14 @@ h1,h2,h3{letter-spacing:-.015em}
       </sc-for>
     </div>
   </div>
+  </div>
 </section>
 </sc-if>
 
 <!-- ============ 404 ============ -->
 <sc-if value="{{ is404 }}" hint-placeholder-val="{{ false }}">
 <section style="max-width:640px;margin:0 auto;padding:100px 24px 120px;text-align:center">
-  <div style="width:150px;height:150px;margin:0 auto 26px;border-radius:50%;background:linear-gradient(155deg,#E4EEDA 0%,#F1E4DA 100%);border:1px solid #C9D8B8;display:flex;align-items:center;justify-content:center;font-family:ui-monospace,monospace;font-size:11px;color:#3E5B31;text-align:center;padding:14px">mascot spot<br>illustration</div>
+  <div style="width:170px;height:170px;margin:0 auto 26px;border-radius:56% 44% 38% 62% / 48% 42% 58% 52%;background:linear-gradient(155deg,#E4EEDA 0%,#F1E4DA 100%);display:flex;align-items:center;justify-content:center;font-family:ui-monospace,monospace;font-size:11px;color:#3E5B31;text-align:center;padding:14px">mascot spot<br>illustration</div>
   <div style="font-family:Caveat,cursive;font-size:calc(34px * var(--sc,1));color:#4A7C3F">Oops</div>
   <h1 style="font-family:'Source Serif 4',Georgia,serif;font-weight:700;font-size:clamp(34px,6vw,54px);color:#1B4A2C;margin:2px 0 12px;line-height:1">This page has wandered off</h1>
   <p style="font-size:17.5px;line-height:1.65;color:#3E4C44;margin:0 0 24px">It happens to the best of us. Let's get you back to somewhere useful.</p>
@@ -611,7 +671,10 @@ h1,h2,h3{letter-spacing:-.015em}
 
 <!-- ============ PUPIL AREA ============ -->
 <sc-if value="{{ isPupil }}" hint-placeholder-val="{{ false }}">
-<section style="max-width:1000px;margin:0 auto;padding:var(--sp,76px) 24px">
+<section style="position:relative;overflow:hidden;max-width:1000px;margin:0 auto;padding:var(--sp,76px) 24px">
+  <div style="position:absolute;right:-120px;top:-70px;width:280px;height:270px;border-radius:56% 44% 38% 62% / 48% 42% 58% 52%;background:#F6DCCB;pointer-events:none"></div>
+  <div style="position:absolute;left:-110px;bottom:200px;width:240px;height:230px;border-radius:56% 44% 52% 48% / 44% 52% 48% 56%;background:#DCE8CE;opacity:.55;pointer-events:none"></div>
+  <div style="position:relative">
   <div style="font-size:13px;font-weight:800;letter-spacing:.16em;color:#4A7C3F;margin-bottom:12px">FOR CURRENT FAMILIES</div>
   <h1 style="font-family:'Source Serif 4',Georgia,serif;font-weight:700;font-size:clamp(34px,5.2vw,56px);color:#1B4A2C;margin:0 0 14px;line-height:1">Pupil area</h1>
   <p style="font-size:18px;line-height:1.65;color:#3E4C44;margin:0 0 10px;max-width:62ch">Everything for your child's sessions lives in one place: your own Google Classroom. There is no separate password for this website, and nothing for your child to remember.</p>
@@ -653,7 +716,34 @@ h1,h2,h3{letter-spacing:-.015em}
     </div>
     <div style="font-size:15.5px;color:#33453A;line-height:1.65;margin-top:16px">Anything here can be deleted on request, and asking will never affect your child's tutoring. The full detail is in the <a href="#privacy" onClick="{{ goPrivacy }}">privacy notice</a>.</div>
   </div>
-  <div style="margin-top:20px;font-family:ui-monospace,monospace;font-size:12px;color:#6B7A6E;line-height:1.7">build note: the G on the sign in button is a placeholder, swap in Google's official Sign in with Google asset before launch. v1 is signposting only, no auth on this site. Google Classroom is the login. A real parent portal (Supabase magic link, whiteboard embed, progress records) is phase 3 and only triggers at 8 to 10 regular pupils.</div>
+  </div>
+  <div style="position:relative;margin-top:20px;font-family:ui-monospace,monospace;font-size:12px;color:#6B7A6E;line-height:1.7">build note: the G on the sign in button is a placeholder, swap in Google's official Sign in with Google asset before launch. v1 is signposting only, no auth on this site. Google Classroom is the login. A real parent portal (Supabase magic link, whiteboard embed, progress records) is phase 3 and only triggers at 8 to 10 regular pupils.</div>
+</section>
+</sc-if>
+
+<!-- ============ INSIGHTS ============ -->
+<sc-if value="{{ isInsights }}" hint-placeholder-val="{{ false }}">
+<section style="position:relative;overflow:hidden;max-width:1000px;margin:0 auto;padding:var(--sp,76px) 24px">
+  <div style="position:absolute;left:-120px;top:20px;width:270px;height:260px;border-radius:56% 44% 52% 48% / 44% 52% 48% 56%;background:#DCE8CE;opacity:.65;pointer-events:none"></div>
+  <div style="position:absolute;right:-110px;bottom:60px;width:250px;height:240px;border-radius:56% 44% 38% 62% / 48% 42% 58% 52%;background:#F6DCCB;opacity:.8;pointer-events:none"></div>
+  <div style="position:relative">
+  <h1 style="font-family:'Source Serif 4',Georgia,serif;font-weight:600;font-size:clamp(36px,5.4vw,58px);color:#1B4A2C;margin:0 0 14px;line-height:1.02">Insights</h1>
+  <p style="font-size:18px;line-height:1.65;color:#3E4C44;margin:0 0 40px;max-width:60ch">Short, practical notes for parents of Reception, Year 1 and Year 2 children. Written from fifteen years of watching where KS1 children get stuck, and what actually helps at home.</p>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px">
+    <sc-for list="{{ insights }}" as="a" hint-placeholder-count="4">
+      <div style="background:#fff;border:1px solid #E4E9DE;border-radius:var(--r,20px);padding:var(--cp,28px);box-shadow:0 2px 12px rgba(27,74,44,.05);display:flex;flex-direction:column;gap:10px;cursor:pointer" style-hover="border-color:#A9C293;box-shadow:0 6px 18px rgba(27,74,44,.09)">
+        <div style="display:flex;align-items:center;gap:10px">
+          <span style="font-size:12.5px;font-weight:800;letter-spacing:.1em;color:#3E5B31;background:#EEF3E6;border:1px solid #DCE8CE;padding:5px 12px;border-radius:999px">{{ a.tag }}</span>
+          <span style="font-size:13.5px;color:#75806E">{{ a.read }}</span>
+        </div>
+        <h2 style="font-family:'Source Serif 4',Georgia,serif;font-weight:600;font-size:23px;color:#1B4A2C;margin:0;line-height:1.2">{{ a.title }}</h2>
+        <p style="font-size:16px;line-height:1.6;color:#4C5B51;margin:0">{{ a.blurb }}</p>
+        <div style="margin-top:auto;padding-top:6px;font-weight:800;font-size:15px;color:#2F6B3A">Read the note &rarr;</div>
+      </div>
+    </sc-for>
+  </div>
+  </div>
+  <div style="position:relative;margin-top:26px;font-family:ui-monospace,monospace;font-size:12px;color:#6B7A6E;line-height:1.7">build note: Sanity free tier holds the note bodies, site.insights is the shape to model. Static rendered with ISR. No comments, no author bios, no categories beyond the single tag. Each note carries Portsmouth and the year group in its metadata for local search.</div>
 </section>
 </sc-if>
 
@@ -664,11 +754,11 @@ h1,h2,h3{letter-spacing:-.015em}
     <div>
       <div style="font-family:Caveat,cursive;font-size:calc(40px * var(--sc,1));color:#A9C293;line-height:1.1">Let's help your child shine!</div>
       <h2 style="font-family:'Source Serif 4',Georgia,serif;font-weight:600;font-size:clamp(28px,4vw,42px);margin:8px 0 12px;line-height:1.05">Ready to start?</h2>
-      <p style="font-size:17.5px;line-height:1.65;color:#DCE8CE;margin:0;max-width:46ch">Send me a message or give me a ring. A free 15 minute chat costs you nothing and tells us both a great deal.</p>
+      <p style="font-size:17.5px;line-height:1.65;color:#DCE8CE;margin:0;max-width:46ch">Send me a message or drop me an email. A free 15 minute chat costs you nothing and tells us both a great deal.</p>
     </div>
     <div style="display:grid;gap:12px">
       <div onClick="{{ goContact }}" style="cursor:pointer;background:#DCE8CE;color:#1B4A2C;padding:16px 24px;border-radius:999px;font-weight:800;font-size:16.5px;text-align:center" style-hover="background:#fff">Send an enquiry</div>
-      <a href="tel:07921080947" style="background:rgba(255,255,255,.08);border:1.5px solid rgba(220,232,206,.4);color:#fff;padding:14px 24px;border-radius:999px;font-weight:800;font-size:16.5px;text-align:center" style-hover="background:rgba(255,255,255,.16);text-decoration:none">Call 07921 080947</a>
+      <a href="mailto:hello@growingmindstutoring.co" style="background:rgba(255,255,255,.08);border:1.5px solid rgba(220,232,206,.4);color:#fff;padding:14px 24px;border-radius:999px;font-weight:800;font-size:16.5px;text-align:center" style-hover="background:rgba(255,255,255,.16);text-decoration:none">Email me</a>
       <a href="#facebook" style="background:rgba(255,255,255,.08);border:1.5px solid rgba(220,232,206,.4);color:#fff;padding:14px 24px;border-radius:999px;font-weight:800;font-size:16.5px;text-align:center" style-hover="background:rgba(255,255,255,.16);text-decoration:none">Message me on Facebook</a>
     </div>
   </div>
@@ -686,7 +776,7 @@ h1,h2,h3{letter-spacing:-.015em}
     </div>
     <div style="display:flex;flex-wrap:wrap;gap:10px;flex:0 0 auto">
       <div onClick="{{ goContact }}" style="cursor:pointer;background:#1B4A2C;color:#fff;padding:14px 24px;border-radius:12px;font-weight:800;font-size:15.5px" style-hover="background:#123620">Send an enquiry</div>
-      <a href="tel:07921080947" style="background:#fff;color:#1B4A2C;padding:14px 24px;border-radius:12px;font-weight:800;font-size:15.5px;border:1px solid #C9D8B8" style-hover="background:#F7F6F1;text-decoration:none">Call 07921 080947</a>
+      <a href="mailto:hello@growingmindstutoring.co" style="background:#fff;color:#1B4A2C;padding:14px 24px;border-radius:12px;font-weight:800;font-size:15.5px;border:1px solid #C9D8B8" style-hover="background:#F7F6F1;text-decoration:none">Email me</a>
     </div>
   </div>
 </section>
@@ -700,8 +790,8 @@ h1,h2,h3{letter-spacing:-.015em}
         <div style="font-family:Caveat,cursive;font-size:24px;color:#A9603A;line-height:1.1;margin-top:2px">Small steps, brighter days</div></div>
       </div>
       <div style="font-size:15px;line-height:1.7;flex:0 0 auto">
-        <a href="tel:07921080947" style="color:#1B4A2C;font-weight:800" style-hover="color:#2F6B3A">07921 080947</a><br>
-        <a href="mailto:hello@growingmindstutoring.co.uk" style="color:#4C5B51" style-hover="color:#1B4A2C">hello@growingmindstutoring.co.uk</a>
+        <a href="mailto:hello@growingmindstutoring.co" style="color:#1B4A2C;font-weight:800;overflow-wrap:anywhere" style-hover="color:#2F6B3A">hello@growingmindstutoring.co</a><br>
+        <span style="color:#75806E">I reply within one working day</span>
       </div>
     </div>
     <div>
@@ -752,16 +842,30 @@ class Component extends DCLogic {
 
   get pages() {
     return [
-      { id: 'tutoring', label: 'Subjects and prices' }, { id: 'about', label: 'About me' },
-      { id: 'faqs', label: 'FAQs' }, { id: 'contact', label: 'Contact' }
+      { id: 'home', label: 'Home' }, { id: 'curriculum', label: 'Curriculum' },
+      { id: 'costs', label: 'Costs' }, { id: 'insights', label: 'Insights' },
+      { id: 'about', label: 'About' }
     ];
   }
 
   get allPages() {
     return this.pages.concat([
-      { id: 'home', label: 'Home' }, { id: 'portsmouth', label: 'Tutoring in Portsmouth' },
-      { id: 'pupil', label: 'Pupil area' }
+      { id: 'contact', label: 'Contact' }, { id: 'faqs', label: 'FAQs' },
+      { id: 'portsmouth', label: 'Tutoring in Portsmouth' }, { id: 'pupil', label: 'Pupil area' }
     ]);
+  }
+
+  get insightsData() {
+    return [
+      { tag: 'Phonics', title: 'What the Year 1 phonics screening check actually asks', read: '4 minute read',
+        blurb: 'What the check is, why it uses nonsense words, and the three things worth practising at home in the term before it.' },
+      { tag: 'Maths', title: 'Number bonds: the ten minutes a week that changes Year 2', read: '3 minute read',
+        blurb: 'Why bonds to 10 and 20 sit underneath almost every KS1 maths worry, and how to practise them without it feeling like homework.' },
+      { tag: 'Reading', title: 'Choosing books your child can nearly read', read: '5 minute read',
+        blurb: 'The nine in ten rule, what to do with the tenth word, and why rereading the same page is not a waste of time.' },
+      { tag: 'Handwriting', title: 'Grip, posture and why neat writing is not about trying harder', read: '4 minute read',
+        blurb: 'Untidy writing is usually mechanical. Here is what to look at before you ask a six year old to slow down again.' }
+    ];
   }
 
   go(id) { this.setState({ page: id }); if (typeof window !== 'undefined') window.scrollTo(0, 0); }
@@ -874,7 +978,7 @@ class Component extends DCLogic {
       ] };
     }
     return { title: 'Privacy notice', sections: [
-      { h: 'Who I am', p: 'Growing Minds Tutoring is run by [FULL NAME], a self employed qualified teacher based in Portsmouth. I am the data controller for the information described here. You can reach me at hello@growingmindstutoring.co.uk or on 07921 080947.' },
+      { h: 'Who I am', p: 'Growing Minds Tutoring is run by [FULL NAME], a self employed qualified teacher based in Portsmouth. I am the data controller for the information described here. You can reach me at hello@growingmindstutoring.co.' },
       { h: 'What I collect', p: 'From the enquiry form: your name, email address, optional phone number, your child\u2019s year group, the subjects and session type you are interested in, and your message. Once tutoring starts: your child\u2019s first name and my session notes. Please do not send me anything more than that. I do not collect dates of birth, medical records or school reports unless you choose to share something relevant, in which case I keep only what I need.' },
       { h: 'Why I collect it, and my lawful basis', p: 'To reply to your enquiry and to deliver tutoring. My lawful basis is legitimate interests for responding to an enquiry, and contract for delivering sessions you have booked. Recordings rely on your consent, which is separate and optional.' },
       { h: 'Children\u2019s data', p: 'My pupils are under 13, so the ICO Children\u2019s Code applies and I keep collection to the minimum described above. There is no profiling, no advertising and no sharing with third parties for their own purposes.' },
@@ -909,14 +1013,15 @@ class Component extends DCLogic {
         rule: p === x.id ? '#4A7C3F' : 'transparent' })),
       utilityItems: [{ label: 'Privacy notice', go: () => this.go('privacy') }, { label: 'Tutoring terms', go: () => this.go('terms') }],
       refItems: [{ label: '404 page', go: () => this.go('404') }],
-      goHome: () => this.go('home'), goContact: () => this.go('contact'), goHow: () => this.go('tutoring'),
-      goPricing: () => this.go('tutoring'), goPupil: () => this.go('pupil'), goFaqs: () => this.go('faqs'), goPrivacy: () => this.go('privacy'),
+      goHome: () => this.go('home'), goContact: () => this.go('contact'), goHow: () => this.go('curriculum'),
+      goPricing: () => this.go('costs'), goInsights: () => this.go('insights'), goPupil: () => this.go('pupil'), goFaqs: () => this.go('faqs'), goPrivacy: () => this.go('privacy'),
       footerPages: this.allPages.map(x => ({ label: x.label, go: () => this.go(x.id) })),
-      isHome: p === 'home', isAbout: p === 'about', isTutoring: p === 'tutoring', isHow: p === 'tutoring',
+      isHome: p === 'home', isAbout: p === 'about', isTutoring: p === 'curriculum', isHow: p === 'curriculum',
+      isInsights: p === 'insights', insights: this.insightsData,
       legalTabs: [{ id: 'privacy', label: 'Privacy notice' }, { id: 'terms', label: 'Tutoring terms' }].map(t => ({
         label: t.label, go: () => this.go(t.id),
         bg: p === t.id ? '#1B4A2C' : '#fff', color: p === t.id ? '#fff' : '#33453A', border: p === t.id ? '#1B4A2C' : '#D3DEC6' })),
-      isPortsmouth: p === 'portsmouth', isPricing: p === 'tutoring', isFaqs: p === 'faqs', isContact: p === 'contact',
+      isPortsmouth: p === 'portsmouth', isPricing: p === 'costs', isFaqs: p === 'faqs', isContact: p === 'contact',
       isLegal, is404: p === '404', isPupil: p === 'pupil',
       safety: [
         { h: 'No account for your child', p: 'The parent signs in with their own Google account. Children under 13 do not get logins, so there is nothing for a child to lose or share.' },
@@ -940,7 +1045,16 @@ class Component extends DCLogic {
       ],
       pausedIcon: this.ic(this.glyphs.hourglass, 26),
       personIcon: this.ic(this.glyphs.person, 16),
-      subjects: subs, modes: this.modesData, areas, areasLine: areas.join(' \u00b7 '),
+      subjects: subs.map((s, i) => Object.assign({}, s, {
+        n: String(i + 1).padStart(2, '0'),
+        tint: i % 2 ? '#FBEDE3' : '#EEF3E6',
+        line: i % 2 ? '#EBD1C0' : '#DCE8CE',
+        blob: i % 2 ? '#F6DCCB' : '#DCE8CE',
+        order: i % 2 ? -1 : 1,
+        radius: i % 2 ? '56% 44% 38% 62% / 48% 42% 58% 52%' : '56% 44% 52% 48% / 44% 52% 48% 56%',
+        chipIcon: this.ic(this.glyphs[['plus', 'book', 'type', 'pencil', 'pen'][i] || 'plus'], 15)
+      })),
+      modes: this.modesData, areas, areasLine: areas.join(' \u00b7 '),
       quals: ['Qualified Teacher Status (QTS)', 'Over 15 years teaching in Key Stage 1', 'Enhanced DBS certificate, registered on the DBS Update Service', 'Annual safeguarding and child protection training', 'Trained in [PHONICS SCHEME] systematic synthetic phonics'],
       testimonials: [
         { quote: '[QUOTE] A parent quote about confidence, ideally naming the change they saw at home rather than a test score.', by: '[PARENT NAME], Year 1 parent' },
@@ -967,11 +1081,14 @@ class Component extends DCLogic {
         border: this.state.mode === m.id ? '#1B4A2C' : '#D7DECF' })),
       activeMode,
       steps: [
-        { n: '01', title: 'Get in touch', body: 'Fill in the form, call, or message the Facebook page. Whatever is easiest.' },
+        { n: '01', title: 'Get in touch', body: 'Send the form or message the Facebook page. Whatever is easiest.' },
         { n: '02', title: 'A free 15 minute chat', body: 'We talk about how your child is getting on and what would help most.' },
         { n: '03', title: 'First session', body: 'Gentle, game based, and you get a note afterwards on what I noticed.' },
         { n: '04', title: 'A regular slot', body: 'Weekly usually works best. We review after six sessions.' }
-      ],
+      ].map((st, i) => Object.assign({}, st, {
+        blob: i % 2 ? '#F6DCCB' : '#DCE8CE',
+        radius: i % 2 ? '56% 44% 38% 62% / 48% 42% 58% 52%' : '56% 44% 52% 48% / 44% 52% 48% 56%'
+      })),
       faqGroups, legal: this.legalData,
       formStates: ['default', 'error', 'submitting', 'success'].map(x => ({ label: x, go: () => this.setState({ formState: x }),
         bg: st === x ? '#1B4A2C' : '#fff', color: st === x ? '#fff' : '#5F7355' })),

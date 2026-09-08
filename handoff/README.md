@@ -11,7 +11,7 @@ Everything Cursor needs is in this folder, plus `CLAUDE.md` at the repo root.
 | `legal-copy.md` | Drafted privacy notice, tutoring terms and the recording consent form. | Move into `site.ts` and have Sam review before launch. |
 | `prompts.md` | The build session prompts, in order, plus the polish list. | Paste one per session. |
 | `globals.css` | **The locked stylesheet.** Tailwind v4 `@theme` tokens plus the component layer every primitive uses. | Copy to `app/globals.css` unchanged. Do not add hues, fonts, radii or shadows. |
-| `components/` | The locked component library as real `.tsx` files, with their own README. | Copy to `components/`. Build pages by composing these, not by writing new markup. |
+| `components/` | The locked component library: 20 real `.tsx` files with their own README and rules. | Copy to `components/`. Build pages by composing these, not by writing new markup. |
 | `brand/` | Flyer artwork and any supplied assets. | Source for the OG image and the mascot request. |
 
 ---
@@ -42,7 +42,9 @@ Use only the tokens in `globals.css`. No new hues, no Tailwind default greens, n
 - Section rhythm is `--space-section` (78px), applied only by `<Section>`. Never hand-set section padding.
 - Header structure is fixed: sage trust strip with the Facebook link (not sticky), then **one** sticky bar holding the leaf lockup left, the four item nav centre, and the tap-to-call pill plus the Pupil Area sign in right. Status banner sits below it when `site.status` is not `accepting`.
 - Hero is fixed: serif sentence-case h1 left with the peach blob bleeding off the lower left, blob-masked photo right, Caveat note under the buttons, sage trust bar immediately below.
-- Nav is exactly four items: Subjects and prices, About me, FAQs, Contact. Adding a fifth is a content decision for Sam, not a build decision.
+- Nav is exactly five links (Home, Curriculum, Costs, Insights, About) plus the green **Contact** button and the Pupil Area sign in at the right end. FAQs, Portsmouth and the policies live in the footer. Adding a sixth link is a content decision for Sam, not a build decision.
+- **No phone number in v1.** Email is the only direct channel: `hello@growingmindstutoring.co` (note the `.co` address on the `.co.uk` domain). Do not reintroduce a tap-to-call pill.
+- The header **Contact** button is the one place the brand gets depth: `.gm-btn-cta`, a green gradient with an inset highlight, a soft drop shadow, a sage focus ring on hover and a circled arrow. It is the only gradient and the only lifted element on the site.
 - Footer order is fixed: pale green CTA band, then the **warm paper** footer (leaf lockup + tagline row, Explore, The small print, Safeguarding, then the full width Portsmouth area chips), then the bottom bar. The footer is light: the dark band on a page is the CTA above it.
 
 ### Accessibility, non-negotiable
@@ -73,13 +75,40 @@ It is a single page app with an in-page router, built for review rather than pro
 - The "Sign in with Google" button uses a plain letter G as a stand-in. Swap in Google's official asset before launch; their brand terms require it.
 - Copy comes from `site.ts` only. If a string you need is not there, add it to `site.ts` rather than typing it into a component. **No em dashes anywhere in copy.**
 
-## Routes (8)
+## Routes (10)
 
-`/` · `/about` · `/tutoring` (subjects, how a session works, `#pricing`) · `/tutoring-portsmouth` · `/faqs` · `/pupil-area` · `/contact` · `/policies` (privacy and terms, tabbed) · plus `/404`.
+`/` · `/curriculum` (subjects plus how a session works) · `/costs` · `/insights` · `/about` · `/contact` · `/faqs` · `/tutoring-portsmouth` · `/pupil-area` · `/policies` (privacy and terms, tabbed) · plus `/404`.
 
-301s to keep: `/how-it-works` and `/pricing` → `/tutoring` (`/pricing` to `#pricing`), `/privacy` and `/terms` → `/policies` as deep links.
+301s to keep: `/tutoring` and `/how-it-works` → `/curriculum`; `/pricing` → `/costs`; `/privacy` and `/terms` → `/policies` as deep links.
 
-`/tutoring-portsmouth` and `/pupil-area` are deliberately out of the nav. Portsmouth is reached from the footer, the home page and search; the pupil area from the sign in link in the trust strip.
+`/faqs`, `/tutoring-portsmouth` and `/pupil-area` are deliberately out of the nav row. FAQs and Portsmouth are reached from the footer, the home page and search; the pupil area from the sign in at the right end of the header.
+
+`/curriculum` is one flowing page in this order: h1, how a session works (three mode tabs, then the four step getting started timeline), then the five subject sections. Do not split it back into two pages.
+
+`/insights` is short parent notes, and the one place a CMS is expected: **Sanity** (free tier), with `site.insights` as the shape to model. Keep the route static-rendered with ISR, keep the note bodies in Sanity and everything else in `site.ts`, and do not let the CMS creep into the rest of the site. No comments, no author bios, no categories beyond the single tag. Each note carries Portsmouth and the year group in its metadata for local search.
+
+## Page composition map
+
+Build each route by composing the components below, in this order. Anything not
+in this table does not exist on that page.
+
+| Route | Composition |
+|---|---|
+| `/` | `Hero` · `TrustBar` · shaped section: "I specialise in" `Card` (sage) + three mode `Card`s · sage testimonials band (shaped) · pricing `Card` (dark) + FAQ teaser · `CtaBand` |
+| `/curriculum` | `PageIntro` (kicker "What we actually do") + subject chips · sage band: h2 "How a session works" + `ModeTabs` · shaped section: h2 "Getting started" + `StepList` · `Section`: h2 "What I teach" + five `SubjectCard`s + the dashed "Every session is personalised" note · `CtaBand` |
+| `/costs` | shaped `Section`: h1 "Costs" + three `PriceCard`s + three policy `Card`s (sage) · `CtaBand` |
+| `/insights` | shaped narrow `Section`: h1 + lead + `InsightCard` grid · `CtaBand` |
+| `/about` | shaped `Section`: `BlobImage` portrait + bio + qualifications `Card` (sage) · safeguarding `Card` (sage, full width) · "Why I tutor" · `CtaBand` |
+| `/contact` | shaped `Section`: enquiry form `Card` + "Or reach me directly" `Card` (dark) + Cal.com `Card` behind `site.booking.enabled`. No `CtaBand` |
+| `/faqs` | shaped `Section` (900px): h1 + five accordion groups · `CtaBand` · FAQPage JSON-LD |
+| `/tutoring-portsmouth` | dark band hero + blob map · shaped areas section with `Chip`s + three mode `Card`s · shaped sage testimonials band · `CtaBand` |
+| `/pupil-area` | shaped narrow `Section`: sign in `Card` (dark) + three link `Card`s + data safety `Card` (sage). No `CtaBand` |
+| `/policies` | shaped `Section` (1000px): tabs + sticky contents + sections. No `CtaBand` |
+| `/404` | blob mascot slot + Caveat "Oops" + h1 + two buttons |
+
+Every route except home opens with `PageIntro` or its own hero. Every paper
+section is `.gm-shaped` with one or two `<Blob>`s bleeding off an edge: that
+motif is the design, not decoration, and a flat section is a bug.
 
 ## Build order
 

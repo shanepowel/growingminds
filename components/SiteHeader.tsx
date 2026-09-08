@@ -1,8 +1,7 @@
 import Link from "next/link";
-import { Mail, Phone, UserRound } from "lucide-react";
+import { UserRound } from "lucide-react";
 import { LeafMark } from "./LeafMark";
 import { site } from "@/content/site";
-import { facebookHref } from "@/lib/content";
 
 /** Two rows. Sage trust strip (not sticky) then the sticky brand + nav bar. */
 export function SiteHeader({ pathname }: { pathname: string }) {
@@ -10,32 +9,31 @@ export function SiteHeader({ pathname }: { pathname: string }) {
     <>
       <div style={{ background: "var(--color-sage-pale)", color: "var(--color-body-dark)" }}>
         <div className="gm-container" style={{ paddingBlock: 7, display: "flex", flexWrap: "wrap",
-          alignItems: "center", gap: "4px 14px", fontSize: "12.5px", fontWeight: 700, letterSpacing: ".02em" }}>
+          alignItems: "center", justifyContent: "center", gap: "2px 10px", fontSize: 12, fontWeight: 700,
+          letterSpacing: ".01em", textAlign: "center" }}>
           <span>{site.business.credentialLine}</span>
-          <span style={{ color: "var(--color-clay)" }} aria-hidden>&#10022;</span>
+          <span style={{ color: "var(--color-clay-ink)" }} aria-hidden>&#10022;</span>
           <span>{site.business.deliveryLine}</span>
-          <a href={facebookHref()} target="_blank" rel="noreferrer" style={{ marginInlineStart: "auto", color: "var(--color-body-dark)", fontWeight: 700 }}>
-            Facebook
-          </a>
         </div>
       </div>
 
       <header style={{ position: "sticky", top: 0, zIndex: 40, background: "rgba(247,246,241,.97)",
         backdropFilter: "blur(10px)", borderBottom: "1px solid var(--color-rule)" }}>
-        <div className="gm-container" style={{ paddingBlock: 12, display: "flex", flexWrap: "wrap",
+        <div className="gm-container" style={{ paddingBlock: 9, display: "flex", flexWrap: "wrap",
           alignItems: "center", gap: "10px 26px" }}>
           <Link href="/" style={{ display: "flex", alignItems: "center", gap: 12, flex: "0 0 auto" }}>
-            <LeafMark />
+            <LeafMark size={38} />
             <span>
-              <span style={{ display: "block", fontFamily: "var(--font-display)", fontWeight: 600, fontSize: 21,
+              <span style={{ display: "block", fontFamily: "var(--font-display)", fontWeight: 600, fontSize: 19,
                 color: "var(--color-ink)", lineHeight: 1.05, whiteSpace: "nowrap" }}>Growing Minds</span>
               <span style={{ display: "block", fontSize: "9.5px", letterSpacing: ".3em", color: "var(--color-body)",
                 fontWeight: 700, marginTop: 1 }}>TUTORING</span>
             </span>
           </Link>
 
-          <nav aria-label="Main" style={{ display: "flex", alignItems: "center", gap: 6, flex: "1 1 auto",
-            minWidth: 0, overflowX: "auto" }}>
+          {/* wraps to two lines on a phone: never scroll-clip a nav item */}
+          <nav aria-label="Main" style={{ display: "flex", flexWrap: "wrap", alignItems: "center",
+            gap: "2px 6px", flex: "1 1 auto", minWidth: 0 }}>
             {site.nav.map((item) => (
               <Link key={item.href} href={item.href}
                 aria-current={pathname === item.href ? "page" : undefined}
@@ -46,17 +44,10 @@ export function SiteHeader({ pathname }: { pathname: string }) {
           </nav>
 
           <div style={{ display: "flex", alignItems: "center", gap: 10, flex: "0 0 auto" }}>
-            {site.business.showPhone ? (
-              <a href={`tel:${site.business.phoneRaw}`} className="gm-btn gm-btn-primary"
-                style={{ padding: "11px 18px", fontSize: "14.5px" }}>
-                <Phone size={16} strokeWidth={1.9} aria-hidden /> {site.business.phone}
-              </a>
-            ) : (
-              <Link href="/contact" className="gm-btn gm-btn-primary"
-                style={{ padding: "11px 18px", fontSize: "14.5px" }}>
-                <Mail size={16} strokeWidth={1.9} aria-hidden /> Get in touch
-              </Link>
-            )}
+            <Link href={site.navCta.href} className="gm-btn gm-btn-cta">
+              {site.navCta.label}
+              <span className="gm-btn-arrow" aria-hidden>&rarr;</span>
+            </Link>
             {site.pupilArea.enabled && (
               <Link href="/pupil-area" style={{ display: "flex", alignItems: "center", gap: 9, minHeight: 44,
                 padding: "0 4px", whiteSpace: "nowrap", color: "var(--color-ink)" }}>
