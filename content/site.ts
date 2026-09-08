@@ -66,7 +66,7 @@ export const site = {
     { href: "/insights", label: "Insights" },
     { href: "/about", label: "About" },
   ],
-  navCta: { href: "/contact", label: "Contact" },
+  navCta: { href: "/contact", label: "Get in touch" },
 
   footer: {
     explore: [

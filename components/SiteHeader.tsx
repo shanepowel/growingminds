@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { UserRound } from "lucide-react";
+import { Mail, UserRound } from "lucide-react";
 import { LeafMark } from "./LeafMark";
 import { site } from "@/content/site";
 
@@ -46,7 +46,9 @@ export function SiteHeader({ pathname }: { pathname: string }) {
           <div style={{ display: "flex", alignItems: "center", gap: 10, flex: "0 0 auto" }}>
             <Link href={site.navCta.href} className="gm-btn gm-btn-cta">
               {site.navCta.label}
-              <span className="gm-btn-arrow" aria-hidden>&rarr;</span>
+              <span className="gm-btn-arrow" aria-hidden>
+                <Mail size={13} strokeWidth={2} />
+              </span>
             </Link>
             {site.pupilArea.enabled && (
               <Link href="/pupil-area" style={{ display: "flex", alignItems: "center", gap: 9, minHeight: 44,
