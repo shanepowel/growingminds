@@ -4,6 +4,7 @@ import { useActionState, useState } from "react";
 import { Check } from "lucide-react";
 import Link from "next/link";
 import { site } from "@/content/site";
+import { facebookHref } from "@/lib/content";
 import { submitEnquiry, type EnquiryState } from "@/app/contact/actions";
 import { Turnstile } from "./Turnstile";
 import { Chip } from "@/components/Chip";
@@ -34,9 +35,19 @@ export function ContactForm() {
         <p style={{ margin: "0 0 18px", fontSize: "16.5px", lineHeight: 1.7, color: "var(--color-body)" }}>
           {site.form.success.lead}
         </p>
-        <a href={site.business.phoneHref} className="gm-btn gm-btn-primary">
-          Call {site.business.phone}
-        </a>
+        <div style={{ display: "flex", flexWrap: "wrap", gap: 10 }}>
+          <a href={`mailto:${site.business.email}`} className="gm-btn gm-btn-primary">
+            Email me
+          </a>
+          <a href={facebookHref()} target="_blank" rel="noreferrer" className="gm-btn gm-btn-secondary">
+            Message on Facebook
+          </a>
+          {site.business.showPhone && (
+            <a href={site.business.phoneHref} className="gm-btn gm-btn-secondary">
+              Call {site.business.phone}
+            </a>
+          )}
+        </div>
       </div>
     );
   }

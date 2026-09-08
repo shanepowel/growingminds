@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { site } from "@/content/site";
 import { getIcon } from "@/lib/icons";
 import { Section } from "@/components/Section";
+import { PageHero } from "@/components/PageHero";
 import { Card } from "@/components/Card";
 import { Eyebrow } from "@/components/Eyebrow";
 import { ScriptNote } from "@/components/ScriptNote";
@@ -20,14 +21,11 @@ export default function TutoringPage() {
   return (
     <>
       {/* Subjects */}
+      <PageHero
+        title="What I tutor"
+        lead="Everything here is aligned to the Key Stage 1 national curriculum for Year 1 and Year 2, and to the phonics scheme your child's school follows. We start with a quick, gentle look at where they are, then build from there."
+      />
       <Section>
-        <h1 style={{ fontSize: "var(--text-h1-page)", marginBottom: 14 }}>What I tutor</h1>
-        <p className="gm-lead" style={{ maxWidth: "62ch", marginBottom: 40 }}>
-          Everything here is aligned to the Key Stage 1 national curriculum for Year 1 and Year 2, and to the phonics
-          scheme your child&rsquo;s school follows. We start with a quick, gentle look at where they are, then build from
-          there.
-        </p>
-
         {site.subjects.map((s) => {
           const Icon = getIcon(s.icon);
           return (

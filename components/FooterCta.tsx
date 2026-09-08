@@ -34,9 +34,15 @@ export function FooterCta() {
         </div>
         <div style={{ display: "flex", flexWrap: "wrap", gap: 10, flex: "0 0 auto" }}>
           <Button href="/contact">{site.footerCta.primary}</Button>
-          <Button href={site.business.phoneHref} variant="secondary">
-            Call {site.business.phone}
-          </Button>
+          {site.business.showPhone ? (
+            <Button href={site.business.phoneHref} variant="secondary">
+              Call {site.business.phone}
+            </Button>
+          ) : (
+            <Button href={`mailto:${site.business.email}`} variant="secondary">
+              Email me
+            </Button>
+          )}
         </div>
       </div>
     </section>

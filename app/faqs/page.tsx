@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Section } from "@/components/Section";
+import { PageHero } from "@/components/PageHero";
 import { Cta } from "@/components/Cta";
 import { Faqs } from "@/components/site/Faqs";
 import { FaqJsonLd } from "@/components/site/JsonLd";
@@ -15,12 +16,12 @@ export default function FaqsPage() {
   return (
     <>
       <FaqJsonLd />
+      <PageHero
+        narrow
+        title="Questions parents ask"
+        lead="If yours is not here, send me an enquiry or message the Facebook page and I will answer honestly, even if the answer is that I am not the right fit."
+      />
       <Section narrow>
-        <h1 style={{ fontSize: "var(--text-h1-page)", marginBottom: 14 }}>Questions parents ask</h1>
-        <p className="gm-lead" style={{ maxWidth: "62ch", marginBottom: 34 }}>
-          If yours is not here, message me on Facebook or call and I will answer honestly, even if the answer is that I
-          am not the right fit.
-        </p>
         <Faqs />
       </Section>
       <Cta />

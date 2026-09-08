@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
-import { Hourglass, Phone } from "lucide-react";
+import { Hourglass, Mail, Phone } from "lucide-react";
 import { site } from "@/content/site";
 import { facebookHref, hasHref } from "@/lib/content";
 import { Section } from "@/components/Section";
+import { PageHero } from "@/components/PageHero";
 import { ContactForm } from "@/components/site/ContactForm";
 
 export const metadata: Metadata = {
@@ -19,14 +20,13 @@ export default function ContactPage() {
   const calConfigured = hasHref(site.booking.calUrl);
 
   return (
-    <Section>
-      <h1 style={{ fontSize: "var(--text-h1-page)", marginBottom: 14 }}>Get in touch</h1>
-      <p className="gm-lead" style={{ maxWidth: "60ch", marginBottom: 28 }}>
-        Tell me a little about your child and I will come back to you within one working day. There is no obligation, and
-        a free 15 minute chat is the easiest way to work out whether I can help.
-      </p>
-
-      <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: 28, alignItems: "start" }}>
+    <>
+      <PageHero
+        title="Get in touch"
+        lead="Tell me a little about your child using the form and I will reply by email within one working day. There is no obligation, and the first 15 minute chat is free."
+      />
+      <Section>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: 28, alignItems: "start" }}>
         {paused ? (
           <div className="gm-card">
             <div
@@ -44,17 +44,34 @@ export default function ContactPage() {
 
         <div style={{ display: "grid", gap: 18 }}>
           <div className="gm-card-dark">
-            <h2 style={{ color: "#fff", fontSize: 22, margin: "0 0 14px" }}>Or reach me directly</h2>
+            <h2 style={{ color: "#fff", fontSize: 22, margin: "0 0 6px" }}>Prefer email?</h2>
+            <p style={{ margin: "0 0 14px", fontSize: "14.5px", lineHeight: 1.6, color: "var(--color-on-dark)" }}>
+              The form is quickest, but you are welcome to email me directly or message the Facebook page.
+            </p>
+            {site.business.showPhone && (
+              <a
+                href={site.business.phoneHref}
+                style={{ display: "flex", alignItems: "center", gap: 14, background: "rgba(255,255,255,.08)", border: "1px solid rgba(220,232,206,.3)", borderRadius: 14, padding: "15px 16px", marginBottom: 10, color: "#fff" }}
+              >
+                <span aria-hidden style={{ width: 40, height: 40, borderRadius: "50%", background: "var(--color-sage)", color: "var(--color-ink)", display: "grid", placeItems: "center" }}>
+                  <Phone size={18} />
+                </span>
+                <span>
+                  <span style={{ display: "block", fontWeight: 800, fontSize: 18 }}>{site.business.phone}</span>
+                  <span style={{ display: "block", fontSize: 14, color: "var(--color-on-dark)" }}>{site.business.phoneNote}</span>
+                </span>
+              </a>
+            )}
             <a
-              href={site.business.phoneHref}
+              href={`mailto:${site.business.email}`}
               style={{ display: "flex", alignItems: "center", gap: 14, background: "rgba(255,255,255,.08)", border: "1px solid rgba(220,232,206,.3)", borderRadius: 14, padding: "15px 16px", marginBottom: 10, color: "#fff" }}
             >
               <span aria-hidden style={{ width: 40, height: 40, borderRadius: "50%", background: "var(--color-sage)", color: "var(--color-ink)", display: "grid", placeItems: "center" }}>
-                <Phone size={18} />
+                <Mail size={18} />
               </span>
-              <span>
-                <span style={{ display: "block", fontWeight: 800, fontSize: 18 }}>{site.business.phone}</span>
-                <span style={{ display: "block", fontSize: 14, color: "var(--color-on-dark)" }}>{site.business.phoneNote}</span>
+              <span style={{ minWidth: 0 }}>
+                <span style={{ display: "block", fontWeight: 800, fontSize: 18, wordBreak: "break-word" }}>{site.business.email}</span>
+                <span style={{ display: "block", fontSize: 14, color: "var(--color-on-dark)" }}>I reply within one working day</span>
               </span>
             </a>
             <a
@@ -68,15 +85,9 @@ export default function ContactPage() {
               </span>
               <span>
                 <span style={{ display: "block", fontWeight: 800, fontSize: 18 }}>{site.business.facebookPageName}</span>
-                <span style={{ display: "block", fontSize: 14, color: "var(--color-on-dark)" }}>Message me on Facebook for enquiries and bookings</span>
+                <span style={{ display: "block", fontSize: 14, color: "var(--color-on-dark)" }}>Message me on Facebook for enquiries</span>
               </span>
             </a>
-            <p style={{ margin: "14px 0 0", fontSize: "14.5px", lineHeight: 1.6, color: "var(--color-on-dark)" }}>
-              Email:{" "}
-              <a href={`mailto:${site.business.email}`} style={{ color: "var(--color-on-dark)", textDecoration: "underline" }}>
-                {site.business.email}
-              </a>
-            </p>
           </div>
 
           {showBooking && (
@@ -111,7 +122,8 @@ export default function ContactPage() {
             </div>
           )}
         </div>
-      </div>
-    </Section>
+        </div>
+      </Section>
+    </>
   );
 }

@@ -4,6 +4,7 @@ import { site } from "@/content/site";
 import { getIcon } from "@/lib/icons";
 import { resolveLink, pupilSignInHref } from "@/lib/content";
 import { Section } from "@/components/Section";
+import { PageHero } from "@/components/PageHero";
 import { Card } from "@/components/Card";
 import { Button } from "@/components/Button";
 
@@ -18,19 +19,23 @@ export default function PupilAreaPage() {
   const signInHref = pupilSignInHref();
 
   return (
-    <Section narrow>
-      <p className="gm-eyebrow" style={{ margin: "0 0 12px" }}>{site.pupilArea.signIn.eyebrow}</p>
-      <h1 style={{ fontSize: "var(--text-h1-page)", marginBottom: 14 }}>{site.pupilArea.signIn.title}</h1>
-      <p className="gm-lead" style={{ maxWidth: "62ch", marginBottom: 8 }}>{site.pupilArea.signIn.body}</p>
-      <p style={{ margin: "0 0 24px", maxWidth: "62ch", fontSize: 16, lineHeight: 1.65, color: "var(--color-body)" }}>
-        {site.pupilArea.signIn.reassurance}
-      </p>
-      <div style={{ marginBottom: 40 }}>
-        <Button href={signInHref}>{site.pupilArea.signIn.cta}</Button>
-      </div>
-
-      <h2 style={{ fontSize: "var(--text-h2)", marginBottom: 18 }}>{site.pupilArea.signIn.onceInHeading}</h2>
-      <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))", gap: 18 }}>
+    <>
+      <PageHero
+        narrow
+        eyebrow={site.pupilArea.signIn.eyebrow}
+        title={site.pupilArea.signIn.title}
+        lead={site.pupilArea.signIn.body}
+      >
+        <p style={{ margin: "12px 0 24px", maxWidth: "62ch", fontSize: 16, lineHeight: 1.65, color: "var(--color-body)" }}>
+          {site.pupilArea.signIn.reassurance}
+        </p>
+        <div>
+          <Button href={signInHref}>{site.pupilArea.signIn.cta}</Button>
+        </div>
+      </PageHero>
+      <Section narrow>
+        <h2 style={{ fontSize: "var(--text-h2)", marginBottom: 18 }}>{site.pupilArea.signIn.onceInHeading}</h2>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))", gap: 18 }}>
         {site.pupilArea.links.map((l) => {
           const Icon = getIcon(l.icon);
           const href = resolveLink(l.href, l.fallback);
@@ -69,7 +74,8 @@ export default function PupilAreaPage() {
             <Link href="/policies?tab=privacy">privacy notice</Link>.
           </p>
         </Card>
-      </div>
-    </Section>
+        </div>
+      </Section>
+    </>
   );
 }

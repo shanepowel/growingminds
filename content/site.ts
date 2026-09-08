@@ -10,6 +10,10 @@ export const site = {
   business: {
     name: "Growing Minds Tutoring",
     tagline: "KS1 specialist tutoring in Portsmouth and online",
+    // Email-first for now: when false the phone number is hidden everywhere and
+    // every contact affordance points at the enquiry form (which emails Sam and
+    // sends the parent a confirmation). Flip to true to show the phone again.
+    showPhone: false,
     phone: "07921 080947",
     phoneRaw: "+447921080947",
     phoneHref: "tel:+447921080947",
@@ -87,7 +91,7 @@ export const site = {
   hero: {
     heading: "A calm place for young minds to grow.",
     lead: "Kind, individual support in maths, reading, phonics and early writing for KS1 children in Portsmouth and online.",
-    primaryCta: "Book a free discovery call",
+    primaryCta: "Send an enquiry",
     secondaryCta: "Get in touch",
     scriptNote: "Small steps, brighter days",
     imageAlt: "Sam reading a picture book with a Key Stage 1 pupil at a sunlit table",
@@ -371,7 +375,7 @@ export const site = {
     },
     success: {
       title: "Thank you, that is with me",
-      lead: "I will reply within one working day. If you would rather not wait, or your email has gone astray, both of these reach me quickly.",
+      lead: "Your enquiry is with me and a confirmation email is on its way to your inbox. I reply personally within one working day. If you would rather not wait, you can email me or message the Facebook page.",
     },
     yearGroups: ["Reception", "Year 1", "Year 2", "Other"],
     modeOptions: [
@@ -404,7 +408,7 @@ export const site = {
   cta: {
     script: "Let's help your child shine!",
     heading: "Ready to start?",
-    body: "Send me a message or give me a ring. A free 15 minute chat costs you nothing and tells us both a great deal.",
+    body: "Send me a message with a little about your child. I reply by email within one working day, and the first 15 minute chat is free.",
     primary: "Send an enquiry",
   },
 
@@ -426,7 +430,7 @@ export const site = {
       sections: [
         {
           h: "Who I am",
-          p: "Growing Minds Tutoring is run by [FULL NAME], a self employed qualified teacher based in Portsmouth. I am the data controller for the information described here. You can reach me at hello@growingmindstutoring.co.uk or on 07921 080947.",
+          p: "Growing Minds Tutoring is run by [FULL NAME], a self employed qualified teacher based in Portsmouth. I am the data controller for the information described here. You can reach me at hello@growingmindstutoring.co.uk.",
         },
         {
           h: "What I collect",

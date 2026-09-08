@@ -28,7 +28,7 @@ export function OrganizationJsonLd() {
         description: site.business.tagline,
         url: siteUrl,
         email: site.business.email,
-        telephone: site.business.phone,
+        ...(site.business.showPhone ? { telephone: site.business.phone } : {}),
         priceRange: "££",
         areaServed: site.business.areasCovered.map((name) => ({
           "@type": "City",

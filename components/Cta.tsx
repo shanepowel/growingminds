@@ -28,12 +28,21 @@ export function Cta() {
           <Button href="/contact" variant="onDark">
             {site.cta.primary}
           </Button>
+          {site.business.showPhone && (
+            <a
+              href={site.business.phoneHref}
+              className="gm-btn gm-btn-on-dark"
+              style={{ background: "rgba(255,255,255,.08)", color: "#fff", border: "1.5px solid rgba(220,232,206,.4)" }}
+            >
+              Call {site.business.phone}
+            </a>
+          )}
           <a
-            href={site.business.phoneHref}
+            href={`mailto:${site.business.email}`}
             className="gm-btn gm-btn-on-dark"
             style={{ background: "rgba(255,255,255,.08)", color: "#fff", border: "1.5px solid rgba(220,232,206,.4)" }}
           >
-            Call {site.business.phone}
+            Email me directly
           </a>
           <a
             href={facebookHref()}

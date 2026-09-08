@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Phone, UserRound } from "lucide-react";
+import { Mail, Phone, UserRound } from "lucide-react";
 import { LeafMark } from "./LeafMark";
 import { site } from "@/content/site";
 import { facebookHref } from "@/lib/content";
@@ -46,10 +46,17 @@ export function SiteHeader({ pathname }: { pathname: string }) {
           </nav>
 
           <div style={{ display: "flex", alignItems: "center", gap: 10, flex: "0 0 auto" }}>
-            <a href={`tel:${site.business.phoneRaw}`} className="gm-btn gm-btn-primary"
-              style={{ padding: "11px 18px", fontSize: "14.5px" }}>
-              <Phone size={16} strokeWidth={1.9} aria-hidden /> {site.business.phone}
-            </a>
+            {site.business.showPhone ? (
+              <a href={`tel:${site.business.phoneRaw}`} className="gm-btn gm-btn-primary"
+                style={{ padding: "11px 18px", fontSize: "14.5px" }}>
+                <Phone size={16} strokeWidth={1.9} aria-hidden /> {site.business.phone}
+              </a>
+            ) : (
+              <Link href="/contact" className="gm-btn gm-btn-primary"
+                style={{ padding: "11px 18px", fontSize: "14.5px" }}>
+                <Mail size={16} strokeWidth={1.9} aria-hidden /> Get in touch
+              </Link>
+            )}
             {site.pupilArea.enabled && (
               <Link href="/pupil-area" style={{ display: "flex", alignItems: "center", gap: 9, minHeight: 44,
                 padding: "0 4px", whiteSpace: "nowrap", color: "var(--color-ink)" }}>
