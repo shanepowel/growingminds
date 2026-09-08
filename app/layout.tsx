@@ -6,6 +6,7 @@ import { Header } from "@/components/site/Header";
 import { Footer } from "@/components/site/Footer";
 import { StatusBanner } from "@/components/site/StatusBanner";
 import { OrganizationJsonLd } from "@/components/site/JsonLd";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 const oswald = Oswald({
   subsets: ["latin"],
@@ -61,6 +62,7 @@ export default function RootLayout({
         <main>{children}</main>
         <Footer />
         <OrganizationJsonLd />
+        <SpeedInsights />
       </body>
     </html>
   );
