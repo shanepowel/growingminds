@@ -1,10 +1,10 @@
 import { site } from "@/content/site";
-import { resolveHref } from "@/lib/content";
+import { facebookHref } from "@/lib/content";
 import { LinkButton } from "./Button";
 
 /** Closing call to action, shown on most pages (mirrors the flyer's "shine" moment). */
 export function Cta() {
-  const fbHref = resolveHref(site.business.facebookUrl);
+  const fbHref = facebookHref();
 
   return (
     <section className="bg-deep text-white">
@@ -33,7 +33,7 @@ export function Cta() {
           </a>
           <a
             href={fbHref}
-            target={fbHref === "#" ? undefined : "_blank"}
+            target="_blank"
             rel="noreferrer"
             className="min-h-[44px] rounded-full border-[1.5px] border-sage/40 bg-white/10 px-6 py-3.5 text-center text-[16.5px] font-extrabold text-white no-underline transition-colors hover:bg-white/20"
           >

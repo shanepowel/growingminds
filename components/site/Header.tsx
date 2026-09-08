@@ -5,13 +5,13 @@ import { usePathname } from "next/navigation";
 import { Phone } from "lucide-react";
 import { primaryNav } from "@/lib/nav";
 import { site } from "@/content/site";
-import { resolveHref } from "@/lib/content";
+import { facebookHref } from "@/lib/content";
 import { Logo } from "./Logo";
 import { FacebookGlyph } from "./FacebookGlyph";
 
 export function Header() {
   const pathname = usePathname();
-  const fbHref = resolveHref(site.business.facebookUrl);
+  const fbHref = facebookHref();
 
   const isActive = (href: string) =>
     href === "/" ? pathname === "/" : pathname.startsWith(href);
@@ -51,7 +51,7 @@ export function Header() {
             </a>
             <a
               href={fbHref}
-              target={fbHref === "#" ? undefined : "_blank"}
+              target="_blank"
               rel="noreferrer"
               aria-label={`${site.business.facebookPageName} on Facebook`}
               className="flex h-[42px] w-[42px] items-center justify-center rounded-full border border-sage-mid bg-sage-soft text-deep transition-colors hover:bg-sage"

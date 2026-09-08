@@ -434,6 +434,7 @@ export const site = {
         body: "Homework, marked work, my comments and the class stream. One classroom per child, private to your family.",
         cta: "Sign in with Google",
         href: "[GOOGLE CLASSROOM URL]",
+        fallback: "https://classroom.google.com",
       },
       {
         icon: "pen-line",
@@ -441,6 +442,7 @@ export const site = {
         body: "The shared board we draw on together. Every page from every session is saved here for revision.",
         cta: "Open your board",
         href: "[BITPAPER URL]",
+        fallback: "https://bitpaper.io",
       },
       {
         icon: "monitor",
@@ -448,6 +450,7 @@ export const site = {
         body: "The video link for your slot. It is the same link every week, and it is also pinned in your Classroom.",
         cta: "Join the call",
         href: "[GOOGLE MEET URL]",
+        fallback: "https://meet.google.com",
       },
     ],
     records: [

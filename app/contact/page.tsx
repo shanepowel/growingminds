@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Hourglass, Phone } from "lucide-react";
 import { site } from "@/content/site";
-import { resolveHref, hasHref } from "@/lib/content";
+import { facebookHref, hasHref } from "@/lib/content";
 import { ContactForm } from "@/components/site/ContactForm";
 import { FacebookGlyph } from "@/components/site/FacebookGlyph";
 
@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 
 export default function ContactPage() {
   const paused = site.status === "paused";
-  const fbHref = resolveHref(site.business.facebookUrl);
+  const fbHref = facebookHref();
   const showBooking = site.booking.enabled;
   const calConfigured = hasHref(site.booking.calUrl);
 
@@ -69,7 +69,7 @@ export default function ContactPage() {
             </a>
             <a
               href={fbHref}
-              target={fbHref === "#" ? undefined : "_blank"}
+              target="_blank"
               rel="noreferrer"
               className="flex items-center gap-3.5 rounded-[14px] border border-sage/30 bg-white/10 p-4 text-white no-underline hover:bg-white/20"
             >

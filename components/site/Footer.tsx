@@ -1,10 +1,10 @@
 import Link from "next/link";
 import { site } from "@/content/site";
 import { primaryNav, secondaryNav, legalItems } from "@/lib/nav";
-import { resolveHref } from "@/lib/content";
+import { facebookHref } from "@/lib/content";
 
 export function Footer() {
-  const fbHref = resolveHref(site.business.facebookUrl);
+  const fbHref = facebookHref();
 
   return (
     <footer className="bg-deep-press text-on-dark">
@@ -25,7 +25,7 @@ export function Footer() {
             </a>
             <a
               href={fbHref}
-              target={fbHref === "#" ? undefined : "_blank"}
+              target="_blank"
               rel="noreferrer"
               className="hover:text-white"
             >

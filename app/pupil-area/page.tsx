@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { site } from "@/content/site";
 import { getIcon } from "@/lib/icons";
-import { resolveHref, pupilSignInHref } from "@/lib/content";
+import { resolveLink, pupilSignInHref } from "@/lib/content";
 import { LinkButton } from "@/components/site/Button";
 
 export const metadata: Metadata = {
@@ -38,11 +38,13 @@ export default function PupilAreaPage() {
       <div className="grid grid-cols-[repeat(auto-fit,minmax(250px,1fr))] gap-[18px]">
         {site.pupilArea.links.map((l) => {
           const Icon = getIcon(l.icon);
-          const href = resolveHref(l.href);
+          const href = resolveLink(l.href, l.fallback);
           return (
-            <Link
+            <a
               key={l.title}
               href={href}
+              target="_blank"
+              rel="noreferrer"
               className="flex flex-col gap-2 rounded-[var(--radius-card)] border border-line bg-white p-[26px] text-ink no-underline shadow-[0_2px_12px_rgba(27,74,44,.05)] transition-all hover:border-sage-deep hover:shadow-[0_6px_18px_rgba(27,74,44,.09)]"
             >
               <span className="mb-1.5 flex h-[46px] w-[46px] items-center justify-center rounded-full bg-sage-soft text-deep">
@@ -57,7 +59,7 @@ export default function PupilAreaPage() {
               <div className="mt-1.5 text-[15px] font-extrabold text-leaf">
                 {l.cta} →
               </div>
-            </Link>
+            </a>
           );
         })}
       </div>
