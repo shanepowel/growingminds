@@ -6,7 +6,7 @@ import { Card } from "@/components/Card";
 import { Chip } from "@/components/Chip";
 import { Button } from "@/components/Button";
 import { BlobImage } from "@/components/BlobImage";
-import { Cta } from "@/components/Cta";
+import { CtaBand } from "@/components/CtaBand";
 import { Testimonials } from "@/components/site/Testimonials";
 
 export const metadata: Metadata = {
@@ -69,7 +69,7 @@ export default function PortsmouthPage() {
       <Section tone="sage">
         <Testimonials heading="From Portsmouth parents" showNote={false} />
       </Section>
-      <Cta />
+      <CtaBand />
     </>
   );
 }

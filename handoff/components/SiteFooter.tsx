@@ -21,11 +21,11 @@ export function SiteFooter() {
             </span>
           </div>
           <div style={{ fontSize: 15, lineHeight: 1.7, flex: "0 0 auto" }}>
-            <a href={`tel:${site.business.phoneRaw}`} style={{ color: "var(--color-ink)", fontWeight: 800 }}>
-              {site.business.phone}
+            <a href={`mailto:${site.business.email}`} style={{ color: "var(--color-ink)", fontWeight: 800 }}>
+              {site.business.email}
             </a>
             <br />
-            <a href={`mailto:${site.business.email}`}>{site.business.email}</a>
+            <span style={{ color: "var(--color-muted)" }}>{site.business.emailNote}</span>
           </div>
         </div>
 

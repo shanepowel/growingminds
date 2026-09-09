@@ -10,16 +10,15 @@ export const site = {
   business: {
     name: "Growing Minds Tutoring",
     tagline: "KS1 specialist tutoring in Portsmouth and online",
-    phone: "07921 080947",
-    phoneRaw: "+447921080947",
-    phoneHref: "tel:+447921080947",
+    // Phone is off for now: email is the only direct channel in v1.
+    phone: null as string | null,
     credentialLine: "Qualified teacher, Enhanced DBS",
     deliveryLine: "Online and face to face",
     safeguardingLine:
       "Enhanced DBS certificate, registered on the DBS Update Service. Annual safeguarding training. Happy to show both at our first session.",
     dbsLine: "Enhanced DBS checked, registered on the DBS Update Service.",
-    phoneNote: "Tap to call, weekdays after 4pm",
-    email: "hello@growingmindstutoring.co.uk",
+    emailNote: "I reply within one working day",
+    email: "hello@growingmindstutoring.co",
     facebookUrl: "[FACEBOOK PAGE URL]",
     facebookPageName: "Growing Minds Tutoring",
     domain: "growingmindstutoring.co.uk",
@@ -60,29 +59,50 @@ export const site = {
     tagline: "Small steps, brighter days",
   },
 
-  /** Nav is four items. A fifth is a content decision for Sam, not a build decision. */
+  /** Nav is five links plus the Contact button and the Pupil Area sign in. */
   nav: [
-    { href: "/tutoring", label: "Subjects and prices" },
-    { href: "/about", label: "About me" },
-    { href: "/faqs", label: "FAQs" },
-    { href: "/contact", label: "Contact" },
+    { href: "/", label: "Home" },
+    { href: "/curriculum", label: "Curriculum" },
+    { href: "/costs", label: "Costs" },
+    { href: "/insights", label: "Insights" },
+    { href: "/about", label: "About" },
   ],
+  navCta: { href: "/contact", label: "Contact" },
 
   footer: {
     explore: [
       { href: "/", label: "Home" },
-      { href: "/tutoring", label: "Subjects and prices" },
-      { href: "/about", label: "About me" },
-      { href: "/tutoring-portsmouth", label: "Tutoring in Portsmouth" },
-      { href: "/faqs", label: "FAQs" },
-      { href: "/pupil-area", label: "Pupil area" },
+      { href: "/curriculum", label: "Curriculum" },
+      { href: "/costs", label: "Costs" },
+      { href: "/insights", label: "Insights" },
+      { href: "/about", label: "About" },
       { href: "/contact", label: "Contact" },
+      { href: "/faqs", label: "FAQs" },
+      { href: "/tutoring-portsmouth", label: "Tutoring in Portsmouth" },
+      { href: "/pupil-area", label: "Pupil area" },
     ],
     legal: [
       { href: "/policies", label: "Privacy notice" },
       { href: "/policies?tab=terms", label: "Tutoring terms" },
     ],
   },
+
+  /** Short practical notes for parents. Sanity is the CMS for the note bodies;
+   *  this array is the shape to model there, and the fallback until it is wired. */
+  insights: [
+    { slug: "phonics-screening-check", tag: "Phonics", read: "4 minute read",
+      title: "What the Year 1 phonics screening check actually asks",
+      blurb: "What the check is, why it uses nonsense words, and the three things worth practising at home in the term before it." },
+    { slug: "number-bonds", tag: "Maths", read: "3 minute read",
+      title: "Number bonds: the ten minutes a week that changes Year 2",
+      blurb: "Why bonds to 10 and 20 sit underneath almost every KS1 maths worry, and how to practise them without it feeling like homework." },
+    { slug: "choosing-books", tag: "Reading", read: "5 minute read",
+      title: "Choosing books your child can nearly read",
+      blurb: "The nine in ten rule, what to do with the tenth word, and why rereading the same page is not a waste of time." },
+    { slug: "handwriting-grip", tag: "Handwriting", read: "4 minute read",
+      title: "Grip, posture and why neat writing is not about trying harder",
+      blurb: "Untidy writing is usually mechanical. Here is what to look at before you ask a six year old to slow down again." },
+  ],
 
   hero: {
     heading: "A calm place for young minds to grow.",

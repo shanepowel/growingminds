@@ -10,19 +10,13 @@ export const site = {
   business: {
     name: "Growing Minds Tutoring",
     tagline: "KS1 specialist tutoring in Portsmouth and online",
-    // Email-first for now: when false the phone number is hidden everywhere and
-    // every contact affordance points at the enquiry form (which emails Sam and
-    // sends the parent a confirmation). Flip to true to show the phone again.
-    showPhone: false,
-    phone: "07921 080947",
-    phoneRaw: "+447921080947",
-    phoneHref: "tel:+447921080947",
+    // No phone number in v1: email is the only direct channel. Do not reintroduce one.
     credentialLine: "Qualified teacher, Enhanced DBS",
     deliveryLine: "Online and face to face",
     safeguardingLine:
       "Enhanced DBS certificate, registered on the DBS Update Service. Annual safeguarding training. Happy to show both at our first session.",
     dbsLine: "Enhanced DBS checked, registered on the DBS Update Service.",
-    phoneNote: "Tap to call, weekdays after 4pm",
+    emailNote: "I reply within one working day",
     email: "hello@growingmindstutoring.co",
     facebookUrl: "[FACEBOOK PAGE URL]",
     facebookPageName: "Growing Minds Tutoring",
@@ -64,23 +58,27 @@ export const site = {
     tagline: "Small steps, brighter days",
   },
 
-  /** Nav is four items. A fifth is a content decision for Sam, not a build decision. */
+  /** Nav is five links plus the Contact button and the Pupil Area sign in. */
   nav: [
-    { href: "/tutoring", label: "Subjects and prices" },
-    { href: "/about", label: "About me" },
-    { href: "/faqs", label: "FAQs" },
-    { href: "/contact", label: "Contact" },
+    { href: "/", label: "Home" },
+    { href: "/curriculum", label: "Curriculum" },
+    { href: "/costs", label: "Costs" },
+    { href: "/insights", label: "Insights" },
+    { href: "/about", label: "About" },
   ],
+  navCta: { href: "/contact", label: "Get in touch" },
 
   footer: {
     explore: [
       { href: "/", label: "Home" },
-      { href: "/tutoring", label: "Subjects and prices" },
-      { href: "/about", label: "About me" },
-      { href: "/tutoring-portsmouth", label: "Tutoring in Portsmouth" },
-      { href: "/faqs", label: "FAQs" },
-      { href: "/pupil-area", label: "Pupil area" },
+      { href: "/curriculum", label: "Curriculum" },
+      { href: "/costs", label: "Costs" },
+      { href: "/insights", label: "Insights" },
+      { href: "/about", label: "About" },
       { href: "/contact", label: "Contact" },
+      { href: "/faqs", label: "FAQs" },
+      { href: "/tutoring-portsmouth", label: "Tutoring in Portsmouth" },
+      { href: "/pupil-area", label: "Pupil area" },
     ],
     legal: [
       { href: "/policies", label: "Privacy notice" },
@@ -88,10 +86,28 @@ export const site = {
     ],
   },
 
+  /** Short practical notes for parents. Sanity is the eventual CMS for the note
+   *  bodies; this array is the shape to model there, and the fallback until it
+   *  is wired. */
+  insights: [
+    { slug: "phonics-screening-check", tag: "Phonics", read: "4 minute read",
+      title: "What the Year 1 phonics screening check actually asks",
+      blurb: "What the check is, why it uses nonsense words, and the three things worth practising at home in the term before it." },
+    { slug: "number-bonds", tag: "Maths", read: "3 minute read",
+      title: "Number bonds: the ten minutes a week that changes Year 2",
+      blurb: "Why bonds to 10 and 20 sit underneath almost every KS1 maths worry, and how to practise them without it feeling like homework." },
+    { slug: "choosing-books", tag: "Reading", read: "5 minute read",
+      title: "Choosing books your child can nearly read",
+      blurb: "The nine in ten rule, what to do with the tenth word, and why rereading the same page is not a waste of time." },
+    { slug: "handwriting-grip", tag: "Handwriting", read: "4 minute read",
+      title: "Grip, posture and why neat writing is not about trying harder",
+      blurb: "Untidy writing is usually mechanical. Here is what to look at before you ask a six year old to slow down again." },
+  ],
+
   hero: {
     heading: "A calm place for young minds to grow.",
     lead: "Kind, individual support in maths, reading, phonics and early writing for KS1 children in Portsmouth and online.",
-    primaryCta: "Send an enquiry",
+    primaryCta: "Book a free discovery call",
     secondaryCta: "Get in touch",
     scriptNote: "Small steps, brighter days",
     imageAlt: "Sam reading a picture book with a Key Stage 1 pupil at a sunlit table",
@@ -234,7 +250,7 @@ export const site = {
   ],
 
   gettingStarted: [
-    { n: "01", title: "Get in touch", body: "Fill in the form, call, or message the Facebook page. Whatever is easiest." },
+    { n: "01", title: "Get in touch", body: "Fill in the form, or message the Facebook page. Whatever is easiest." },
     { n: "02", title: "A free 15 minute chat", body: "We talk about how your child is getting on and what would help most." },
     { n: "03", title: "First session", body: "Gentle, game based, and you get a note afterwards on what I noticed." },
     { n: "04", title: "A regular slot", body: "Weekly usually works best. We review after six sessions." },
@@ -246,7 +262,7 @@ export const site = {
     { label: "Free intro chat", price: "Free", duration: "15 minutes, by phone or video", note: "A proper conversation about your child before you decide anything. No sales pitch." },
   ],
 
-  // Short pricing card on the home page. Full pricing lives on /tutoring#pricing.
+  // Short pricing card on the home page. Full pricing lives on /costs.
   pricingSummary: {
     headlinePrice: "[PRICE]",
     per: "per [45] minute session",
@@ -375,7 +391,7 @@ export const site = {
     },
     success: {
       title: "Thank you, that is with me",
-      lead: "Your enquiry is with me and a confirmation email is on its way to your inbox. I reply personally within one working day. If you would rather not wait, you can email me or message the Facebook page.",
+      lead: "I will reply within one working day. If you would rather not wait, or your email has gone astray, both of these reach me quickly.",
     },
     yearGroups: ["Reception", "Year 1", "Year 2", "Other"],
     modeOptions: [
@@ -401,27 +417,13 @@ export const site = {
     calUrl: "[CAL.COM URL]",
   },
 
-  footerNote: "Every child can achieve. With the right support, they will thrive.",
-  legalNote: "Enhanced DBS checked, registered on the DBS Update Service.",
-
-  /** The dark closing band shown on most pages (the one dark band per page). */
-  cta: {
-    script: "Let's help your child shine!",
-    heading: "Ready to start?",
-    body: "Send me a message with a little about your child. I reply by email within one working day, and the first 15 minute chat is free.",
-    primary: "Send an enquiry",
-  },
-
+  /** The one dark band a page is allowed, and the pale band directly above the
+   *  footer. Both draw on this single set of fields. */
   footerCta: {
     kicker: "Not sure where to start?",
     body: "Tell me a little about your child and I will come back to you within one working day. The first chat is free and there is no obligation.",
     primary: "Send an enquiry",
   },
-  footerBrandLine: "Small steps, brighter days",
-  footerSafeguarding:
-    "Enhanced DBS certificate, registered on the DBS Update Service. Annual safeguarding training. Happy to show both at our first session.",
-  footerAreasHeading: "Tutoring across Portsmouth",
-  footerCopyright: "\u00a9 2026 Growing Minds Tutoring. Sole trader, Portsmouth.",
 
   legal: {
     privacy: {

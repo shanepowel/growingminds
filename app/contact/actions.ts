@@ -119,7 +119,7 @@ async function sendEmails(data: {
       "",
       "Thank you for getting in touch about tutoring. I have received your enquiry and will reply within one working day.",
       "",
-      `If you would rather not wait, you can call me on ${site.business.phone} or message the Growing Minds Tutoring page on Facebook.`,
+      "If you would rather not wait, you can message the Growing Minds Tutoring page on Facebook.",
       "",
       "Best wishes,",
       "Sam",

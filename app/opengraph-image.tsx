@@ -52,7 +52,7 @@ export default function OpengraphImage() {
             color: "#FFFFFF",
           }}
         >
-          {`${site.business.name} · ${site.business.phone}`}
+          {site.business.name}
         </div>
       </div>
     ),

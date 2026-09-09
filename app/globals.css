@@ -125,6 +125,20 @@
                        transition: background-color .15s ease, color .15s ease; }
   .gm-btn-primary    { background: var(--color-green-mid); color: #fff; }
   .gm-btn-primary:hover   { background: var(--color-green); text-decoration: none; color: #fff; }
+  /* The header Contact button: the one place the brand gets depth. */
+  .gm-btn-cta        { background: linear-gradient(165deg, #5A8F49 0%, #3C6E33 55%, var(--color-green) 100%);
+                       color: #fff; padding: 13px 24px 13px 26px; letter-spacing: .01em; font-size: 15px;
+                       box-shadow: 0 1px 0 rgba(255,255,255,.28) inset,
+                                   0 6px 16px -6px rgba(27,74,44,.55),
+                                   0 0 0 1px rgba(27,74,44,.12);
+                       transition: box-shadow .18s ease, transform .18s ease; }
+  .gm-btn-cta:hover  { color: #fff; text-decoration: none; transform: translateY(-1px);
+                       box-shadow: 0 1px 0 rgba(255,255,255,.34) inset,
+                                   0 10px 22px -8px rgba(27,74,44,.62),
+                                   0 0 0 4px rgba(220,232,206,.75); }
+  .gm-btn-cta > .gm-btn-arrow { display: grid; place-items: center; width: 22px; height: 22px;
+                       border-radius: 50%; background: rgba(255,255,255,.18); font-size: 13px; line-height: 1; }
+
   .gm-btn-secondary  { background: transparent; color: var(--color-ink); border: 1.5px solid var(--color-sage-line); }
   .gm-btn-secondary:hover { background: var(--color-sage-pale); text-decoration: none; }
   .gm-btn-on-dark    { background: var(--color-sage); color: var(--color-ink); }
@@ -145,8 +159,14 @@
   /* organic image frame: the hero and portrait masks */
   .gm-blob           { border-radius: var(--radius-blob); overflow: hidden; }
   .gm-blob-alt       { border-radius: var(--radius-blob-b); overflow: hidden; }
+  /* Decorative shapes. Every paper section gets one or two; the section needs
+     position:relative + overflow:hidden and its content a z-index above them. */
   .gm-blob-peach     { position: absolute; background: var(--color-peach); border-radius: var(--radius-blob-b);
                        pointer-events: none; z-index: 0; }
+  .gm-blob-sage      { position: absolute; background: var(--color-sage); border-radius: var(--radius-blob);
+                       pointer-events: none; z-index: 0; opacity: .55; }
+  .gm-shaped         { position: relative; overflow: hidden; }
+  .gm-shaped > * + * { position: relative; }
 
   .gm-field          { width: 100%; padding: 13px 14px; border-radius: var(--radius-input);
                        border: 1.5px solid #D7DECF; background: #FCFDFA; color: #24302A; outline: none; }
@@ -154,7 +174,7 @@
   .gm-field-error    { border-color: var(--color-danger); }
   .gm-label          { display: block; font-weight: 800; font-size: 14.5px; color: var(--color-ink); margin-bottom: 6px; }
 
-  .gm-navlink        { padding: 8px 12px 6px; font-size: 15px; font-weight: 600; color: var(--color-body);
+  .gm-navlink        { padding: 7px 10px 5px; font-size: 15px; font-weight: 600; color: var(--color-body);
                        border-bottom: 2px solid transparent; white-space: nowrap; }
   .gm-navlink:hover  { color: var(--color-ink); text-decoration: none; }
   .gm-navlink-active { color: var(--color-ink); font-weight: 800; border-bottom-color: var(--color-green-mid); }

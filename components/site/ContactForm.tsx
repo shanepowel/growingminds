@@ -42,11 +42,6 @@ export function ContactForm() {
           <a href={facebookHref()} target="_blank" rel="noreferrer" className="gm-btn gm-btn-secondary">
             Message on Facebook
           </a>
-          {site.business.showPhone && (
-            <a href={site.business.phoneHref} className="gm-btn gm-btn-secondary">
-              Call {site.business.phone}
-            </a>
-          )}
         </div>
       </div>
     );

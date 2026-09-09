@@ -4,8 +4,8 @@ import { Section } from "@/components/Section";
 import { BlobImage } from "@/components/BlobImage";
 import { ScriptNote } from "@/components/ScriptNote";
 import { Card } from "@/components/Card";
-import { Cta } from "@/components/Cta";
-import { CheckItem } from "@/components/site/Check";
+import { CheckList } from "@/components/CheckList";
+import { CtaBand } from "@/components/CtaBand";
 import { PersonJsonLd } from "@/components/site/JsonLd";
 
 export const metadata: Metadata = {
@@ -36,13 +36,7 @@ export default function AboutPage() {
 
             <Card tone="sage">
               <h2 style={{ fontSize: 22, margin: "0 0 14px" }}>Qualifications and checks</h2>
-              <ul style={{ listStyle: "none", margin: 0, padding: 0 }}>
-                {site.tutor.qualifications.map((q, i) => (
-                  <CheckItem key={i} size={22}>
-                    {q}
-                  </CheckItem>
-                ))}
-              </ul>
+              <CheckList items={site.tutor.qualifications} />
             </Card>
           </div>
         </div>
@@ -66,7 +60,7 @@ export default function AboutPage() {
           <p style={{ margin: 0, fontSize: "17.5px", lineHeight: 1.7, color: "var(--color-body-dark)" }}>{site.tutor.whyITutor}</p>
         </div>
       </Section>
-      <Cta />
+      <CtaBand />
     </>
   );
 }

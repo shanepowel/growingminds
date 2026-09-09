@@ -5,7 +5,7 @@ Put these in `site.ts` as `legal.privacy.sections` and `legal.terms.sections`, e
 
 ## /privacy: Privacy notice
 
-**Who I am.** Growing Minds Tutoring is run by [FULL NAME], a self employed qualified teacher based in Portsmouth. I am the data controller for the information described here. You can reach me at hello@growingmindstutoring.co.uk or on 07921 080947.
+**Who I am.** Growing Minds Tutoring is run by [FULL NAME], a self employed qualified teacher based in Portsmouth. I am the data controller for the information described here. You can reach me at hello@growingmindstutoring.co or on 07921 080947.
 
 **What I collect.** From the enquiry form: your name, email address, optional phone number, your child's year group, the subjects and session type you are interested in, and your message. Once tutoring starts: your child's first name and my session notes. Please do not send me anything more than that. I do not collect dates of birth, medical records or school reports unless you choose to share something relevant, in which case I keep only what I need.
 
