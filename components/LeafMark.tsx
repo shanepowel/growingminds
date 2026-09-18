@@ -1,19 +1,36 @@
+import Image from "next/image";
+
 type Props = { size?: number; className?: string };
 
-/** Three-leaf brand mark. Sage, deep green, clay. Decorative: aria-hidden. */
-export function LeafMark({ size = 42, className }: Props) {
+/** Compact crop of the Growing Minds logo illustration. Size is height in px. */
+const MARK_RATIO = 400 / 256;
+
+export function LeafMark({ size = 46, className }: Props) {
+  const height = size;
+  const width = Math.round(size * MARK_RATIO);
   return (
-    <span
-      aria-hidden
+    <Image
+      src="/brand/logo-mark.png"
+      alt=""
+      width={width}
+      height={height}
       className={className}
-      style={{ width: size, height: size, position: "relative", flex: "0 0 auto", display: "block" }}
-    >
-      <i style={{ position: "absolute", left: "5%", top: "14%", width: "48%", height: "67%",
-        borderRadius: "60% 8% 60% 8%", background: "var(--color-green-soft)", transform: "rotate(-18deg)" }} />
-      <i style={{ position: "absolute", left: "28%", top: "5%", width: "43%", height: "62%",
-        borderRadius: "60% 8% 60% 8%", background: "var(--color-green)", transform: "rotate(6deg)" }} />
-      <i style={{ position: "absolute", left: "55%", top: "21%", width: "38%", height: "57%",
-        borderRadius: "60% 8% 60% 8%", background: "var(--color-clay)", transform: "rotate(26deg)" }} />
-    </span>
+      aria-hidden
+      style={{ width, height, objectFit: "contain", flex: "0 0 auto" }}
+    />
+  );
+}
+
+/** Full logo lockup, including the Growing Minds Tutoring wordmark. */
+export function BrandLockup({ height = 96, className }: { height?: number; className?: string }) {
+  return (
+    <Image
+      src="/brand/logo.png"
+      alt="Growing Minds Tutoring"
+      width={height}
+      height={height}
+      className={className}
+      style={{ width: height, height: height, objectFit: "contain" }}
+    />
   );
 }

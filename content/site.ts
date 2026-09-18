@@ -111,7 +111,7 @@ export const site = {
     primaryCta: "Book a free discovery call",
     secondaryCta: "Get in touch",
     scriptNote: "Small steps, brighter days",
-    imageAlt: "Sam reading a picture book with a Key Stage 1 pupil at a sunlit table",
+    imageAlt: "Sam at a sunlit table with books, phonics cards and counting cubes",
   },
 
   trust: [
@@ -213,7 +213,7 @@ export const site = {
         "No travel, so this is usually the easiest slot to find at short notice",
       ],
       image: "/brand/whiteboard-task.webp",
-      imageAlt: "A completed maths task on the shared whiteboard",
+      imageAlt: "Sam ready for an online session with a laptop, tablet and number bonds board",
     },
     {
       id: "at-mine",
@@ -228,7 +228,7 @@ export const site = {
         "We talk through needs and goals before the first session so I can plan properly",
       ],
       image: "/brand/tutoring-space.webp",
-      imageAlt: "The tutoring space: table, phonics cards, number line and book corner",
+      imageAlt: "Sam in a calm home tutoring space with books and maths cubes",
     },
     {
       id: "at-yours",

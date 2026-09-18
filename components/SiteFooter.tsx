@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { LeafMark } from "./LeafMark";
+import { BrandLockup } from "./LeafMark";
 import { Chip } from "./Chip";
 import { site } from "@/content/site";
 
@@ -12,13 +12,9 @@ export function SiteFooter() {
         gridTemplateColumns: "repeat(auto-fit, minmax(230px, 1fr))" }}>
         <div style={{ gridColumn: "1 / -1", display: "flex", flexWrap: "wrap", alignItems: "flex-end", gap: 18,
           paddingBottom: 26, borderBottom: "1px solid var(--color-rule)" }}>
-          <div style={{ flex: "1 1 300px", display: "flex", alignItems: "center", gap: 12 }}>
-            <LeafMark size={38} />
-            <span>
-              <span style={{ display: "block", fontFamily: "var(--font-display)", fontWeight: 600, fontSize: 22,
-                color: "var(--color-ink)", lineHeight: 1.05 }}>Growing Minds Tutoring</span>
-              <span className="gm-script" style={{ display: "block", fontSize: 24 }}>{site.brand.tagline}</span>
-            </span>
+          <div style={{ flex: "1 1 300px", display: "flex", alignItems: "center", gap: 16 }}>
+            <BrandLockup height={108} />
+            <span className="gm-script" style={{ display: "block", fontSize: 26 }}>{site.brand.tagline}</span>
           </div>
           <div style={{ fontSize: 15, lineHeight: 1.7, flex: "0 0 auto" }}>
             <a href={`mailto:${site.business.email}`} style={{ color: "var(--color-ink)", fontWeight: 800 }}>

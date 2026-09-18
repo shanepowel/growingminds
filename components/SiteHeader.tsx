@@ -22,7 +22,7 @@ export function SiteHeader({ pathname }: { pathname: string }) {
         <div className="gm-container" style={{ paddingBlock: 9, display: "flex", flexWrap: "wrap",
           alignItems: "center", gap: "10px 26px" }}>
           <Link href="/" style={{ display: "flex", alignItems: "center", gap: 12, flex: "0 0 auto" }}>
-            <LeafMark size={38} />
+            <LeafMark size={48} />
             <span>
               <span style={{ display: "block", fontFamily: "var(--font-display)", fontWeight: 600, fontSize: 19,
                 color: "var(--color-ink)", lineHeight: 1.05, whiteSpace: "nowrap" }}>Growing Minds</span>

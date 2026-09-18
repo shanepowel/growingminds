@@ -6,7 +6,13 @@ import Image from "next/image";
  * placeholder wash carrying the alt text, so a missing photo never ships as a
  * broken image. Add the path here (and drop the WebP in /public/brand) to go live.
  */
-const SHIPPED = new Set<string>([]);
+const SHIPPED = new Set<string>([
+  "/brand/hero.webp",
+  "/brand/sam-portrait.webp",
+  "/brand/tutoring-space.webp",
+  "/brand/whiteboard-task.webp",
+  "/brand/home-session.webp",
+]);
 
 type Props = {
   src: string;

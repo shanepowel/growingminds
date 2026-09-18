@@ -1,4 +1,4 @@
-import { LeafMark } from "@/components/LeafMark";
+import { BrandLockup } from "@/components/LeafMark";
 import { Button } from "@/components/Button";
 import { ScriptNote } from "@/components/ScriptNote";
 
@@ -6,7 +6,7 @@ export default function NotFound() {
   return (
     <section className="gm-container-narrow" style={{ paddingBlock: "100px 120px", textAlign: "center" }}>
       <div style={{ display: "grid", placeItems: "center", marginBottom: 20 }}>
-        <LeafMark size={72} />
+        <BrandLockup height={140} />
       </div>
       <ScriptNote>Oops</ScriptNote>
       <h1 style={{ fontSize: "var(--text-h1-page)", margin: "6px 0 12px" }}>This page has wandered off</h1>
