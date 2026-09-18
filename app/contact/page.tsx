@@ -23,7 +23,7 @@ export default function ContactPage() {
     <>
       <PageIntro
         title="Get in touch"
-        lead="Tell me a little about your child using the form and I will reply by email within one working day. There is no obligation, and the first 15 minute chat is free."
+        lead={site.contactLead}
       >
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: 28, alignItems: "start" }}>
         {paused ? (

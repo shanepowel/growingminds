@@ -16,7 +16,7 @@ export default function CostsPage() {
     <>
       <PageIntro
         title="Costs"
-        lead="No joining fee and no contract. Pay for the sessions you have, one at a time or in a block if you prefer to lock in a regular slot."
+        lead={site.pricingLead}
       >
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))", gap: 20 }}>
           {site.pricing.map((p) => (

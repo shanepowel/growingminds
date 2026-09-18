@@ -8,6 +8,7 @@ import { Button } from "@/components/Button";
 import { BlobImage } from "@/components/BlobImage";
 import { CtaBand } from "@/components/CtaBand";
 import { Testimonials } from "@/components/site/Testimonials";
+import { publishedTestimonials } from "@/lib/content";
 
 export const metadata: Metadata = {
   title: "KS1 tutoring in Portsmouth",
@@ -17,6 +18,8 @@ export const metadata: Metadata = {
 };
 
 export default function PortsmouthPage() {
+  const testimonials = publishedTestimonials();
+
   return (
     <>
       <Section>
@@ -66,9 +69,11 @@ export default function PortsmouthPage() {
         </div>
       </Section>
 
-      <Section tone="sage">
-        <Testimonials heading="From Portsmouth parents" showNote={false} />
-      </Section>
+      {testimonials.length > 0 && (
+        <Section tone="sage">
+          <Testimonials heading="From Portsmouth parents" quotes={testimonials} />
+        </Section>
+      )}
       <CtaBand />
     </>
   );

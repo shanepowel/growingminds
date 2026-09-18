@@ -23,8 +23,10 @@ export default function AboutPage() {
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: 34, alignItems: "start" }}>
           <BlobImage src="/brand/sam-portrait.webp" alt="Portrait of Sam in daylight" minHeight={440} />
           <div>
-            <ScriptNote>{`Hello, I'm ${site.tutor.name}`}</ScriptNote>
-            <h1 style={{ fontSize: "var(--text-h1-page)", margin: "4px 0 6px" }}>{site.tutor.role}</h1>
+            <h1 style={{ fontSize: "var(--text-h1-page)", margin: "4px 0 6px" }}>{site.tutor.heading}</h1>
+            <p style={{ margin: "0 0 6px", fontWeight: 700, color: "var(--color-green)", fontSize: 17 }}>
+              {site.tutor.role}
+            </p>
             <p style={{ margin: "0 0 20px", fontWeight: 700, color: "var(--color-green)", fontSize: 17 }}>
               Over {site.tutor.yearsExperience} years in Key Stage 1, based in Portsmouth
             </p>
@@ -57,7 +59,8 @@ export default function AboutPage() {
 
         <div style={{ marginTop: 34, maxWidth: "70ch" }}>
           <h2 style={{ margin: "0 0 12px" }}>Why I tutor</h2>
-          <p style={{ margin: 0, fontSize: "17.5px", lineHeight: 1.7, color: "var(--color-body-dark)" }}>{site.tutor.whyITutor}</p>
+          <p style={{ margin: "0 0 18px", fontSize: "17.5px", lineHeight: 1.7, color: "var(--color-body-dark)" }}>{site.tutor.whyITutor}</p>
+          <ScriptNote>{site.brand.tagline}</ScriptNote>
         </div>
       </Section>
       <CtaBand />

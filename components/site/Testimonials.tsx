@@ -1,16 +1,21 @@
-import { site } from "@/content/site";
+import { publishedTestimonials } from "@/lib/content";
+
+type Quote = ReturnType<typeof publishedTestimonials>[number];
 
 /**
- * Parent testimonials. Every quote is a [QUOTE] placeholder until Sam supplies
- * real ones with written permission.
+ * Parent testimonials. Hidden until Sam supplies real quotes with written
+ * permission. Do not fill with invented text.
  */
 export function Testimonials({
   heading = "What parents say",
-  showNote = true,
+  quotes,
 }: {
   heading?: string;
-  showNote?: boolean;
+  quotes?: Quote[];
 }) {
+  const items = quotes ?? publishedTestimonials();
+  if (items.length === 0) return null;
+
   return (
     <>
       <h2 style={{ textAlign: "center", margin: "0 0 26px" }}>{heading}</h2>
@@ -21,7 +26,7 @@ export function Testimonials({
           gap: 20,
         }}
       >
-        {site.testimonials.map((t, i) => (
+        {items.map((t, i) => (
           <figure key={i} className="gm-card" style={{ margin: 0 }}>
             <div
               aria-hidden
@@ -44,19 +49,6 @@ export function Testimonials({
           </figure>
         ))}
       </div>
-      {showNote && (
-        <p
-          style={{
-            textAlign: "center",
-            marginTop: 20,
-            fontFamily: "ui-monospace, monospace",
-            fontSize: 12,
-            color: "var(--color-muted)",
-          }}
-        >
-          real quotes to replace [QUOTE] placeholders, with written permission
-        </p>
-      )}
     </>
   );
 }

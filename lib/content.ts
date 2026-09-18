@@ -28,6 +28,13 @@ export function hasHref(value: string | undefined | null): boolean {
   return !isPlaceholder(value);
 }
 
+/** Genuine parent quotes only. Placeholders and empty slots stay off the site. */
+export function publishedTestimonials() {
+  return site.testimonials.filter(
+    (t) => !isPlaceholder(t.quote) && !isPlaceholder(t.parentName),
+  );
+}
+
 /**
  * Facebook link. Uses Sam's page URL once she supplies it; until then it points
  * at a Facebook search for the business so the button still lands somewhere useful.

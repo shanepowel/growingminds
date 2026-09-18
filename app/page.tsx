@@ -10,8 +10,11 @@ import { Eyebrow } from "@/components/Eyebrow";
 import { Button } from "@/components/Button";
 import { CtaBand } from "@/components/CtaBand";
 import { Testimonials } from "@/components/site/Testimonials";
+import { publishedTestimonials } from "@/lib/content";
 
 export default function HomePage() {
+  const testimonials = publishedTestimonials();
+
   return (
     <>
       <Hero />
@@ -114,10 +117,11 @@ export default function HomePage() {
         </div>
       </Section>
 
-      {/* Testimonials */}
-      <Section tone="sage">
-        <Testimonials />
-      </Section>
+      {testimonials.length > 0 && (
+        <Section tone="sage">
+          <Testimonials quotes={testimonials} />
+        </Section>
+      )}
 
       {/* Pricing teaser + FAQ teaser */}
       <Section>
