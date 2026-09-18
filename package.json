@@ -18,6 +18,9 @@
     "resend": "^6.26.0",
     "zod": "^4.5.4"
   },
+  "allowScripts": {
+    "unrs-resolver": true
+  },
   "devDependencies": {
     "@tailwindcss/postcss": "^4.3.3",
     "@types/node": "^22.10.0",

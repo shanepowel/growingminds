@@ -22,7 +22,7 @@ export const site = {
     facebookPageName: "Growing Minds Tutoring",
     domain: "growingmindstutoring.co.uk",
     travelRadiusMiles: "[X]",
-    travelFee: "[TRAVEL FEE]",
+    travelFee: "£5",
     areasCovered: [
       "Portsmouth", "Southsea", "Cosham", "Drayton", "Farlington",
       "Havant", "Waterlooville", "Gosport", "Fareham", "Portchester",
@@ -32,26 +32,27 @@ export const site = {
   tutor: {
     name: "Sam",
     fullName: "[FULL NAME]",
+    heading: "Hello, I'm Sam",
     role: "Qualified Primary School Teacher",
     yearsExperience: 15,
     dbs: { enhanced: true, updateService: true },
     qualifications: [
       "Qualified Teacher Status (QTS)",
-      "Over 15 years teaching in Key Stage 1",
+      "Over 15 years teaching in Key Stage 1, including KS1 leadership and leading mathematics across a primary school",
       "Enhanced DBS certificate, registered on the DBS Update Service",
       "Annual safeguarding and child protection training",
-      "Trained in [PHONICS SCHEME] systematic synthetic phonics",
+      "Extensive understanding of the main phonics programmes, including Little Wandle and Letters and Sounds",
+      "Trained in a range of handwriting schemes, including Kinetic Letters",
     ],
     bio: [
-      "I have spent my career in Key Stage 1 classrooms, which means I know exactly where children tend to wobble in Reception, Year 1 and Year 2, and how quickly that wobble can turn into confidence with a bit of one to one attention.",
-      "Sessions are calm, practical and personalised. We use the same phonics scheme and methods your child's school uses, so nothing I do contradicts their teacher. I keep parents in the loop after every session with a short note on what we covered and what to practise.",
+      "I am a qualified primary school teacher with over 15 years of experience in Key Stage 1, including KS1 leadership and leading mathematics across a primary school. After many years in the classroom I now offer one to one tutoring, which is where I have always seen children make the fastest progress: with someone who has the time to notice exactly what they need and the patience to build their confidence back up.",
     ],
     safeguarding: [
-      "I hold an Enhanced DBS certificate and keep it on the DBS Update Service, so you can check it is current yourself. I complete annual safeguarding training as part of my teaching practice.",
-      "For sessions at your home, a parent or carer stays in the property throughout. I never transport children. Online sessions happen in a shared space you can see and hear at any time, and nothing is recorded without your written consent.",
+      "I hold an Enhanced DBS certificate, registered on the DBS Update Service, and undertake annual safeguarding training. I am happy to show both at our first session.",
+      "For sessions at your home, a parent or carer stays in the property throughout. I never transport children. Online sessions happen in a shared space you can see and hear at any time. Sessions are not routinely recorded, and only ever with prior written consent for a specific reason.",
     ],
-    // Replace with Sam's own wording before launch.
-    whyITutor: "[WHY I TUTOR]",
+    whyITutor:
+      "I specialise in the early years of school because that is where secure foundations matter most. When number sense, phonics and early writing are solid, everything that comes after is easier. When there is a gap, it tends to widen. Tutoring is the chance to close it gently, before it becomes something a child believes about themselves.",
   },
 
   brand: {
@@ -110,7 +111,7 @@ export const site = {
     primaryCta: "Book a free discovery call",
     secondaryCta: "Get in touch",
     scriptNote: "Small steps, brighter days",
-    imageAlt: "Sam reading a picture book with a Key Stage 1 pupil at a sunlit table",
+    imageAlt: "Sam at a sunlit table with books, phonics cards and counting cubes",
   },
 
   trust: [
@@ -125,7 +126,7 @@ export const site = {
       title: "Maths",
       icon: "plus",
       blurb: "Number, place value and the methods their school uses.",
-      long: "Most KS1 maths worries come down to shaky number sense. We slow down, use cubes and number lines, and rebuild it properly before moving on to written methods.",
+      long: "Most KS1 maths worries come down to shaky number sense. We slow down, use practical resources like cubes and number lines, and make sure your child understands and embeds each concept before moving on to written methods.",
       outcomes: [
         "Counting, place value and number bonds to 10 and 20",
         "Addition and subtraction, including the missing number puzzles that catch children out",
@@ -133,14 +134,14 @@ export const site = {
         "Shape, measure and telling the time",
         "Word problems, and how to work out what is actually being asked",
       ],
-      session: "A quick warm up game, ten minutes on the tricky thing, a practical activity with cubes or coins, then something they can already do well so they finish feeling capable.",
+      session: "A quick warm up game revisiting previous learning for ten minutes, then a practical activity using a range of resources, then applying the new learning to a slightly more independent task with one to one support, so your child finishes with a real sense of success.",
     },
     {
       slug: "early-reading",
       title: "Early Reading",
       icon: "book-open",
       blurb: "Decoding, fluency and actually enjoying a book.",
-      long: "Reading in KS1 is two jobs at once: working out the words, and understanding them. We build both, with books pitched so your child succeeds around nine times in ten.",
+      long: "Reading in KS1 is two jobs at once: decoding the words, and understanding them. We build both, with books pitched to the phonics phase your child is currently working on so they succeed around nine times in ten.",
       outcomes: [
         "Blending and decoding unfamiliar words",
         "Common exception words on sight",
@@ -148,29 +149,29 @@ export const site = {
         "Retelling and answering questions about what they read",
         "Building the habit of choosing to read",
       ],
-      session: "We read together, I note the words that trip them up, we practise those, then reread the same page so they hear their own improvement.",
+      session: "We look at the key features of the book, such as the title and pictures, to support understanding. We review any recurring sounds likely to appear in the text, then read together. I help your child break tricky words into manageable segments, and we chat about the book throughout so I can check understanding in a fun, informal way.",
     },
     {
       slug: "phonics",
       title: "Phonics",
       icon: "type",
       blurb: "Systematic phonics, matched to your school's scheme.",
-      long: "I teach phonics the way schools do, in phases, so nothing I say contradicts their teacher. I will ask which scheme the school uses before the first session.",
+      long: "I have an extensive understanding of the main phonics programmes, including Little Wandle and Letters and Sounds, so I can work alongside whatever scheme your child uses at school. I teach phonics in phases, the way schools do, so nothing I say contradicts their teacher. I will ask which scheme the school uses before the first session.",
       outcomes: [
         "Phases 2 to 5 sounds, in order, with gaps filled",
         "Digraphs, trigraphs and alternative spellings",
         "Segmenting for spelling as well as blending for reading",
         "Preparation for the Year 1 phonics screening check",
-        "Nonsense word practice, because the check uses them",
+        "Real and pseudo (\"alien\") word practice, because the check uses them",
       ],
-      session: "Sound review with flashcards, a new sound taught, reading and writing words with it, then a short game to make it stick.",
+      session: "A sound review with flashcards, a new sound taught, reading and writing words that use it, then a short game to make it stick.",
     },
     {
       slug: "handwriting",
       title: "Handwriting",
       icon: "pencil",
       blurb: "Letter formation, posture and comfortable stamina.",
-      long: "Untidy writing is usually a grip and formation problem, not carelessness. Fixing it early saves years of frustration and makes every other subject easier.",
+      long: "Inconsistent writing is usually a grip and formation problem, not carelessness. Fixing it early saves years of frustration and makes every other subject easier. I am trained in a range of handwriting schemes, including Kinetic Letters, which many schools now use.",
       outcomes: [
         "Correct letter formation and starting points",
         "Pencil grip, paper position and posture",
@@ -181,8 +182,8 @@ export const site = {
       session: "A short physical warm up for the hands, focused practice on one letter family, then applying it to real writing so it transfers.",
     },
     {
-      slug: "literacy",
-      title: "Literacy",
+      slug: "writing",
+      title: "Writing",
       icon: "pen-line",
       blurb: "Sentences, spelling and getting ideas onto paper.",
       long: "Plenty of KS1 children have brilliant ideas and freeze when asked to write them down. We work on the gap between the two.",
@@ -193,7 +194,7 @@ export const site = {
         "Planning a short story or recount before writing it",
         "Rereading and improving their own work",
       ],
-      session: "Talk the idea through first, plan it in pictures or boxes, write a little, then read it back aloud together and improve one thing.",
+      session: "We usually begin with a short warm up to build confidence and revisit previous learning. Then we focus on one writing skill, such as developing ideas, organising writing, choosing effective vocabulary, sentence structure, punctuation or checking work. I model the skill clearly before guiding your child through practical activities, with plenty of chances to share ideas, ask questions and practise independently. We might use games, discussion, pictures, planning activities and creative prompts to keep it engaging.",
     },
   ],
 
@@ -202,133 +203,143 @@ export const site = {
       id: "online",
       icon: "monitor",
       title: "Online",
-      short: "A shared whiteboard, a tablet or laptop, and 30 to 45 focused minutes.",
-      intro: "Online works better for KS1 than most parents expect. We use a shared whiteboard we can both draw on, so it feels like sitting side by side rather than watching a video call.",
+      short: "A shared whiteboard, a tablet or laptop, and 45 focused minutes.",
+      intro: "Online works better for KS1 than most parents expect. We use a secure video call and a shared whiteboard we can both draw on, so it feels like sitting side by side rather than watching a screen.",
       points: [
-        "All you need is a tablet or laptop, a quiet spot and headphones if the house is busy",
+        "All you need is a tablet, laptop or desktop with a reliable connection, a quiet spot, and a working camera and microphone",
         "A tablet with a stylus is ideal, but a finger and a trackpad work fine",
         "You are welcome to sit in, and you can hear everything from the next room",
-        "Sessions can be recorded as short whiteboard clips for revision, only with your written consent, and never video of your child",
+        "I send the joining details and any resources in advance",
         "No travel, so this is usually the easiest slot to find at short notice",
       ],
       image: "/brand/whiteboard-task.webp",
-      imageAlt: "A completed maths task on the shared whiteboard",
+      imageAlt: "Sam ready for an online session with a laptop, tablet and number bonds board",
     },
     {
       id: "at-mine",
       icon: "house",
       title: "At my home in Portsmouth",
-      short: "A proper little learning space, with parking and somewhere to wait.",
-      intro: "I have a dedicated tutoring space at home in Portsmouth, set up like a small classroom corner with the resources I used in school.",
+      short: "A calm, quiet and safe space to learn, with off street parking and somewhere to wait.",
+      intro: "A calm, quiet and welcoming space at my home, with off street parking and somewhere to wait. I provide all the resources and equipment, though your child is welcome to bring any schoolwork, books or stationery that would help. Before the first session we talk through your child's needs and goals so I can plan properly.",
       points: [
-        "A table at child height, phonics cards, number lines, cubes and a book corner",
-        "Parents are welcome to stay. There is a seat in the same room or just outside it",
-        "Free parking on the street directly outside",
-        "Full address shared once we have spoken. It is not published online",
-        "Enhanced DBS certificate available to see at the first session",
+        "Off street parking and somewhere to wait",
+        "I provide all the resources and equipment",
+        "Your child is welcome to bring schoolwork, books or stationery",
+        "We talk through needs and goals before the first session so I can plan properly",
       ],
       image: "/brand/tutoring-space.webp",
-      imageAlt: "The tutoring space: table, phonics cards, number line and book corner",
+      imageAlt: "Sam in a calm home tutoring space with books and maths cubes",
     },
     {
       id: "at-yours",
       icon: "car",
       title: "At your home",
       short: "I bring everything needed, across Portsmouth and nearby towns.",
-      intro: "Sometimes the kitchen table is where a child is most relaxed, and that is worth a lot at this age. I bring all the resources with me.",
+      intro: "A focused session in the comfort of your own home. I bring all the learning resources needed for a fun, engaging session, so there is nothing for you to prepare. It helps to have any relevant schoolwork, books or stationery nearby. Available across Portsmouth and nearby towns.",
       showAreas: true,
       points: [
-        "A parent or carer stays in the property throughout the session",
-        "I bring cubes, cards, books and worksheets, so you need nothing but a table",
-        "Travel is included within [X] miles of Portsmouth, then [TRAVEL FEE] per session",
-        "A quiet room away from screens and siblings makes a real difference",
-        "I never transport children",
+        "I bring all the learning resources, so there is nothing for you to prepare",
+        "It helps to have any relevant schoolwork, books or stationery nearby",
+        "Available across Portsmouth and nearby towns",
+        "Travel is included within [X] miles of Portsmouth. For longer distances an additional £5 per session may apply",
       ],
       image: "/brand/home-session.webp",
       imageAlt: "Counting cubes and a phonics flashcard on a kitchen table",
     },
   ],
 
+  modesClosing:
+    "At the end of every session, whichever way we meet, I briefly review what we have covered and explain any suggested next steps.",
+
   gettingStarted: [
-    { n: "01", title: "Get in touch", body: "Fill in the form, or message the Facebook page. Whatever is easiest." },
-    { n: "02", title: "A free 15 minute chat", body: "We talk about how your child is getting on and what would help most." },
-    { n: "03", title: "First session", body: "Gentle, game based, and you get a note afterwards on what I noticed." },
-    { n: "04", title: "A regular slot", body: "Weekly usually works best. We review after six sessions." },
+    { n: "01", title: "Get in touch", body: "Fill in the enquiry form, or message the Facebook page. Whatever is easiest." },
+    { n: "02", title: "A free 15 minute chat", body: "We talk about how your child is getting on and what would help most, and decide together whether my support is a good fit." },
+    { n: "03", title: "First session", body: "Gentle and game based. I get to know your child, find the areas to work on, and start to see how they learn best. You get a note afterwards on what I noticed." },
+    { n: "04", title: "A regular slot", body: "Weekly usually works best. We review after roughly six sessions, when I give you detailed feedback on progress and we discuss next steps." },
   ],
 
+  pricingLead:
+    "No joining fee and no contract. Pay for the sessions you have. Prices are per 45 minute session and depend only on where the session takes place.",
+
   pricing: [
-    { label: "Single session", price: "[PRICE]", duration: "[45] minutes, online or face to face", note: "Pay after each session by bank transfer. No commitment to book again." },
-    { label: "Block of six", price: "[BLOCK]", duration: "Six [45] minute sessions", note: "Works out at [PER SESSION] a session and holds your weekly slot. Valid for [X] weeks." },
+    { label: "Online", price: "£27", duration: "45 minutes", note: "45 minutes on a secure video call and shared whiteboard. Usually the easiest slot to find at short notice." },
+    { label: "At my home in Portsmouth", price: "£35", duration: "45 minutes, face to face", note: "With off street parking and somewhere to wait." },
+    { label: "At your home", price: "£40", duration: "45 minutes, face to face", note: "Everything brought to you. For longer distances an additional travel fee of £5 may apply." },
     { label: "Free intro chat", price: "Free", duration: "15 minutes, by phone or video", note: "A proper conversation about your child before you decide anything. No sales pitch." },
+    // Remove this tile if Sam does not want to offer a block. Price and validity still needed.
+    { label: "Block of six", price: "[BLOCK PRICE]", duration: "Six 45 minute sessions, holding your regular weekly slot", note: "Valid for [X] weeks." },
   ],
 
   // Short pricing card on the home page. Full pricing lives on /costs.
   pricingSummary: {
-    headlinePrice: "[PRICE]",
-    per: "per [45] minute session",
-    note: "Blocks of six sessions at [BLOCK PRICE]. No joining fee, no minimum commitment, and the first 15 minute chat is free.",
+    headlinePrice: "From £27",
+    per: "per 45 minute session",
+    note: "Depending on whether sessions are online or face to face. No joining fee, no minimum commitment, and the first 15 minute chat is free.",
   },
 
   policies: [
-    { title: "Travel", body: "Included within [X] miles of Portsmouth. Beyond that there is a [TRAVEL FEE] contribution per session. Online sessions have no travel charge at all." },
+    { title: "Travel", body: "Included within [X] miles of Portsmouth. Beyond that, an additional £5 per session may apply for longer distances. Online sessions have no travel charge at all." },
     { title: "Cancellations", body: "24 hours notice and there is nothing to pay. Inside 24 hours the session is charged, because the slot cannot be filled. If your child is unwell, just tell me and we will rearrange." },
     { title: "How to pay", body: "Bank transfer, after each session or in advance for a block. I send a simple invoice. No card fees, no subscriptions, no automatic renewals." },
   ],
 
-  // Nothing here ships until Sam has written permission for each quote.
-  testimonials: [
-    { quote: "[QUOTE]", parentName: "[PARENT NAME]", childYear: "Year 1" },
-    { quote: "[QUOTE]", parentName: "[PARENT NAME]", childYear: "Reception" },
-    { quote: "[QUOTE]", parentName: "[PARENT NAME]", childYear: "Year 2" },
-  ],
+  // Fill only with genuine quotes from real parents, with written permission.
+  // Attribute simply, for example "Emma" and "Year 1". Hide the home section until then.
+  testimonials: [] as readonly {
+    quote: string;
+    parentName: string;
+    childYear: string;
+  }[],
 
   faqs: [
     {
       group: "Getting started",
       items: [
-        { q: "What ages do you tutor?", a: "Key Stage 1, which means Reception, Year 1 and Year 2, roughly ages 4 to 7. That is where my classroom experience is, and it is where one to one help makes the biggest difference. I am happy to recommend someone else if your child is older." },
-        { q: "How many sessions will my child need?", a: "Most families start weekly and review after six sessions. Some children need a short burst of six to eight weeks before the phonics check, others stay for a school year. I will tell you honestly when I think we are done." },
-        { q: "What happens in the first session?", a: "We keep it light. I get to know your child, play a few games that quietly tell me what they can do, and start on something they will succeed at. You get a short note afterwards with what I noticed and what I plan next." },
+        { q: "What ages do you tutor?", a: "Key Stage 1, which means Reception, Year 1 and Year 2, roughly ages 4 to 7. That is where my classroom experience is, and it is where one to one help makes the biggest difference. I am happy to recommend someone else if your child is older. Sessions are tailored to your child's individual starting point rather than simply their age." },
+        { q: "How many sessions will my child need?", a: "Every child is different, so there is no set number. Some benefit from a short block of targeted support, others from regular, ongoing sessions to build confidence and secure their learning. I review your child's progress continually and will always be open and honest about whether continued tutoring would be worthwhile. There is no expectation to commit for a set length of time." },
+        { q: "What happens in the first session?", a: "It is relaxed, and a chance for your child to get to know me and get used to how tutoring works. We talk about their interests, strengths and anything they find tricky. I may use a few activities to get a clearer picture of where they are, but it will not feel like a formal test and your child will be encouraged throughout. By the end I will understand how to tailor future sessions so they are engaging, supportive and focused on progress." },
       ],
     },
     {
       group: "Online sessions",
       items: [
-        { q: "What do we need for an online session?", a: "A tablet or laptop, a stable internet connection and a quiet spot. Headphones help in a busy house. A stylus is a bonus, not a requirement." },
-        { q: "Do you record sessions?", a: "Only with your written consent, and by default I record the whiteboard and my voice rather than video of your child. A four minute clip of how we tackled column addition is far more useful for revision. Clips are shared only with your family, through a link I can revoke, and deleted after 12 months or when tutoring ends." },
-        { q: "Will a five year old really concentrate on a screen?", a: "With the right pacing, yes. Sessions are 30 to 45 minutes, activities change every few minutes, and the shared whiteboard keeps their hands busy. If it genuinely is not working for your child, I will say so and we will switch to face to face." },
+        { q: "What do we need for an online session?", a: "A suitable device (laptop, desktop or tablet) with a reliable internet connection, and a quiet, comfortable space to work without too many distractions. Please make sure the device has a working camera and microphone. I provide the platform details and joining instructions before the session, and we agree any resources or materials in advance." },
+        { q: "Do you record sessions?", a: "No, sessions are not routinely recorded. This helps create a comfortable, private learning environment for your child. If there is ever a specific reason to record, I would discuss it with you first and only record with your consent. Any recording would be handled securely and deleted when it is no longer needed." },
+        { q: "Will a five year old really concentrate on a screen?", a: "Yes, many five year olds engage really well online when sessions are planned around their age, interests and attention span. I keep sessions interactive and varied, using conversation, games, visual resources and practical activities rather than expecting your child to sit and watch. Short activities and regular changes of pace keep focus up, and I can adapt if your child needs a movement break or a different approach. I get to know your child and adjust so they feel comfortable, engaged and ready to learn." },
       ],
     },
     {
       group: "Face to face sessions",
       items: [
-        { q: "Which areas do you travel to?", a: "Portsmouth, Southsea, Cosham, Drayton, Farlington, Havant, Waterlooville, Gosport, Fareham and Portchester. Travel is included within [X] miles, with a small charge beyond that. Anywhere further, online is the sensible option." },
-        { q: "Can I stay during the session?", a: "Yes, always, whether we are at my home or yours. For home visits a parent or carer needs to be in the property throughout." },
+        { q: "Which areas do you travel to?", a: "I travel across Portsmouth and nearby towns. There is no travel charge within [X] miles; for longer distances an additional £5 per session may apply. You are also welcome to come to my home in Portsmouth, where there is off street parking." },
+        { q: "Can I stay during the session?", a: "Yes, you are welcome to stay, particularly if it helps your child feel settled. Some children engage best with a parent nearby, others become more independent when given a little space, and we can find what works for yours and adjust over time. You are also welcome to check in before or after each session so we can share feedback and talk about progress." },
       ],
     },
     {
       group: "Progress and reports",
       items: [
-        { q: "Do you set homework?", a: "Something small, usually five or ten minutes a few times a week. Little and often beats a long session at the weekend, and I will never send home something that causes an argument." },
-        { q: "How will I know if it is working?", a: "You get a short note after every session on what we covered and what to practise. Every half term I write a slightly longer summary of progress against the objectives we are working on." },
-        { q: "Do you work with children with additional needs?", a: "Often, yes. I have taught children with dyslexia, speech and language needs, ADHD and autism in mainstream KS1 classrooms. Tell me what helps your child at school and we will build on that. If your child needs specialist provision I will say so rather than take your money." },
+        { q: "Do you set homework?", a: "Not as a requirement. I may occasionally suggest a short, manageable activity to practise a skill between sessions, always tailored to your child and designed to feel achievable rather than overwhelming. I will talk any suggested practice through with you and make sure it fits comfortably alongside everything else. Getting the most out of each session is the main focus." },
+        { q: "How will I know if it is working?", a: "I keep you updated on what we are working on, celebrate progress, and let you know honestly about the areas we are still developing. After roughly six sessions I give you more detailed feedback and we discuss any recommended next steps." },
+        { q: "Do you work with children with additional needs?", a: "Yes. I work with children with a range of additional needs and take the time to understand your child's individual strengths, needs and learning preferences. Sessions are tailored so your child feels comfortable, supported and able to make progress, and I work closely with you to find suitable approaches. If your child receives support from other professionals, I am happy to discuss how tutoring might complement it." },
       ],
     },
     {
       group: "Safeguarding and data",
       items: [
-        { q: "Can I see your DBS certificate?", a: "Yes. I hold an Enhanced DBS and keep it on the Update Service, so you can check it is current yourself. I will bring the certificate to the first session." },
-        { q: "What information do you keep about my child?", a: "As little as possible: your name, email and phone, your child's first name and year group, and my session notes. Nothing else, no date of birth, no address beyond what I need to visit. It is deleted 12 months after tutoring ends." },
+        { q: "Can I see your DBS certificate?", a: "Yes. I hold an Enhanced DBS certificate and am happy to provide details on request. It reassures families that appropriate safeguarding checks have been completed before tutoring begins." },
+        { q: "What information do you keep about my child?", a: "Before we start, it helps to understand a little about your child. Useful details include their age and school year, the areas they would like support with, any specific difficulties or goals, what they enjoy and what motivates them, any relevant feedback or assessments from school, any additional needs or support strategies, their preferred learning style if known, and any important medical, communication or safeguarding information. You only need to share what is relevant. Everything is treated sensitively and used solely to plan appropriate, personalised sessions." },
       ],
     },
   ],
 
-  // Three short questions teased on the home page; full set in `faqs`.
+  // Two short questions teased on the home page; full set in `faqs`.
   faqTeaser: [
     { q: "What ages do you tutor?", a: "Reception, Year 1 and Year 2, roughly ages 4 to 7." },
-    { q: "Do you record sessions?", a: "Only with your written consent, and by default it is the whiteboard rather than your child." },
-    { q: "Do you set homework?", a: "Five or ten minutes a few times a week. Little and often, never an argument." },
+    { q: "Do you set homework?", a: "Only occasionally, and always short. A few minutes to practise a skill between sessions, never an argument. Getting the most from each session matters more." },
   ],
+
+  contactLead:
+    "Tell me a little about your child and what would help most. I reply within one working day, and the first 15 minute chat is always free with no obligation. You can also message the Facebook page if that is easier.",
 
   /** /pupil-area. Signposting only in v1: no auth on this site, Google Classroom is the login. */
   pupilArea: {
@@ -346,7 +357,7 @@ export const site = {
     ],
     records: [
       "Homework, marked work and my comments stay in your Google Classroom, which doubles as your child's record of achievement. Whiteboard pages from each session are saved so we can pick up where we left off.",
-      "Recordings, if you have consented to them, are short whiteboard clips in a Google Drive folder shared only with your family. You can ask me to delete anything at any time.",
+      "Sessions are not routinely recorded. If there is ever a specific reason to record, I would discuss it with you first and only record with your consent. Any recording would be handled securely, shared only with your family, and deleted when it is no longer needed.",
     ],
 
     /** The single sign in funnel at the top of /pupil-area. The button needs
@@ -367,7 +378,7 @@ export const site = {
       cards: [
         { h: "No account for your child", p: "The parent signs in with their own Google account. Children under 13 do not get logins, so there is nothing for a child to lose or share." },
         { h: "What I hold, in full", p: "Your name, email and phone, your child's first name and year group, and my session notes. No surname, no date of birth, no home address on file." },
-        { h: "No child faces, no video", p: "By default I record the whiteboard and my voice only, and only if you have said yes in writing. Consent can be withdrawn at any time." },
+        { h: "Sessions are not routinely recorded", p: "If there is ever a specific reason to record, I would discuss it with you first and only record with your consent. Consent can be withdrawn at any time." },
         { h: "UK or EU storage, then deleted", p: "Anything saved is stored in the UK or EU, shared by a revocable link with your family alone, and deleted after 12 months or when tutoring ends." },
       ],
       footnote: "Anything here can be deleted on request, and asking will never affect your child's tutoring. The full detail is in the privacy notice.",
@@ -440,7 +451,7 @@ export const site = {
         },
         {
           h: "Why I collect it, and my lawful basis",
-          p: "To reply to your enquiry and to deliver tutoring. My lawful basis is legitimate interests for responding to an enquiry, and contract for delivering sessions you have booked. Recordings rely on your consent, which is separate and optional.",
+          p: "To reply to your enquiry and to deliver tutoring. My lawful basis is legitimate interests for responding to an enquiry, and contract for delivering sessions you have booked. Recordings rely on your consent, which is separate and optional, and are not made as a matter of course.",
         },
         {
           h: "Children's data",
@@ -448,7 +459,7 @@ export const site = {
         },
         {
           h: "Recordings",
-          p: "Sessions are only recorded with your written consent. By default I record the whiteboard and my voice, not video of your child. Recordings are stored in the UK or EU, shared only with your family through a link that can be revoked, and deleted after 12 months or when tutoring ends.",
+          p: "Sessions are not routinely recorded. If there is ever a specific reason to record, I would discuss it with you first and only record with your written consent. Any recording is stored in the UK or EU, shared only with your family through a link that can be revoked, and deleted when it is no longer needed, and in any case after 12 months or when tutoring ends.",
         },
         {
           h: "How long I keep things",
@@ -490,7 +501,7 @@ export const site = {
         },
         {
           h: "6. Recordings",
-          p: "Nothing is recorded without your written consent, which you can withdraw at any time without affecting the tutoring. Recordings are whiteboard and audio by default, shared only with your family through a link I can revoke, and deleted after 12 months or at the end of tutoring, whichever comes first.",
+          p: "Sessions are not routinely recorded. Nothing is recorded without your written consent, which you can withdraw at any time without affecting the tutoring. Any recording is shared only with your family through a link I can revoke, and deleted when it is no longer needed, and in any case after 12 months or at the end of tutoring, whichever comes first.",
         },
         {
           h: "7. Progress",

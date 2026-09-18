@@ -8,7 +8,7 @@ import { FaqJsonLd } from "@/components/site/JsonLd";
 export const metadata: Metadata = {
   title: "Questions parents ask",
   description:
-    "Answers to common questions about KS1 tutoring: ages, session numbers, online sessions, recordings, additional needs, safeguarding and data.",
+    "Answers to common questions about KS1 tutoring: ages, session numbers, online sessions, homework, additional needs, safeguarding and data.",
   alternates: { canonical: "/faqs" },
 };
 
