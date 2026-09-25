@@ -5,7 +5,7 @@ import type { ReactNode } from "react";
 type Subject = {
   title: string;
   long: string;
-  session: string;
+  session: readonly string[];
   outcomes: readonly string[];
 };
 
@@ -40,7 +40,9 @@ export function SubjectCard({ subject, index, icon }: { subject: Subject; index:
           </p>
           <div style={{ background: "#fff", border: `1px solid ${line}`, borderRadius: 16, padding: "18px 20px" }}>
             <p className="gm-eyebrow" style={{ margin: "0 0 8px" }}>A typical session</p>
-            <p style={{ margin: 0, fontSize: "15.5px", color: "var(--color-body)", lineHeight: 1.6 }}>{subject.session}</p>
+            {subject.session.map((para, i) => (
+              <p key={i} style={{ margin: i === 0 ? 0 : "10px 0 0", fontSize: "15.5px", color: "var(--color-body)", lineHeight: 1.6 }}>{para}</p>
+            ))}
           </div>
         </div>
         <div style={{ minWidth: 0 }}>

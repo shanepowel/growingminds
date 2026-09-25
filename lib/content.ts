@@ -28,6 +28,16 @@ export function hasHref(value: string | undefined | null): boolean {
   return !isPlaceholder(value);
 }
 
+/** A FAQ answer block: a string is a paragraph, an array is a bulleted list. */
+export type FaqBlock = string | readonly string[];
+
+/** Flattens a FAQ answer to plain text, for structured data. */
+export function faqAnswerText(blocks: readonly FaqBlock[]): string {
+  return blocks
+    .map((b) => (typeof b === "string" ? b : b.map((li) => `- ${li}`).join("\n")))
+    .join("\n\n");
+}
+
 /**
  * Facebook link. Uses Sam's page URL once she supplies it; until then it points
  * at a Facebook search for the business so the button still lands somewhere useful.

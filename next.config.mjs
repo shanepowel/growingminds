@@ -9,6 +9,7 @@ const nextConfig = {
       { source: "/how-it-works", destination: "/curriculum", permanent: true },
       { source: "/tutoring", destination: "/curriculum", permanent: true },
       { source: "/pricing", destination: "/costs", permanent: true },
+      { source: "/tutoring-portsmouth", destination: "/tutoring-waterlooville", permanent: true },
       { source: "/privacy", destination: "/policies?tab=privacy", permanent: true },
       { source: "/terms", destination: "/policies?tab=terms", permanent: true },
     ];

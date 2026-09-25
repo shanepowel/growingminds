@@ -9,7 +9,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/costs",
     "/insights",
     "/about",
-    "/tutoring-portsmouth",
+    "/tutoring-waterlooville",
     "/faqs",
     "/pupil-area",
     "/contact",

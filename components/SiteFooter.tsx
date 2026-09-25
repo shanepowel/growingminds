@@ -20,6 +20,10 @@ export function SiteFooter() {
               <span className="gm-script" style={{ display: "block", fontSize: 24 }}>{site.brand.tagline}</span>
             </span>
           </div>
+          <div style={{ flex: "1 1 100%", order: 3, fontSize: "14.5px", lineHeight: 1.7 }}>
+            <p style={{ margin: 0, fontWeight: 800, color: "var(--color-ink)" }}>{site.footer.credentials.join(" | ")}</p>
+            <p style={{ margin: 0 }}>{site.footer.areaLine.join(" | ")}</p>
+          </div>
           <div style={{ fontSize: 15, lineHeight: 1.7, flex: "0 0 auto" }}>
             <a href={`mailto:${site.business.email}`} style={{ color: "var(--color-ink)", fontWeight: 800 }}>
               {site.business.email}
@@ -37,7 +41,7 @@ export function SiteFooter() {
         </div>
 
         <div style={{ gridColumn: "1 / -1" }}>
-          <p className="gm-eyebrow" style={{ margin: "0 0 12px" }}>Tutoring across Portsmouth</p>
+          <p className="gm-eyebrow" style={{ margin: "0 0 12px" }}>{site.footer.areasHeading}</p>
           <ul style={{ display: "flex", flexWrap: "wrap", gap: 6, listStyle: "none", margin: 0, padding: 0 }}>
             {site.business.areasCovered.map((area) => (
               <li key={area}><Chip label={area} /></li>
@@ -49,7 +53,7 @@ export function SiteFooter() {
       <div style={{ borderTop: "1px solid var(--color-rule)" }}>
         <div className="gm-container" style={{ paddingBlock: 15, display: "flex", flexWrap: "wrap",
           gap: "8px 20px", fontSize: "13.5px", color: "var(--color-muted)" }}>
-          <span>&copy; {new Date().getFullYear()} Growing Minds Tutoring. Sole trader, Portsmouth.</span>
+          <span>&copy; {new Date().getFullYear()} {site.footer.copyright}</span>
           <span style={{ marginInlineStart: "auto" }}>{site.business.dbsLine}</span>
         </div>
       </div>

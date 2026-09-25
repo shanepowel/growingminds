@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { Minus, Plus } from "lucide-react";
 import { site } from "@/content/site";
+import type { FaqBlock } from "@/lib/content";
 
 export function Faqs() {
   // One open at a time; first item open on load.
@@ -78,7 +79,17 @@ export function Faqs() {
                     aria-labelledby={btnId}
                     style={{ padding: "0 20px 19px", maxWidth: "70ch", fontSize: 16, lineHeight: 1.7, color: "var(--color-body)" }}
                   >
-                    {item.a}
+                    {(item.a as readonly FaqBlock[]).map((block, bi) =>
+                      typeof block === "string" ? (
+                        <p key={bi} style={{ margin: bi === 0 ? 0 : "12px 0 0" }}>{block}</p>
+                      ) : (
+                        <ul key={bi} style={{ margin: bi === 0 ? 0 : "10px 0 0", paddingInlineStart: 22 }}>
+                          {block.map((li) => (
+                            <li key={li} style={{ padding: "2px 0" }}>{li}</li>
+                          ))}
+                        </ul>
+                      ),
+                    )}
                   </div>
                 )}
               </div>
