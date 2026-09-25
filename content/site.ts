@@ -113,7 +113,7 @@ export const site = {
     primaryCta: "Book a free discovery call",
     secondaryCta: "Get in touch",
     scriptNote: "Little steps. Growing confidence. Growing minds.",
-    imageAlt: "Sam reading a picture book with a Key Stage 1 pupil at a sunlit table",
+    imageAlt: "Illustration of Sam at her tutoring desk with a tablet, phonics and maths books, and counting cubes",
   },
 
   trust: [
@@ -229,7 +229,7 @@ export const site = {
         "At the end of each session, I will briefly review what we have covered and explain any suggested activities or next steps.",
       ],
       image: "/brand/whiteboard-task.webp",
-      imageAlt: "A completed maths task on the shared whiteboard",
+      imageAlt: "Illustration of a completed maths task, 7 + 3 = 10, on the shared whiteboard",
     },
     {
       id: "at-mine",
@@ -244,7 +244,7 @@ export const site = {
         "At the end of each session, I will briefly review what we have covered and explain any suggested activities or next steps.",
       ],
       image: "/brand/tutoring-space.webp",
-      imageAlt: "The tutoring space: table, phonics cards, number line and book corner",
+      imageAlt: "Illustration of the tutoring space: table, phonics cards, number line and bookshelves",
     },
     {
       id: "at-yours",
@@ -260,7 +260,7 @@ export const site = {
       ],
       showAreas: true,
       image: "/brand/home-session.webp",
-      imageAlt: "Counting cubes and a phonics flashcard on a kitchen table",
+      imageAlt: "Illustration of counting cubes and a phonics flashcard on a kitchen table",
     },
   ],
 
@@ -324,7 +324,7 @@ export const site = {
     heading: "KS1 tutoring in Waterlooville",
     intro: "I am a qualified primary school teacher with over 15 years' experience in Key Stage 1, offering one-to-one tutoring for children aged 5 to 7. Sessions take place at my home in Waterlooville, at your home within Waterlooville and surrounding areas, or online.",
     cta: "Enquire about a Waterlooville slot",
-    imageAlt: "Travel area across Waterlooville and surrounding areas",
+    imageAlt: "Illustration of Waterlooville at the centre of the local travel area",
     areasHeading: "Areas I cover around Waterlooville",
     areasLead: "Face to face sessions at your home in any of these areas. Anywhere further afield, online works just as well and there is no travel to pay for.",
     optionsHeading: "Options and prices",

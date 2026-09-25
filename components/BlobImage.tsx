@@ -1,12 +1,20 @@
 import Image from "next/image";
 
 /**
- * Real photo paths that have actually been supplied and live in /public/brand.
- * Until a path is listed here, BlobImage renders an organic-masked peach/sage
+ * Image paths that exist in /public/brand. For now these are illustrated
+ * placeholders (scripts/placeholder-images.cjs), drawn from Sam's own photo,
+ * until real photos arrive. Until a path is listed here, BlobImage renders an organic-masked peach/sage
  * placeholder wash carrying the alt text, so a missing photo never ships as a
  * broken image. Add the path here (and drop the WebP in /public/brand) to go live.
  */
-const SHIPPED = new Set<string>([]);
+const SHIPPED = new Set<string>([
+  "/brand/hero.webp",
+  "/brand/sam-portrait.webp",
+  "/brand/tutoring-space.webp",
+  "/brand/home-session.webp",
+  "/brand/whiteboard-task.webp",
+  "/brand/waterlooville.webp",
+]);
 
 type Props = {
   src: string;
