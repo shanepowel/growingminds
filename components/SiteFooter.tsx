@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { LeafMark } from "./LeafMark";
+import { Logo } from "./LogoMark";
 import { Chip } from "./Chip";
 import { site } from "@/content/site";
 
@@ -12,13 +12,9 @@ export function SiteFooter() {
         gridTemplateColumns: "repeat(auto-fit, minmax(230px, 1fr))" }}>
         <div style={{ gridColumn: "1 / -1", display: "flex", flexWrap: "wrap", alignItems: "flex-end", gap: 18,
           paddingBottom: 26, borderBottom: "1px solid var(--color-rule)" }}>
-          <div style={{ flex: "1 1 300px", display: "flex", alignItems: "center", gap: 12 }}>
-            <LeafMark size={38} />
-            <span>
-              <span style={{ display: "block", fontFamily: "var(--font-display)", fontWeight: 600, fontSize: 22,
-                color: "var(--color-ink)", lineHeight: 1.05 }}>Growing Minds Tutoring</span>
-              <span className="gm-script" style={{ display: "block", fontSize: 24 }}>{site.brand.tagline}</span>
-            </span>
+          <div style={{ flex: "1 1 300px", display: "flex", alignItems: "center", gap: 18 }}>
+            <Logo width={120} />
+            <span className="gm-script" style={{ display: "block", fontSize: 24 }}>{site.brand.tagline}</span>
           </div>
           <div style={{ flex: "1 1 100%", order: 3, fontSize: "14.5px", lineHeight: 1.7 }}>
             <p style={{ margin: 0, fontWeight: 800, color: "var(--color-ink)" }}>{site.footer.credentials.join(" | ")}</p>
