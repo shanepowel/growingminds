@@ -20,7 +20,8 @@ export const site = {
     email: "hello@growingmindstutoring.co",
     facebookUrl: "[FACEBOOK PAGE URL]",
     facebookPageName: "Growing Minds Tutoring",
-    domain: "growingmindstutoring.co.uk",
+    // The live host. Used for canonical URLs, the sitemap, OG and structured data.
+    domain: "www.growingmindstutoring.co",
     // Sam is based in Waterlooville. Still to confirm with her which of these she travels to.
     areasCovered: [
       "Waterlooville", "Portsmouth", "Southsea", "Cosham", "Drayton",
@@ -479,7 +480,7 @@ export const site = {
     // When appEnabled is true, sign in affordances point at the pupil app (appUrl).
     // When false, they point at Google Classroom directly (links[0].href or its fallback).
     appEnabled: false,
-    appUrl: "https://pupils.growingmindstutoring.co.uk",
+    appUrl: "https://pupils.growingmindstutoring.co",
     intro: "Everything for your child's sessions lives in one place: your own Google Classroom. There is no separate password for this website, and nothing for your child to remember.",
     note: "You sign in with the Google account you gave me when we started. Your classroom is private to your family, and only you and I can see it.",
     links: [
