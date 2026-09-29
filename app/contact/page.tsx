@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { Mail } from "lucide-react";
 import { site } from "@/content/site";
 import { facebookHref, hasHref } from "@/lib/content";
@@ -9,11 +10,17 @@ import { ContactForm } from "@/components/site/ContactForm";
 export const metadata: Metadata = {
   title: "Get in touch",
   description:
-    "Send an enquiry about KS1 tutoring in Portsmouth or online. Sam replies within one working day. Message on Facebook too.",
+    "Send an enquiry about KS1 tutoring in Waterlooville, the surrounding areas or online. Sam replies within one working day. Message on social media too.",
   alternates: { canonical: "/contact" },
 };
 
-export default function ContactPage() {
+export default async function ContactPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ enquiry?: string | string[] }>;
+}) {
+  const { enquiry } = await searchParams;
+  const prefill = typeof enquiry === "string" ? site.form.prefill[enquiry] : undefined;
   const paused = site.status === "paused";
   const fbHref = facebookHref();
   const showBooking = site.booking.enabled;
@@ -23,7 +30,7 @@ export default function ContactPage() {
     <>
       <PageIntro
         title="Get in touch"
-        lead="Tell me a little about your child using the form and I will reply by email within one working day. There is no obligation, and the first 15 minute chat is free."
+        lead="Tell me a little about your child and what would help most. I reply within one working day, and the first 15 minute chat is always free with no obligation. You can also message me via social media if that is easier."
       >
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: 28, alignItems: "start" }}>
         {paused ? (
@@ -38,12 +45,21 @@ export default function ContactPage() {
             <p style={{ margin: 0, fontSize: "16.5px", lineHeight: 1.7, color: "var(--color-body)" }}>{site.form.paused.lead}</p>
           </div>
         ) : (
-          <ContactForm />
+          <ContactForm defaultMessage={prefill} />
         )}
 
         <div style={{ display: "grid", gap: 18 }}>
           <div className="gm-card-dark">
-            <h2 style={{ color: "#fff", fontSize: 22, margin: "0 0 14px" }}>Or reach me directly</h2>
+            <div style={{ display: "flex", alignItems: "center", gap: 14, margin: "0 0 16px" }}>
+              <Image
+                src="/brand/sam-avatar.webp"
+                alt={`${site.tutor.name}, your tutor`}
+                width={64}
+                height={64}
+                style={{ borderRadius: "50%", border: "2px solid var(--color-sage)", flex: "0 0 auto" }}
+              />
+              <h2 style={{ color: "#fff", fontSize: 22, margin: 0 }}>Or reach me directly</h2>
+            </div>
             <a
               href={`mailto:${site.business.email}`}
               style={{ display: "flex", alignItems: "center", gap: 14, background: "rgba(255,255,255,.08)", border: "1px solid rgba(220,232,206,.3)", borderRadius: 14, padding: "15px 16px", marginBottom: 10, color: "#fff" }}

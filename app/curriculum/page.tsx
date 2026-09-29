@@ -12,7 +12,7 @@ import { CtaBand } from "@/components/CtaBand";
 export const metadata: Metadata = {
   title: "Curriculum",
   description:
-    "How a session works, then everything I teach: Maths, Early Reading, Phonics, Handwriting and Literacy, aligned to the Key Stage 1 national curriculum.",
+    "How a session works, then everything I teach: Maths, Early Reading, Phonics, Handwriting and Writing, aligned to the Key Stage 1 national curriculum.",
   alternates: { canonical: "/curriculum" },
 };
 

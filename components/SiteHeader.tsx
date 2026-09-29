@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { Mail, UserRound } from "lucide-react";
-import { LeafMark } from "./LeafMark";
+import { LogoMark } from "./LogoMark";
 import { site } from "@/content/site";
 
 /** Two rows. Sage trust strip (not sticky) then the sticky brand + nav bar. */
@@ -22,7 +22,7 @@ export function SiteHeader({ pathname }: { pathname: string }) {
         <div className="gm-container" style={{ paddingBlock: 9, display: "flex", flexWrap: "wrap",
           alignItems: "center", gap: "10px 26px" }}>
           <Link href="/" style={{ display: "flex", alignItems: "center", gap: 12, flex: "0 0 auto" }}>
-            <LeafMark size={38} />
+            <LogoMark size={46} />
             <span>
               <span style={{ display: "block", fontFamily: "var(--font-display)", fontWeight: 600, fontSize: 19,
                 color: "var(--color-ink)", lineHeight: 1.05, whiteSpace: "nowrap" }}>Growing Minds</span>

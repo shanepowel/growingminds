@@ -1,16 +1,19 @@
 import { site } from "@/content/site";
+import { isPlaceholder } from "@/lib/content";
+
+/** Only quotes Sam has written permission for, never [QUOTE] placeholders. */
+export function publishedTestimonials() {
+  return site.testimonials.filter((t) => !isPlaceholder(t.quote));
+}
 
 /**
- * Parent testimonials. Every quote is a [QUOTE] placeholder until Sam supplies
- * real ones with written permission.
+ * Parent testimonials. Placeholder slots are hidden rather than shown as gaps;
+ * render nothing at all when there is no real quote yet.
  */
-export function Testimonials({
-  heading = "What parents say",
-  showNote = true,
-}: {
-  heading?: string;
-  showNote?: boolean;
-}) {
+export function Testimonials({ heading = "What parents say" }: { heading?: string }) {
+  const quotes = publishedTestimonials();
+  if (quotes.length === 0) return null;
+
   return (
     <>
       <h2 style={{ textAlign: "center", margin: "0 0 26px" }}>{heading}</h2>
@@ -19,9 +22,11 @@ export function Testimonials({
           display: "grid",
           gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))",
           gap: 20,
+          maxWidth: quotes.length === 1 ? 720 : undefined,
+          marginInline: "auto",
         }}
       >
-        {site.testimonials.map((t, i) => (
+        {quotes.map((t, i) => (
           <figure key={i} className="gm-card" style={{ margin: 0 }}>
             <div
               aria-hidden
@@ -39,24 +44,11 @@ export function Testimonials({
               {t.quote}
             </blockquote>
             <figcaption style={{ marginTop: 16, fontWeight: 800, color: "var(--color-green)", fontSize: "14.5px" }}>
-              {t.parentName}, {t.childYear} parent
+              {t.byline}
             </figcaption>
           </figure>
         ))}
       </div>
-      {showNote && (
-        <p
-          style={{
-            textAlign: "center",
-            marginTop: 20,
-            fontFamily: "ui-monospace, monospace",
-            fontSize: 12,
-            color: "var(--color-muted)",
-          }}
-        >
-          real quotes to replace [QUOTE] placeholders, with written permission
-        </p>
-      )}
     </>
   );
 }

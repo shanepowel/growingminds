@@ -10,7 +10,7 @@ handoff/ (done)  ->  Claude Code, 11 sessions  ->  Cursor polish  ->  Vercel x2
 
 | Item | Choice | Cost |
 |---|---|---|
-| Domain | growingmindstutoring.co.uk and .uk, Cloudflare Registrar | approx. £10 per year |
+| Domain | growingmindstutoring.co, Cloudflare Registrar | approx. £10 per year |
 | DNS, SSL, hello@ forwarding, Turnstile | Cloudflare | £0 |
 | Hosting, both apps | Vercel Hobby, two projects | £0 |
 | Enquiry and session note emails | Resend free (3,000 per month) | £0 |
@@ -104,7 +104,7 @@ One session per step, fresh context, commit and push at the end of each. Every p
 
 ### Session 11: deploy both apps
 
-> Read CLAUDE.md. Configure the two Vercel projects (root directories apps/web and apps/pupils, functions region lhr1), env vars, custom domains growingmindstutoring.co.uk and pupils.growingmindstutoring.co.uk, .uk redirect. Supabase auth redirect URLs for the production and preview domains. Write README-for-sam.md: editing site.ts in GitHub's web editor, the status flag, swapping a testimonial, adding a pupil in the app, what to do if a parent cannot sign in.
+> Read CLAUDE.md. Configure the two Vercel projects (root directories apps/web and apps/pupils, functions region lhr1), env vars, custom domains www.growingmindstutoring.co (apex redirecting to www) and pupils.growingmindstutoring.co. Supabase auth redirect URLs for the production and preview domains. Write README-for-sam.md: editing site.ts in GitHub's web editor, the status flag, swapping a testimonial, adding a pupil in the app, what to do if a parent cannot sign in.
 >
 > Acceptance: both apps live on HTTPS, preview deploys on PRs, Sam has edited site.ts once and added her first pupil.
 

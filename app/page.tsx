@@ -9,7 +9,7 @@ import { Card } from "@/components/Card";
 import { Eyebrow } from "@/components/Eyebrow";
 import { Button } from "@/components/Button";
 import { CtaBand } from "@/components/CtaBand";
-import { Testimonials } from "@/components/site/Testimonials";
+import { Testimonials, publishedTestimonials } from "@/components/site/Testimonials";
 
 export default function HomePage() {
   return (
@@ -115,9 +115,11 @@ export default function HomePage() {
       </Section>
 
       {/* Testimonials */}
-      <Section tone="sage">
-        <Testimonials />
-      </Section>
+      {publishedTestimonials().length > 0 && (
+        <Section tone="sage">
+          <Testimonials />
+        </Section>
+      )}
 
       {/* Pricing teaser + FAQ teaser */}
       <Section>
@@ -134,18 +136,33 @@ export default function HomePage() {
               Pricing
             </p>
             <h2 style={{ color: "#fff", margin: "0 0 8px" }}>Simple and clear</h2>
-            <div style={{ display: "flex", alignItems: "baseline", gap: 8, margin: "14px 0 6px" }}>
-              <span style={{ fontFamily: "var(--font-display)", fontSize: 52, fontWeight: 700, lineHeight: 1, color: "#fff" }}>
-                {site.pricingSummary.headlinePrice}
-              </span>
-              <span style={{ color: "var(--color-on-dark)", fontSize: 16 }}>{site.pricingSummary.per}</span>
-            </div>
+            <p style={{ color: "var(--color-on-dark)", fontSize: 16, margin: "0 0 10px" }}>{site.pricingSummary.heading}</p>
+            <ul style={{ listStyle: "none", margin: "0 0 14px", padding: 0 }}>
+              {site.pricingSummary.prices.map((p) => (
+                <li key={p.label} style={{ display: "flex", alignItems: "baseline", gap: 14, padding: "8px 0" }}>
+                  <span style={{ fontFamily: "var(--font-display)", fontSize: 40, fontWeight: 700, lineHeight: 1, color: "#fff", minWidth: "2.4ch" }}>
+                    {p.price}
+                  </span>
+                  <span>
+                    <span style={{ display: "block", color: "#fff", fontWeight: 800, fontSize: 16 }}>{p.label}</span>
+                    {"note" in p && (
+                      <span style={{ display: "block", color: "var(--color-on-dark)", fontSize: 14, lineHeight: 1.5 }}>{p.note}</span>
+                    )}
+                  </span>
+                </li>
+              ))}
+            </ul>
             <p style={{ fontSize: "15.5px", color: "var(--color-on-dark)", lineHeight: 1.6, margin: "0 0 20px" }}>
               {site.pricingSummary.note}
             </p>
-            <Button href="/costs" variant="onDark">
-              See full pricing
-            </Button>
+            <div style={{ display: "flex", flexWrap: "wrap", gap: 12 }}>
+              <Button href="/costs" variant="onDark">
+                {site.pricingSummary.fullCta}
+              </Button>
+              <Button href={site.blockQuoteHref} variant="onDark">
+                {site.pricingSummary.quoteCta} &rarr;
+              </Button>
+            </div>
           </Card>
 
           <div>

@@ -1,6 +1,6 @@
 # Pupil app: `apps/pupils`
 
-Lives at `pupils.growingmindstutoring.co.uk`. Scaffolded and deployed at launch so Sam starts keeping records in it from her first pupil; grows into the full portal later without a migration.
+Lives at `pupils.growingmindstutoring.co`. Scaffolded and deployed at launch so Sam starts keeping records in it from her first pupil; grows into the full portal later without a migration.
 
 ## 1. Stack
 
@@ -132,7 +132,7 @@ SUPABASE_SERVICE_ROLE_KEY          server only, used by the sign in callback to 
 TUTOR_EMAIL                        Sam's Google account
 RESEND_API_KEY
 RESEND_FROM                        notes@growingmindstutoring.co
-NEXT_PUBLIC_MARKETING_URL          https://growingmindstutoring.co.uk
+NEXT_PUBLIC_MARKETING_URL          https://growingmindstutoring.co
 PUPIL_APP_ENABLED                  true/false, mirrors site.pupilArea.appEnabled
 ```
 

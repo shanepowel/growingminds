@@ -7,7 +7,7 @@ import { CtaBand } from "@/components/CtaBand";
 
 export const metadata: Metadata = {
   title: "Costs",
-  description: "Simple, clear tutoring prices with no joining fee and no contract. Pay for the sessions you have, one at a time or in a block.",
+  description: "Simple, clear KS1 tutoring prices for 45 minute sessions: £27 online, £35 at my home in Waterlooville, £40 at your home. No joining fee and no contract.",
   alternates: { canonical: "/costs" },
 };
 
@@ -16,11 +16,11 @@ export default function CostsPage() {
     <>
       <PageIntro
         title="Costs"
-        lead="No joining fee and no contract. Pay for the sessions you have, one at a time or in a block if you prefer to lock in a regular slot."
+        lead={site.costs.lead}
       >
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))", gap: 20 }}>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))", gap: 18 }}>
           {site.pricing.map((p) => (
-            <PriceCard key={p.label} tier={p} />
+            <PriceCard key={p.label} tier={p} ctaHref={site.blockQuoteHref} />
           ))}
         </div>
 

@@ -11,7 +11,7 @@ import { PersonJsonLd } from "@/components/site/JsonLd";
 export const metadata: Metadata = {
   title: "About Sam",
   description:
-    "Sam is a qualified primary school teacher with over 15 years in Key Stage 1, Enhanced DBS checked, tutoring in Portsmouth and online.",
+    "Sam is a qualified primary school teacher with over 15 years in Key Stage 1, Enhanced DBS checked, tutoring in Waterlooville and online.",
   alternates: { canonical: "/about" },
 };
 
@@ -21,12 +21,12 @@ export default function AboutPage() {
       <PersonJsonLd />
       <Section>
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: 34, alignItems: "start" }}>
-          <BlobImage src="/brand/sam-portrait.webp" alt="Portrait of Sam in daylight" minHeight={440} />
+          <BlobImage src="/brand/sam-portrait.webp" alt="Sam at her tutoring desk" minHeight={440} />
           <div>
             <ScriptNote>{`Hello, I'm ${site.tutor.name}`}</ScriptNote>
             <h1 style={{ fontSize: "var(--text-h1-page)", margin: "4px 0 6px" }}>{site.tutor.role}</h1>
             <p style={{ margin: "0 0 20px", fontWeight: 700, color: "var(--color-green)", fontSize: 17 }}>
-              Over {site.tutor.yearsExperience} years in Key Stage 1, based in Portsmouth
+              Over {site.tutor.yearsExperience} years in Key Stage 1, based in Waterlooville
             </p>
             {site.tutor.bio.map((para, i) => (
               <p key={i} style={{ margin: "0 0 16px", fontSize: "17.5px", lineHeight: 1.7, color: "var(--color-body-dark)" }}>
@@ -58,6 +58,10 @@ export default function AboutPage() {
         <div style={{ marginTop: 34, maxWidth: "70ch" }}>
           <h2 style={{ margin: "0 0 12px" }}>Why I tutor</h2>
           <p style={{ margin: 0, fontSize: "17.5px", lineHeight: 1.7, color: "var(--color-body-dark)" }}>{site.tutor.whyITutor}</p>
+        </div>
+
+        <div style={{ marginTop: 34 }}>
+          <ScriptNote>{site.brand.tagline}</ScriptNote>
         </div>
       </Section>
       <CtaBand />

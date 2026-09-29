@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import { CheckList } from "./CheckList";
 import { Chip } from "./Chip";
 import { BlobImage } from "./BlobImage";
 import { site } from "@/content/site";
@@ -36,9 +35,10 @@ export function ModeTabs() {
         style={{ padding: 32, display: "grid", gap: 34, alignItems: "start",
           gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))" }}>
         <div style={{ minWidth: 0 }}>
-          <h3 style={{ fontSize: 29, marginBottom: 12 }}>{mode.title}</h3>
-          <p style={{ margin: "0 0 18px", fontSize: 17, lineHeight: 1.7, color: "var(--color-body-dark)" }}>{mode.intro}</p>
-          <CheckList items={mode.points} />
+          <h3 style={{ fontSize: 29, marginBottom: 12 }}>{mode.heading}</h3>
+          {mode.body.map((para, i) => (
+            <p key={i} style={{ margin: "0 0 14px", fontSize: 17, lineHeight: 1.7, color: "var(--color-body-dark)" }}>{para}</p>
+          ))}
         </div>
         <div style={{ minWidth: 0 }}>
           <BlobImage src={mode.image} alt={mode.imageAlt} variant="b" minHeight={280} />

@@ -1,5 +1,5 @@
 import { site } from "@/content/site";
-import { hasHref } from "@/lib/content";
+import { hasHref, faqAnswerText } from "@/lib/content";
 
 const siteUrl = `https://${site.business.domain}`;
 
@@ -35,7 +35,7 @@ export function OrganizationJsonLd() {
         })),
         address: {
           "@type": "PostalAddress",
-          addressLocality: "Portsmouth",
+          addressLocality: "Waterlooville",
           addressRegion: "Hampshire",
           addressCountry: "GB",
         },
@@ -67,7 +67,7 @@ export function PersonJsonLd() {
 
 export function FaqJsonLd() {
   const questions: { q: string; a: string }[] = site.faqs.flatMap((group) =>
-    group.items.map((item) => ({ q: item.q, a: item.a })),
+    group.items.map((item) => ({ q: item.q, a: faqAnswerText(item.a) })),
   );
   return (
     <JsonLd

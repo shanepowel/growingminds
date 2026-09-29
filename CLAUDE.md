@@ -10,8 +10,8 @@ Two products, one monorepo:
 
 | App | Domain | Purpose | State at launch |
 |---|---|---|---|
-| `apps/web` | `growingmindstutoring.co.uk` | Marketing site, enquiry form, signposting to the pupil area | Complete, live |
-| `apps/pupils` | `pupils.growingmindstutoring.co.uk` | Parent sign in, session notes, record of achievement, links to whiteboard and recordings | Scaffolded, deployed, behind a flag, Sam is the only user |
+| `apps/web` | `growingmindstutoring.co` | Marketing site, enquiry form, signposting to the pupil area | Complete, live |
+| `apps/pupils` | `pupils.growingmindstutoring.co` | Parent sign in, session notes, record of achievement, links to whiteboard and recordings | Scaffolded, deployed, behind a flag, Sam is the only user |
 
 Google Classroom stays the system of record for homework and marked work at launch. The pupil app adds what Classroom does not do: progress against KS1 objectives, a parent-facing session note, and a single place for the whiteboard, video and recording links. It grows into the full portal (whiteboard, video, recordings in our own storage) only when demand justifies it.
 

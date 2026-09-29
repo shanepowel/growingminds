@@ -8,6 +8,7 @@ import { PageIntro } from "@/components/PageIntro";
 import { Eyebrow } from "@/components/Eyebrow";
 import { Card } from "@/components/Card";
 import { Button } from "@/components/Button";
+import { ScriptNote } from "@/components/ScriptNote";
 
 export const metadata: Metadata = {
   title: "Pupil area",
@@ -92,6 +93,10 @@ export default function PupilAreaPage() {
                 <Link href="/policies?tab=privacy">privacy notice</Link>.
               </p>
             </Card>
+          </div>
+
+          <div style={{ marginTop: 26, textAlign: "center" }}>
+            <ScriptNote>{site.brand.tagline}</ScriptNote>
           </div>
         </div>
       </Section>

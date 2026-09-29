@@ -11,7 +11,7 @@ import { Chip } from "@/components/Chip";
 
 const initialState: EnquiryState = { status: "idle" };
 
-export function ContactForm() {
+export function ContactForm({ defaultMessage }: { defaultMessage?: string }) {
   const isWaitlist = site.status === "waitlist";
   const copy = isWaitlist ? site.form.waitlist : site.form.accepting;
 
@@ -121,6 +121,7 @@ export function ContactForm() {
             id="gm-msg"
             name="message"
             rows={4}
+            defaultValue={defaultMessage}
             placeholder="A sentence or two about how your child is getting on and what you would like help with."
             aria-invalid={!!errors.message}
             className={`gm-field ${errors.message ? "gm-field-error" : ""}`}
