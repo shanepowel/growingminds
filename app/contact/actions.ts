@@ -72,12 +72,12 @@ async function sendEmails(data: {
   message: string;
 }) {
   const apiKey = process.env.RESEND_API_KEY;
-  // No key configured (local/dev) → log instead of failing, so the flow is testable.
   if (!apiKey) {
-    console.info("[enquiry] Resend not configured; enquiry received:", {
-      ...data,
-      email: data.email,
-    });
+    // On Vercel a missing key must fail loudly: otherwise the parent is told
+    // the enquiry was sent when nobody will ever see it.
+    if (process.env.VERCEL) throw new Error("RESEND_API_KEY is not set");
+    // Local development only: log instead of sending, so the flow is testable.
+    console.info("[enquiry] Resend not configured; enquiry received:", data);
     return;
   }
 
@@ -90,8 +90,9 @@ async function sendEmails(data: {
   const modeLabel =
     site.form.modeOptions.find((m) => m.id === data.mode)?.label ?? "Not specified";
 
-  // Notification to Sam, reply-to set to the parent.
-  await resend.emails.send({
+  // Notification to Sam, reply-to set to the parent. The SDK reports failures
+  // (unverified domain, bad key) in `error` rather than throwing.
+  const notification = await resend.emails.send({
     from,
     to,
     replyTo: data.email,
@@ -108,9 +109,13 @@ async function sendEmails(data: {
       data.message,
     ].join("\n"),
   });
+  if (notification.error) {
+    throw new Error(`Resend notification failed: ${notification.error.message}`);
+  }
 
-  // Short auto-reply to the parent.
-  await resend.emails.send({
+  // Short auto-reply to the parent. Sam already has the enquiry, so a failure
+  // here is logged rather than shown to the parent.
+  const autoReply = await resend.emails.send({
     from,
     to: data.email,
     subject: "Thank you for your enquiry, Growing Minds Tutoring",
@@ -119,13 +124,16 @@ async function sendEmails(data: {
       "",
       "Thank you for getting in touch about tutoring. I have received your enquiry and will reply within one working day.",
       "",
-      "If you would rather not wait, you can message the Growing Minds Tutoring page on Facebook.",
+      "If you would rather not wait, you can also message me via social media.",
       "",
       "Best wishes,",
       "Sam",
       "Growing Minds Tutoring",
     ].join("\n"),
   });
+  if (autoReply.error) {
+    console.error("[enquiry] auto-reply failed:", autoReply.error.message);
+  }
 }
 
 export async function submitEnquiry(
@@ -146,7 +154,7 @@ export async function submitEnquiry(
     return {
       status: "error",
       errors: {
-        form: "That is a few enquiries in a short time. Please try again shortly, or call me instead.",
+        form: `That is a few enquiries in a short time. Please try again shortly, or email me at ${site.business.email}.`,
       },
     };
   }
@@ -184,7 +192,7 @@ export async function submitEnquiry(
     return {
       status: "error",
       errors: {
-        form: "The spam check did not pass. Please refresh and try again, or call me instead.",
+        form: `The spam check did not pass. Please refresh and try again, or email me at ${site.business.email}.`,
       },
     };
   }
@@ -204,7 +212,7 @@ export async function submitEnquiry(
     return {
       status: "error",
       errors: {
-        form: "Something went wrong sending your enquiry. Please call or message me on Facebook instead.",
+        form: `Something went wrong sending your enquiry. Please email me at ${site.business.email} instead.`,
       },
     };
   }

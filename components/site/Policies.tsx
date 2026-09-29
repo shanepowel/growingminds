@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { site } from "@/content/site";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 type Tab = "privacy" | "terms";
 
@@ -31,7 +32,6 @@ export function Policies() {
     }
   };
 
-  const doc = tab === "privacy" ? site.legal.privacy : site.legal.terms;
   const tabs: { id: Tab; label: string }[] = [
     { id: "privacy", label: "Privacy notice" },
     { id: "terms", label: "Tutoring terms" },
@@ -41,25 +41,28 @@ export function Policies() {
     <>
       <h1 style={{ fontSize: "var(--text-h1-page)", marginBottom: 16 }}>Policies</h1>
 
-      <div role="tablist" aria-label="Policies" style={{ display: "flex", flexWrap: "wrap", gap: 8, marginBottom: 30 }}>
-        {tabs.map((t) => {
-          const selected = t.id === tab;
-          return (
-            <button
-              key={t.id}
-              type="button"
-              role="tab"
-              aria-selected={selected}
-              onClick={() => select(t.id)}
-              className={`gm-chip ${selected ? "gm-chip-on" : ""}`}
-              style={{ cursor: "pointer" }}
-            >
+      <Tabs value={tab} onValueChange={(v) => select(v as Tab)}>
+        <TabsList aria-label="Policies" className="mb-[30px]">
+          {tabs.map((t) => (
+            <TabsTrigger key={t.id} value={t.id}>
               {t.label}
-            </button>
-          );
-        })}
-      </div>
+            </TabsTrigger>
+          ))}
+        </TabsList>
 
+        {tabs.map((t) => (
+          <TabsContent key={t.id} value={t.id}>
+            <PolicyDoc doc={t.id === "privacy" ? site.legal.privacy : site.legal.terms} />
+          </TabsContent>
+        ))}
+      </Tabs>
+    </>
+  );
+}
+
+function PolicyDoc({ doc }: { doc: { updated: string; sections: readonly { h: string; p: string }[] } }) {
+  return (
+    <>
       <p style={{ margin: "0 0 30px", fontSize: "14.5px", color: "var(--color-muted)" }}>
         Last updated {doc.updated}
       </p>
