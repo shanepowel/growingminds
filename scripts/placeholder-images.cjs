@@ -83,64 +83,7 @@ const numberCard = (x, y, n = "5", rot = 8) => `
     <text x="65" y="80" text-anchor="middle" ${F} font-size="52" fill="${C.ink}">${n}</text>
   </g>`;
 
-const mug = (x, y) => `
-  <g transform="translate(${x} ${y})">
-    <path d="M100 30 q46 0 46 40 q0 40 -46 40" fill="none" stroke="${C.white}" stroke-width="16"/>
-    <rect x="0" y="0" width="110" height="140" rx="14" fill="${C.white}"/>
-    <text x="55" y="58" text-anchor="middle" font-family="DejaVu Serif" font-style="italic" font-size="17" fill="${C.green}">Little</text>
-    <text x="55" y="82" text-anchor="middle" font-family="DejaVu Serif" font-style="italic" font-size="17" fill="${C.green}">steps</text>
-    <path d="M47 100 q8 -10 8 0 q0 -10 8 0 q0 10 -8 16 q-8 -6 -8 -16z" fill="${C.clay}"/>
-  </g>`;
-
-// A friendly, clearly illustrated figure in the style of the logo: blonde bob, brown top.
-const sam = (x, y) => `
-  <g transform="translate(${x} ${y})">
-    <path d="M-230 330 q0 -170 120 -190 h220 q120 20 120 190 z" fill="${C.top}"/>
-    <rect x="-34" y="70" width="68" height="84" rx="26" fill="${C.skinShade}"/>
-    <path d="M-40 140 q40 34 80 0 v14 q-40 30 -80 0z" fill="${C.skin}"/>
-    <path d="M-118 -30 q-10 -150 118 -156 q128 6 118 156 l8 150 q-40 16 -70 -4 l-2 -120 h-108 l-2 120 q-30 20 -70 4z" fill="${C.hair}"/>
-    <ellipse cx="0" cy="-4" rx="84" ry="100" fill="${C.skin}"/>
-    <path d="M-92 -40 q20 -110 96 -106 q-24 34 -96 106z" fill="${C.hair}"/>
-    <path d="M92 -40 q-10 -104 -96 -106 q40 44 96 106z" fill="${C.hairShade}"/>
-    <path d="M-44 -6 q14 -14 28 0" stroke="${C.ink}" stroke-width="6" fill="none" stroke-linecap="round"/>
-    <path d="M16 -6 q14 -14 28 0" stroke="${C.ink}" stroke-width="6" fill="none" stroke-linecap="round"/>
-    <ellipse cx="-52" cy="30" rx="16" ry="9" fill="${C.clay}" opacity=".35"/>
-    <ellipse cx="52" cy="30" rx="16" ry="9" fill="${C.clay}" opacity=".35"/>
-    <path d="M-30 44 q30 30 60 0" stroke="#B5534A" stroke-width="7" fill="none" stroke-linecap="round"/>
-  </g>`;
-
-const tablet = (x, y) => `
-  <g transform="translate(${x} ${y})">
-    <path d="M40 200 l-30 -12 h250 l-30 12z" fill="${C.greyDark}"/>
-    <rect x="0" y="0" width="260" height="190" rx="16" fill="${C.grey}" transform="skewX(-4)"/>
-    <circle cx="30" cy="22" r="7" fill="${C.greyDark}"/>
-  </g>`;
-
-const arms = (x, y) => `
-  <rect x="${x - 250}" y="${y}" width="200" height="64" rx="32" fill="${C.top}"/>
-  <rect x="${x + 50}" y="${y}" width="200" height="64" rx="32" fill="${C.top}"/>
-  <ellipse cx="${x - 58}" cy="${y + 34}" rx="30" ry="26" fill="${C.skin}"/>
-  <ellipse cx="${x + 58}" cy="${y + 34}" rx="30" ry="26" fill="${C.skin}"/>`;
-
 const svg = (w, h, body, vb) => `<svg xmlns="http://www.w3.org/2000/svg" width="${w}" height="${h}" viewBox="${vb ?? `0 0 ${w} ${h}`}">${body}</svg>`;
-
-// Scene 1: Sam at her desk (hero, and cropped for the About portrait).
-const deskScene = () => `
-  ${wall(1200, 1000)}
-  <rect x="930" y="120" width="190" height="230" rx="8" fill="${C.white}" stroke="${C.shelf}" stroke-width="10"/>
-  ${["KIND", "BRAVE", "CURIOUS", "CAPABLE", "YOU"].map((t, i) => `<text x="1025" y="${178 + i * 36}" text-anchor="middle" ${F} font-size="22" fill="#4C5B51">${t}</text>`).join("")}
-  ${shelf(870, 560, 330)}
-  ${plant(130, 700, 1.15)}
-  ${sam(600, 360)}
-  ${desk(1200, 690, 1000)}
-  ${arms(600, 650)}
-  ${tablet(470, 520)}
-  ${pencilPot(330, 800)}
-  ${bookStack(60, 930)}
-  ${notebook(440, 780)}
-  ${cubes(820, 800)}
-  ${mug(990, 700)}
-  ${numberCard(1010, 880)}`;
 
 // Scene 2: the tutoring space, no people.
 const spaceScene = () => `
@@ -202,8 +145,6 @@ const areaScene = () => `
 
 (async () => {
   const jobs = [
-    ["hero.webp", svg(1200, 1000, deskScene())],
-    ["sam-portrait.webp", svg(1000, 800, deskScene(), "180 130 850 680")],
     ["tutoring-space.webp", svg(1200, 1000, spaceScene())],
     ["home-session.webp", svg(1200, 1000, homeScene())],
     ["whiteboard-task.webp", svg(1200, 1000, boardScene())],

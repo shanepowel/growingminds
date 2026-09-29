@@ -114,7 +114,7 @@ export const site = {
     primaryCta: "Book a free discovery call",
     secondaryCta: "Get in touch",
     scriptNote: "Little steps. Growing confidence. Growing minds.",
-    imageAlt: "Illustration of Sam at her tutoring desk with a tablet, phonics and maths books, and counting cubes",
+    imageAlt: "Sam smiling at her tutoring desk with a tablet, phonics and maths books, and counting cubes",
   },
 
   trust: [

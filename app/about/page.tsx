@@ -21,7 +21,7 @@ export default function AboutPage() {
       <PersonJsonLd />
       <Section>
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: 34, alignItems: "start" }}>
-          <BlobImage src="/brand/sam-portrait.webp" alt="Illustration of Sam smiling at her tutoring desk" minHeight={440} />
+          <BlobImage src="/brand/sam-portrait.webp" alt="Sam at her tutoring desk" minHeight={440} />
           <div>
             <ScriptNote>{`Hello, I'm ${site.tutor.name}`}</ScriptNote>
             <h1 style={{ fontSize: "var(--text-h1-page)", margin: "4px 0 6px" }}>{site.tutor.role}</h1>
