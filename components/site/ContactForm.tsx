@@ -8,6 +8,7 @@ import { facebookHref } from "@/lib/content";
 import { submitEnquiry, type EnquiryState } from "@/app/contact/actions";
 import { Turnstile } from "./Turnstile";
 import { Chip } from "@/components/Chip";
+import { Checkbox } from "@/components/ui/checkbox";
 
 const initialState: EnquiryState = { status: "idle" };
 
@@ -19,6 +20,19 @@ export function ContactForm({ defaultMessage }: { defaultMessage?: string }) {
   const [subjects, setSubjects] = useState<string[]>([]);
   const [mode, setMode] = useState<string>("");
   const [consent, setConsent] = useState(false);
+  // Controlled, so a validation error does not wipe what the parent typed
+  // (React 19 resets uncontrolled fields after a form action).
+  const [fields, setFields] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    yearGroup: site.form.yearGroups[0] as string,
+    message: defaultMessage ?? "",
+  });
+  const bind = (key: keyof typeof fields) => ({
+    value: fields[key],
+    onChange: (e: { target: { value: string } }) => setFields((f) => ({ ...f, [key]: e.target.value })),
+  });
 
   const errors = state.errors ?? {};
 
@@ -59,13 +73,14 @@ export function ContactForm({ defaultMessage }: { defaultMessage?: string }) {
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(180px, 1fr))", gap: 16 }}>
           <div>
             <label htmlFor="gm-name" className="gm-label">Your name</label>
-            <input id="gm-name" name="name" type="text" autoComplete="name" placeholder="Jo Bloggs" className="gm-field" />
+            <input id="gm-name" name="name" {...bind("name")} type="text" autoComplete="name" placeholder="Jo Bloggs" className="gm-field" />
           </div>
           <div>
             <label htmlFor="gm-email" className="gm-label">Email</label>
             <input
               id="gm-email"
               name="email"
+              {...bind("email")}
               type="email"
               autoComplete="email"
               placeholder="jo@example.com"
@@ -81,11 +96,11 @@ export function ContactForm({ defaultMessage }: { defaultMessage?: string }) {
             <label htmlFor="gm-phone" className="gm-label">
               Phone <span style={{ fontWeight: 600, color: "var(--color-muted)" }}>(optional)</span>
             </label>
-            <input id="gm-phone" name="phone" type="tel" autoComplete="tel" placeholder="07000 000000" className="gm-field" />
+            <input id="gm-phone" name="phone" {...bind("phone")} type="tel" autoComplete="tel" placeholder="07000 000000" className="gm-field" />
           </div>
           <div>
             <label htmlFor="gm-year" className="gm-label">Child&rsquo;s year group</label>
-            <select id="gm-year" name="yearGroup" defaultValue={site.form.yearGroups[0]} className="gm-field">
+            <select id="gm-year" name="yearGroup" {...bind("yearGroup")} className="gm-field">
               {site.form.yearGroups.map((y) => (
                 <option key={y}>{y}</option>
               ))}
@@ -121,7 +136,7 @@ export function ContactForm({ defaultMessage }: { defaultMessage?: string }) {
             id="gm-msg"
             name="message"
             rows={4}
-            defaultValue={defaultMessage}
+            {...bind("message")}
             placeholder="A sentence or two about how your child is getting on and what you would like help with."
             aria-invalid={!!errors.message}
             className={`gm-field ${errors.message ? "gm-field-error" : ""}`}
@@ -134,10 +149,8 @@ export function ContactForm({ defaultMessage }: { defaultMessage?: string }) {
           )}
         </div>
 
-        <button
-          type="button"
-          aria-pressed={consent}
-          onClick={() => setConsent((v) => !v)}
+        <label
+          htmlFor="gm-consent"
           style={{
             display: "flex",
             alignItems: "flex-start",
@@ -146,34 +159,24 @@ export function ContactForm({ defaultMessage }: { defaultMessage?: string }) {
             border: `1.5px solid ${errors.consent ? "var(--color-danger)" : "var(--color-sage-line)"}`,
             background: "#F7FAF4",
             padding: 14,
-            textAlign: "left",
             cursor: "pointer",
           }}
         >
-          <span
-            aria-hidden
-            style={{
-              marginTop: 1,
-              flex: "0 0 auto",
-              width: 22,
-              height: 22,
-              borderRadius: 6,
-              border: "2px solid var(--color-green)",
-              background: consent ? "var(--color-green)" : "transparent",
-              color: "#fff",
-              display: "grid",
-              placeItems: "center",
-            }}
-          >
-            {consent && <Check size={13} strokeWidth={3} />}
-          </span>
+          <Checkbox
+            id="gm-consent"
+            checked={consent}
+            onCheckedChange={(v) => setConsent(v === true)}
+            aria-invalid={!!errors.consent}
+            aria-describedby={errors.consent ? "gm-consent-error" : undefined}
+            style={{ marginTop: 1 }}
+          />
           <span style={{ fontSize: "14.5px", lineHeight: 1.55, color: "var(--color-body-dark)" }}>
             I am happy for Sam to use these details to reply to my enquiry, as described in the{" "}
             <Link href="/policies?tab=privacy">privacy notice</Link>.
           </span>
-        </button>
+        </label>
         {consent && <input type="hidden" name="consent" value="on" />}
-        {errors.consent && <p style={{ margin: 0, fontSize: "13.5px", fontWeight: 700, color: "var(--color-danger)" }}>{errors.consent}</p>}
+        {errors.consent && <p id="gm-consent-error" style={{ margin: 0, fontSize: "13.5px", fontWeight: 700, color: "var(--color-danger)" }}>{errors.consent}</p>}
 
         <Turnstile />
 
