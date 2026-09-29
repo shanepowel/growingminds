@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { Mail } from "lucide-react";
 import { site } from "@/content/site";
 import { facebookHref, hasHref } from "@/lib/content";
@@ -49,7 +50,16 @@ export default async function ContactPage({
 
         <div style={{ display: "grid", gap: 18 }}>
           <div className="gm-card-dark">
-            <h2 style={{ color: "#fff", fontSize: 22, margin: "0 0 14px" }}>Or reach me directly</h2>
+            <div style={{ display: "flex", alignItems: "center", gap: 14, margin: "0 0 16px" }}>
+              <Image
+                src="/brand/sam-avatar.webp"
+                alt={`${site.tutor.name}, your tutor`}
+                width={64}
+                height={64}
+                style={{ borderRadius: "50%", border: "2px solid var(--color-sage)", flex: "0 0 auto" }}
+              />
+              <h2 style={{ color: "#fff", fontSize: 22, margin: 0 }}>Or reach me directly</h2>
+            </div>
             <a
               href={`mailto:${site.business.email}`}
               style={{ display: "flex", alignItems: "center", gap: 14, background: "rgba(255,255,255,.08)", border: "1px solid rgba(220,232,206,.3)", borderRadius: 14, padding: "15px 16px", marginBottom: 10, color: "#fff" }}

@@ -1,9 +1,9 @@
 import Image from "next/image";
 
 /**
- * Image paths that exist in /public/brand. hero and sam-portrait are Sam's
- * photo; the rest are illustrated placeholders (scripts/placeholder-images.cjs)
- * until real photos arrive. Until a path is listed here, BlobImage renders an organic-masked peach/sage
+ * Image paths that exist in /public/brand. Crops of Sam's photo come from
+ * scripts/photo-variants.cjs; whiteboard-task and home-session are
+ * illustrations from scripts/placeholder-images.cjs until real photos arrive. Until a path is listed here, BlobImage renders an organic-masked peach/sage
  * placeholder wash carrying the alt text, so a missing photo never ships as a
  * broken image. Add the path here (and drop the WebP in /public/brand) to go live.
  */

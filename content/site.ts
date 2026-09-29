@@ -245,7 +245,7 @@ export const site = {
         "At the end of each session, I will briefly review what we have covered and explain any suggested activities or next steps.",
       ],
       image: "/brand/tutoring-space.webp",
-      imageAlt: "Illustration of the tutoring space: table, phonics cards, number line and bookshelves",
+      imageAlt: "Phonics, Early Reading, Maths and Handwriting books, a tablet and an Aa Bb notebook on Sam's desk",
     },
     {
       id: "at-yours",
@@ -325,7 +325,7 @@ export const site = {
     heading: "KS1 tutoring in Waterlooville",
     intro: "I am a qualified primary school teacher with over 15 years' experience in Key Stage 1, offering one-to-one tutoring for children aged 5 to 7. Sessions take place at my home in Waterlooville, at your home within Waterlooville and surrounding areas, or online.",
     cta: "Enquire about a Waterlooville slot",
-    imageAlt: "Illustration of Waterlooville at the centre of the local travel area",
+    imageAlt: "Sam, a qualified primary school teacher based in Waterlooville, at her desk",
     areasHeading: "Areas I cover around Waterlooville",
     areasLead: "Face to face sessions at your home in any of these areas. Anywhere further afield, online works just as well and there is no travel to pay for.",
     optionsHeading: "Options and prices",

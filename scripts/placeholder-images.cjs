@@ -1,4 +1,6 @@
-// Illustrated placeholder imagery, drawn from the scene in Sam's shared photo.
+// Illustrated placeholders for the two session tabs Sam's photo cannot show:
+// an online whiteboard task and a session at the family's kitchen table.
+// Crops of Sam's photo come from scripts/photo-variants.cjs.
 // Run with `node scripts/placeholder-images.cjs`. Replace each file with a real photo when one arrives.
 const sharp = require("sharp");
 const OUT = require("path").join(__dirname, "..", "public", "brand");
@@ -16,47 +18,6 @@ const wall = (w, h) => `
   <defs><linearGradient id="wall" x1="0" y1="0" x2="0" y2="1">
     <stop offset="0" stop-color="${C.wall}"/><stop offset="1" stop-color="${C.wall2}"/></linearGradient></defs>
   <rect width="${w}" height="${h}" fill="url(#wall)"/>`;
-
-const plant = (x, y, s = 1) => `
-  <g transform="translate(${x} ${y}) scale(${s})">
-    ${[-60, -30, 0, 30, 60, -45, 45].map((a, i) =>
-      `<ellipse cx="0" cy="-70" rx="${i > 4 ? 16 : 20}" ry="${i > 4 ? 48 : 60}" fill="${i % 2 ? C.leaf : C.leaf2}" transform="rotate(${a}) translate(0 ${i > 4 ? 10 : 0})"/>`).join("")}
-    <path d="M-42 -8 h84 l-10 70 h-64 z" fill="${C.white}"/>
-    <rect x="-46" y="-14" width="92" height="14" rx="6" fill="${C.grey}"/>
-  </g>`;
-
-const shelf = (x, y, w) => {
-  const cols = [C.green, C.yellow, C.blue, C.red, C.leaf2, C.lblue, C.clay, C.pink, C.green, C.yellow, C.blue];
-  let bx = x + 10, books = "";
-  cols.forEach((c, i) => {
-    const bw = 18 + (i * 7) % 14, bh = 110 + (i * 13) % 40;
-    if (bx + bw < x + w - 10) books += `<rect x="${bx}" y="${y - bh}" width="${bw}" height="${bh}" rx="3" fill="${c}"/>`;
-    bx += bw + 3;
-  });
-  return `${books}<rect x="${x}" y="${y}" width="${w}" height="18" rx="4" fill="${C.shelf}"/>`;
-};
-
-const desk = (w, top, h) => `
-  <rect x="0" y="${top}" width="${w}" height="${h - top}" fill="${C.desk}"/>
-  <rect x="0" y="${top}" width="${w}" height="10" fill="${C.deskEdge}" opacity=".55"/>`;
-
-const bookStack = (x, y) => {
-  const books = [["Handwriting", C.pink], ["Maths", C.lblue], ["Early Reading", C.yellow], ["Phonics", C.leaf]];
-  return `<g transform="translate(${x} ${y}) rotate(-4)">${books.map(([t, c], i) => `
-    <g transform="translate(${i % 2 ? 8 : 0} ${-i * 58})">
-      <rect x="0" y="0" width="330" height="54" rx="6" fill="${c}"/>
-      <rect x="318" y="6" width="10" height="42" rx="3" fill="${C.white}" opacity=".8"/>
-      <text x="24" y="37" ${F} font-size="26" fill="${C.ink}">${t}</text>
-    </g>`).join("")}</g>`;
-};
-
-const pencilPot = (x, y) => {
-  const cols = [C.red, C.blue, C.yellow, C.green, C.pink, C.lblue, C.clay];
-  return `<g transform="translate(${x} ${y})">
-    ${cols.map((c, i) => `<g transform="rotate(${-24 + i * 8})"><rect x="-6" y="-150" width="12" height="130" fill="${c}"/><path d="M-6 -150 l6 -20 l6 20z" fill="${C.skin}"/></g>`).join("")}
-    <rect x="-48" y="-40" width="96" height="90" rx="10" fill="${C.white}"/>
-  </g>`;
-};
 
 const cubes = (x, y) => {
   const set = [[0, 0, C.green], [44, 0, C.yellow], [22, -40, C.green], [100, -10, C.blue], [100, -52, C.blue], [150, 6, C.red], [158, -36, C.red]];
@@ -85,26 +46,7 @@ const numberCard = (x, y, n = "5", rot = 8) => `
 
 const svg = (w, h, body, vb) => `<svg xmlns="http://www.w3.org/2000/svg" width="${w}" height="${h}" viewBox="${vb ?? `0 0 ${w} ${h}`}">${body}</svg>`;
 
-// Scene 2: the tutoring space, no people.
-const spaceScene = () => `
-  ${wall(1200, 1000)}
-  <rect x="110" y="120" width="980" height="70" rx="12" fill="${C.white}"/>
-  ${Array.from({ length: 11 }, (_, i) => `<g><line x1="${160 + i * 88}" x2="${160 + i * 88}" y1="140" y2="160" stroke="${C.ink}" stroke-width="4"/><text x="${160 + i * 88}" y="182" text-anchor="middle" ${F} font-size="20" fill="${C.ink}">${i}</text></g>`).join("")}
-  <line x1="150" x2="1050" y1="150" y2="150" stroke="${C.ink}" stroke-width="4"/>
-  ${shelf(760, 420, 380)}
-  ${shelf(760, 600, 380)}
-  ${plant(170, 560, 1.2)}
-  ${desk(1200, 640, 1000)}
-  ${["s", "a", "t", "p", "i", "n"].map((l, i) => `
-    <g transform="translate(${330 + i * 110} ${700 + (i % 2) * 18}) rotate(${(i % 3) * 4 - 4})">
-      <rect width="92" height="110" rx="10" fill="${C.white}"/>
-      <text x="46" y="80" text-anchor="middle" font-family="DejaVu Sans" font-size="64" fill="${C.ink}">${l}</text>
-    </g>`).join("")}
-  ${bookStack(60, 960)}
-  ${cubes(780, 880)}
-  ${pencilPot(1080, 860)}`;
-
-// Scene 3: a kitchen table session, cubes and a phonics flashcard.
+// Scene 1: a kitchen table session, cubes and a phonics flashcard.
 const homeScene = () => `
   <rect width="1200" height="1000" fill="${C.desk}"/>
   <g opacity=".18">${Array.from({ length: 8 }, (_, i) => `<line x1="0" x2="1200" y1="${60 + i * 130}" y2="${40 + i * 130}" stroke="${C.deskEdge}" stroke-width="6"/>`).join("")}</g>
@@ -118,7 +60,7 @@ const homeScene = () => `
   ${notebook(170, 620, 4)}
   <rect x="820" y="720" width="18" height="220" rx="8" fill="${C.yellow}" transform="rotate(-50 829 830)"/>`;
 
-// Scene 4: a finished maths task on the shared whiteboard.
+// Scene 2: a finished maths task on the shared whiteboard.
 const boardScene = () => `
   ${wall(1200, 1000)}
   <rect x="120" y="110" width="960" height="720" rx="40" fill="#2B2B2B"/>
@@ -132,23 +74,10 @@ const boardScene = () => `
   <path d="M920 250 l40 40 l80 -100" stroke="${C.green}" stroke-width="22" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
   <rect x="890" y="660" width="16" height="200" rx="8" fill="${C.greyDark}" transform="rotate(35 898 760)"/>`;
 
-// Scene 5: Waterlooville as the centre of a local travel area. Not a map.
-const areaScene = () => `
-  <rect width="1200" height="1000" fill="${C.sage}"/>
-  <circle cx="600" cy="500" r="380" fill="${C.white}" opacity=".45"/>
-  <circle cx="600" cy="500" r="380" fill="none" stroke="${C.green}" stroke-width="6" stroke-dasharray="22 18"/>
-  <circle cx="600" cy="500" r="220" fill="${C.white}" opacity=".6"/>
-  <path d="M600 520 c-70 -80 -100 -130 -100 -180 a100 100 0 0 1 200 0 c0 50 -30 100 -100 180z" transform="translate(0 -40)" fill="${C.clay}"/>
-  <circle cx="600" cy="300" r="40" fill="${C.white}"/>
-  <text x="600" y="590" text-anchor="middle" ${F} font-size="54" fill="${C.ink}">Waterlooville</text>
-  <text x="600" y="645" text-anchor="middle" font-family="DejaVu Sans" font-size="30" fill="#4C5B51">and surrounding areas</text>`;
-
 (async () => {
   const jobs = [
-    ["tutoring-space.webp", svg(1200, 1000, spaceScene())],
     ["home-session.webp", svg(1200, 1000, homeScene())],
     ["whiteboard-task.webp", svg(1200, 1000, boardScene())],
-    ["waterlooville.webp", svg(1200, 1000, areaScene())],
   ];
   for (const [name, s] of jobs) {
     await sharp(Buffer.from(s)).webp({ quality: 86 }).toFile(`${OUT}/${name}`);
