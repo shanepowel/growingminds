@@ -1,6 +1,6 @@
 "use client";
 
-import { useActionState, useState } from "react";
+import { useActionState, useEffect, useRef, useState } from "react";
 import { Check } from "lucide-react";
 import Link from "next/link";
 import { site } from "@/content/site";
@@ -9,6 +9,19 @@ import { submitEnquiry, type EnquiryState } from "@/app/contact/actions";
 import { Turnstile } from "./Turnstile";
 import { Chip } from "@/components/Chip";
 import { Checkbox } from "@/components/ui/checkbox";
+import {
+  Field,
+  FieldDescription,
+  FieldError,
+  FieldGroup,
+  FieldLabel,
+  FieldLegend,
+  FieldSet,
+} from "@/components/ui/field";
+import { Input } from "@/components/ui/input";
+import { NativeSelect, NativeSelectOption } from "@/components/ui/native-select";
+import { Textarea } from "@/components/ui/textarea";
+import { cn } from "@/lib/utils";
 
 const initialState: EnquiryState = { status: "idle" };
 
@@ -17,6 +30,21 @@ export function ContactForm({ defaultMessage }: { defaultMessage?: string }) {
   const copy = isWaitlist ? site.form.waitlist : site.form.accepting;
 
   const [state, formAction, isPending] = useActionState(submitEnquiry, initialState);
+  const formRef = useRef<HTMLFormElement>(null);
+  // React 19 fires a form reset after the server action. Radix Checkbox
+  // treats that reset as "back to unchecked", so a ticked consent box would
+  // clear whenever another field failed. These fields are controlled, so
+  // the browser reset is not needed.
+  useEffect(() => {
+    const form = formRef.current;
+    if (!form) return;
+    const keepControlledValues = (event: Event) => {
+      event.preventDefault();
+      event.stopImmediatePropagation();
+    };
+    form.addEventListener("reset", keepControlledValues, true);
+    return () => form.removeEventListener("reset", keepControlledValues, true);
+  }, []);
   const [subjects, setSubjects] = useState<string[]>([]);
   const [mode, setMode] = useState<string>("");
   const [consent, setConsent] = useState(false);
@@ -65,19 +93,29 @@ export function ContactForm({ defaultMessage }: { defaultMessage?: string }) {
     setSubjects((cur) => (cur.includes(label) ? cur.filter((x) => x !== label) : [...cur, label]));
 
   return (
-    <form action={formAction} className="gm-card">
+    <form ref={formRef} action={formAction} className="gm-card">
       <h2 style={{ fontSize: 24, margin: "0 0 4px" }}>{copy.title}</h2>
       <p style={{ margin: "0 0 22px", fontSize: "15.5px", lineHeight: 1.6, color: "var(--color-body)" }}>{copy.lead}</p>
 
-      <div style={{ display: "grid", gap: 16 }}>
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(180px, 1fr))", gap: 16 }}>
-          <div>
-            <label htmlFor="gm-name" className="gm-label">Your name</label>
-            <input id="gm-name" name="name" {...bind("name")} type="text" autoComplete="name" placeholder="Jo Bloggs" className="gm-field" />
-          </div>
-          <div>
-            <label htmlFor="gm-email" className="gm-label">Email</label>
-            <input
+      <FieldGroup>
+        <div className="grid grid-cols-[repeat(auto-fit,minmax(180px,1fr))] gap-4">
+          <Field data-invalid={errors.name ? true : undefined}>
+            <FieldLabel htmlFor="gm-name">Your name</FieldLabel>
+            <Input
+              id="gm-name"
+              name="name"
+              {...bind("name")}
+              type="text"
+              autoComplete="name"
+              placeholder="Jo Bloggs"
+              aria-invalid={!!errors.name}
+              aria-describedby={errors.name ? "gm-name-error" : undefined}
+            />
+            {errors.name && <FieldError id="gm-name-error">{errors.name}</FieldError>}
+          </Field>
+          <Field data-invalid={errors.email ? true : undefined}>
+            <FieldLabel htmlFor="gm-email">Email</FieldLabel>
+            <Input
               id="gm-email"
               name="email"
               {...bind("email")}
@@ -85,32 +123,32 @@ export function ContactForm({ defaultMessage }: { defaultMessage?: string }) {
               autoComplete="email"
               placeholder="jo@example.com"
               aria-invalid={!!errors.email}
-              className={`gm-field ${errors.email ? "gm-field-error" : ""}`}
+              aria-describedby={errors.email ? "gm-email-error" : undefined}
             />
-            {errors.email && <p style={{ margin: "6px 0 0", fontSize: "13.5px", fontWeight: 700, color: "var(--color-danger)" }}>{errors.email}</p>}
-          </div>
+            {errors.email && <FieldError id="gm-email-error">{errors.email}</FieldError>}
+          </Field>
         </div>
 
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(180px, 1fr))", gap: 16 }}>
-          <div>
-            <label htmlFor="gm-phone" className="gm-label">
-              Phone <span style={{ fontWeight: 600, color: "var(--color-muted)" }}>(optional)</span>
-            </label>
-            <input id="gm-phone" name="phone" {...bind("phone")} type="tel" autoComplete="tel" placeholder="07000 000000" className="gm-field" />
-          </div>
-          <div>
-            <label htmlFor="gm-year" className="gm-label">Child&rsquo;s year group</label>
-            <select id="gm-year" name="yearGroup" {...bind("yearGroup")} className="gm-field">
+        <div className="grid grid-cols-[repeat(auto-fit,minmax(180px,1fr))] gap-4">
+          <Field>
+            <FieldLabel htmlFor="gm-phone">
+              Phone <span className="font-semibold text-muted">(optional)</span>
+            </FieldLabel>
+            <Input id="gm-phone" name="phone" {...bind("phone")} type="tel" autoComplete="tel" placeholder="07000 000000" />
+          </Field>
+          <Field>
+            <FieldLabel htmlFor="gm-year">Child&rsquo;s year group</FieldLabel>
+            <NativeSelect id="gm-year" name="yearGroup" {...bind("yearGroup")}>
               {site.form.yearGroups.map((y) => (
-                <option key={y}>{y}</option>
+                <NativeSelectOption key={y}>{y}</NativeSelectOption>
               ))}
-            </select>
-          </div>
+            </NativeSelect>
+          </Field>
         </div>
 
-        <fieldset style={{ margin: 0, border: 0, padding: 0 }}>
-          <legend className="gm-label" style={{ marginBottom: 8 }}>Subjects you are interested in</legend>
-          <div style={{ display: "flex", flexWrap: "wrap", gap: 8 }}>
+        <FieldSet>
+          <FieldLegend variant="label">Subjects you are interested in</FieldLegend>
+          <div className="flex flex-wrap gap-2">
             {site.subjects.map((s) => (
               <Chip key={s.slug} label={s.title} selected={subjects.includes(s.title)} onToggle={() => toggleSubject(s.title)} />
             ))}
@@ -118,88 +156,83 @@ export function ContactForm({ defaultMessage }: { defaultMessage?: string }) {
           {subjects.map((s) => (
             <input key={s} type="hidden" name="subjects" value={s} />
           ))}
-        </fieldset>
+        </FieldSet>
 
-        <fieldset style={{ margin: 0, border: 0, padding: 0 }}>
-          <legend className="gm-label" style={{ marginBottom: 8 }}>Where would you like sessions?</legend>
-          <div style={{ display: "flex", flexWrap: "wrap", gap: 8 }}>
+        <FieldSet>
+          <FieldLegend variant="label">Where would you like sessions?</FieldLegend>
+          <div className="flex flex-wrap gap-2">
             {site.form.modeOptions.map((m) => (
               <Chip key={m.id} label={m.label} selected={mode === m.id} onToggle={() => setMode(m.id)} />
             ))}
           </div>
           {mode && <input type="hidden" name="mode" value={mode} />}
-        </fieldset>
+        </FieldSet>
 
-        <div>
-          <label htmlFor="gm-msg" className="gm-label">How can I help?</label>
-          <textarea
+        <Field data-invalid={errors.message ? true : undefined}>
+          <FieldLabel htmlFor="gm-msg">How can I help?</FieldLabel>
+          <Textarea
             id="gm-msg"
             name="message"
             rows={4}
             {...bind("message")}
             placeholder="A sentence or two about how your child is getting on and what you would like help with."
             aria-invalid={!!errors.message}
-            className={`gm-field ${errors.message ? "gm-field-error" : ""}`}
-            style={{ resize: "vertical", lineHeight: 1.55 }}
+            aria-describedby={errors.message ? "gm-msg-error" : "gm-msg-hint"}
           />
           {errors.message ? (
-            <p style={{ margin: "6px 0 0", fontSize: "13.5px", fontWeight: 700, color: "var(--color-danger)" }}>{errors.message}</p>
+            <FieldError id="gm-msg-error">{errors.message}</FieldError>
           ) : (
-            <p style={{ margin: "6px 0 0", fontSize: "13.5px", color: "var(--color-muted)" }}>{site.form.childDataHint}</p>
+            <FieldDescription id="gm-msg-hint">{site.form.childDataHint}</FieldDescription>
           )}
-        </div>
+        </Field>
 
-        <label
-          htmlFor="gm-consent"
-          style={{
-            display: "flex",
-            alignItems: "flex-start",
-            gap: 12,
-            borderRadius: 12,
-            border: `1.5px solid ${errors.consent ? "var(--color-danger)" : "var(--color-sage-line)"}`,
-            background: "#F7FAF4",
-            padding: 14,
-            cursor: "pointer",
-          }}
-        >
-          <Checkbox
-            id="gm-consent"
-            checked={consent}
-            onCheckedChange={(v) => setConsent(v === true)}
-            aria-invalid={!!errors.consent}
-            aria-describedby={errors.consent ? "gm-consent-error" : undefined}
-            style={{ marginTop: 1 }}
-          />
-          <span style={{ fontSize: "14.5px", lineHeight: 1.55, color: "var(--color-body-dark)" }}>
-            I am happy for Sam to use these details to reply to my enquiry, as described in the{" "}
-            <Link href="/policies?tab=privacy">privacy notice</Link>.
-          </span>
-        </label>
-        {consent && <input type="hidden" name="consent" value="on" />}
-        {errors.consent && <p id="gm-consent-error" style={{ margin: 0, fontSize: "13.5px", fontWeight: 700, color: "var(--color-danger)" }}>{errors.consent}</p>}
+        <Field data-invalid={errors.consent ? true : undefined}>
+          <FieldLabel
+            htmlFor="gm-consent"
+            className={cn(
+              "mb-0 cursor-pointer items-start gap-3 rounded-[12px] border-[1.5px] bg-sage-pale p-3.5 font-normal",
+              errors.consent ? "border-danger" : "border-sage-line",
+            )}
+          >
+            <Checkbox
+              id="gm-consent"
+              checked={consent}
+              onCheckedChange={(v) => setConsent(v === true)}
+              aria-invalid={!!errors.consent}
+              aria-describedby={errors.consent ? "gm-consent-error" : undefined}
+              className="mt-px"
+            />
+            <span className="text-[14.5px] leading-[1.55] font-normal text-body-dark">
+              I am happy for Sam to use these details to reply to my enquiry, as described in the{" "}
+              <Link href="/policies?tab=privacy">privacy notice</Link>.
+            </span>
+          </FieldLabel>
+          {consent && <input type="hidden" name="consent" value="on" />}
+          {errors.consent && <FieldError id="gm-consent-error">{errors.consent}</FieldError>}
+        </Field>
 
         <Turnstile />
 
         {errors.form && (
           <div
             role="alert"
-            style={{ borderRadius: 11, border: "1px solid rgba(179,38,30,.4)", background: "rgba(179,38,30,.05)", padding: "12px 16px", fontSize: "14.5px", fontWeight: 700, color: "var(--color-danger)" }}
+            className="rounded-[11px] border border-danger/40 bg-danger/5 px-4 py-3 text-[14.5px] font-bold text-danger"
           >
             {errors.form}
           </div>
         )}
 
-        <div style={{ display: "flex", flexWrap: "wrap", alignItems: "center", gap: 14 }}>
+        <div className="flex flex-wrap items-center gap-3.5">
           <button type="submit" disabled={isPending} className="gm-btn gm-btn-primary" style={{ opacity: isPending ? 0.8 : 1 }}>
             <span>{isPending ? "Sending…" : copy.submit}</span>
           </button>
-          <p style={{ margin: 0, fontSize: "13.5px", lineHeight: 1.5, color: "var(--color-muted)" }}>
+          <p className="m-0 text-[13.5px] leading-normal text-muted">
             Protected by an invisible spam check.
             <br />
             No cookies, no marketing lists.
           </p>
         </div>
-      </div>
+      </FieldGroup>
     </form>
   );
 }
