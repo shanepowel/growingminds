@@ -269,7 +269,7 @@ export const site = {
   ],
 
   gettingStarted: [
-    { n: "01", title: "Get in touch", body: "Please fill out the online enquiry form or message me via social media." },
+    { n: "01", title: "Get in touch", body: "Please fill out the online enquiry form, or message me on Facebook or Instagram." },
     { n: "02", title: "A free 15 minute chat", body: "We will begin with a free 15 minute chat to discuss your child's needs, interests and learning goals. This is an opportunity for you to ask any questions and for us to decide whether my tutoring support would be a good fit for your child." },
     { n: "03", title: "First session", body: "The first session will focus on getting to know your child. Through short activities and games, I will identify the areas we will work on and begin to understand how your child learns best. I will then use this information to plan engaging, personalised sessions." },
     { n: "04", title: "A regular slot", body: "We will agree on a regular weekly slot that works best for you and your child. This arrangement will be reviewed after roughly six weeks, when I will provide detailed feedback on your child's progress and discuss any recommended next steps." },

@@ -4,7 +4,7 @@ import { ScriptNote } from "./ScriptNote";
 
 type Props = {
   title: string;
-  lead: string;
+  lead: ReactNode;
   kicker?: string;      // Caveat line above the h1
   children?: ReactNode; // chips, buttons
   narrow?: boolean;

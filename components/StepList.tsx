@@ -1,4 +1,5 @@
 import { site } from "@/content/site";
+import { withSocialIcons } from "@/components/site/SocialIcon";
 
 /** "Getting started" on /curriculum. Numbers sit in alternating blob discs. */
 export function StepList() {
@@ -15,7 +16,7 @@ export function StepList() {
               fontFamily: "var(--font-display)", fontSize: 24, fontWeight: 700,
               color: "var(--color-ink)", marginBottom: 14 }}>{step.n}</span>
             <p style={{ margin: "0 0 6px", fontWeight: 800, fontSize: 18, color: "var(--color-ink)" }}>{step.title}</p>
-            <p style={{ margin: 0, fontSize: "15.5px", color: "var(--color-body)", lineHeight: 1.55 }}>{step.body}</p>
+            <p style={{ margin: 0, fontSize: "15.5px", color: "var(--color-body)", lineHeight: 1.55 }}>{withSocialIcons(step.body)}</p>
           </li>
         );
       })}

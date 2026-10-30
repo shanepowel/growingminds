@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { withSocialIcons } from "@/components/site/SocialIcon";
 import { Section } from "@/components/Section";
 import { PageIntro } from "@/components/PageIntro";
 import { CtaBand } from "@/components/CtaBand";
@@ -19,7 +20,7 @@ export default function FaqsPage() {
       <PageIntro
         narrow
         title="Questions parents ask"
-        lead="If yours is not here, send me an enquiry or message me via social media and I will answer honestly, even if the answer is that I am not the right fit."
+        lead={withSocialIcons("If yours is not here, send me an enquiry or message me on Facebook or Instagram and I will answer honestly, even if the answer is that I am not the right fit.")}
       />
       <Section narrow>
         <Faqs />
