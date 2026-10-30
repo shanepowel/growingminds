@@ -4,6 +4,7 @@ import { headers } from "next/headers";
 import { z } from "zod";
 import { Resend } from "resend";
 import { site } from "@/content/site";
+import { facebookHref, instagramHref } from "@/lib/content";
 
 export type EnquiryState = {
   status: "idle" | "success" | "error";
@@ -124,7 +125,9 @@ async function sendEmails(data: {
       "",
       "Thank you for getting in touch about tutoring. I have received your enquiry and will reply within one working day.",
       "",
-      "If you would rather not wait, you can also message me via social media.",
+      "If you would rather not wait, you can message me on Facebook or Instagram:",
+      facebookHref(),
+      instagramHref(),
       "",
       "Best wishes,",
       "Sam",

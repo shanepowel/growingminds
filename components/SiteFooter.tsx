@@ -3,6 +3,7 @@ import { Logo } from "./LogoMark";
 import { Chip } from "./Chip";
 import { site } from "@/content/site";
 import { facebookHref, instagramHref } from "@/lib/content";
+import { SocialIcon } from "@/components/site/SocialIcon";
 
 /** Warm paper footer. The dark band on any page is the CTA above it, not this. */
 export function SiteFooter() {
@@ -28,11 +29,13 @@ export function SiteFooter() {
             <br />
             <span style={{ color: "var(--color-muted)" }}>{site.business.emailNote}</span>
             <br />
-            <span style={{ display: "inline-flex", gap: 14, marginTop: 6 }}>
-              <a href={facebookHref()} target="_blank" rel="noreferrer" style={{ fontWeight: 700 }}>
+            <span style={{ display: "inline-flex", flexWrap: "wrap", gap: "4px 16px", marginTop: 6 }}>
+              <a href={facebookHref()} target="_blank" rel="noreferrer" style={{ display: "inline-flex", alignItems: "center", gap: 6, fontWeight: 700, minHeight: 44 }}>
+                <SocialIcon name="facebook" size={16} />
                 Facebook
               </a>
-              <a href={instagramHref()} target="_blank" rel="noreferrer" style={{ fontWeight: 700 }}>
+              <a href={instagramHref()} target="_blank" rel="noreferrer" style={{ display: "inline-flex", alignItems: "center", gap: 6, fontWeight: 700, minHeight: 44 }}>
+                <SocialIcon name="instagram" size={16} />
                 Instagram
               </a>
             </span>

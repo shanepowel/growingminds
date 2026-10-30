@@ -2,6 +2,7 @@
 
 import { useActionState, useEffect, useRef, useState } from "react";
 import { Check } from "lucide-react";
+import { SocialIcon } from "@/components/site/SocialIcon";
 import Link from "next/link";
 import { site } from "@/content/site";
 import { facebookHref } from "@/lib/content";
@@ -82,6 +83,7 @@ export function ContactForm({ defaultMessage }: { defaultMessage?: string }) {
             Email me
           </a>
           <a href={facebookHref()} target="_blank" rel="noreferrer" className="gm-btn gm-btn-secondary">
+            <SocialIcon name="facebook" size={16} />
             Message on Facebook
           </a>
         </div>

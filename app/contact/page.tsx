@@ -3,6 +3,7 @@ import Image from "next/image";
 import { Mail } from "lucide-react";
 import { site } from "@/content/site";
 import { facebookHref, instagramHref, hasHref } from "@/lib/content";
+import { SocialIcon, withSocialIcons } from "@/components/site/SocialIcon";
 import { Section } from "@/components/Section";
 import { PageIntro } from "@/components/PageIntro";
 import { ContactForm } from "@/components/site/ContactForm";
@@ -10,7 +11,7 @@ import { ContactForm } from "@/components/site/ContactForm";
 export const metadata: Metadata = {
   title: "Get in touch",
   description:
-    "Send an enquiry about KS1 tutoring in Waterlooville, the surrounding areas or online. Sam replies within one working day. Message on social media too.",
+    "Send an enquiry about KS1 tutoring in Waterlooville, the surrounding areas or online. Sam replies within one working day. Message on Facebook or Instagram too.",
   alternates: { canonical: "/contact" },
 };
 
@@ -31,7 +32,7 @@ export default async function ContactPage({
     <>
       <PageIntro
         title="Get in touch"
-        lead="Tell me a little about your child and what would help most. I reply within one working day, and the first 15 minute chat is always free with no obligation. You can also message me via social media if that is easier."
+        lead={withSocialIcons("Tell me a little about your child and what would help most. I reply within one working day, and the first 15 minute chat is always free with no obligation. You can also message me on Facebook or Instagram if that is easier.")}
       >
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: 28, alignItems: "start" }}>
         {paused ? (
@@ -79,8 +80,8 @@ export default async function ContactPage({
               rel="noreferrer"
               style={{ display: "flex", alignItems: "center", gap: 14, background: "rgba(255,255,255,.08)", border: "1px solid rgba(220,232,206,.3)", borderRadius: 14, padding: "15px 16px", color: "#fff" }}
             >
-              <span aria-hidden style={{ width: 40, height: 40, borderRadius: "50%", background: "var(--color-sage)", color: "var(--color-ink)", display: "grid", placeItems: "center", fontFamily: "var(--font-display)", fontWeight: 700, fontSize: 19 }}>
-                f
+              <span aria-hidden style={{ width: 40, height: 40, borderRadius: "50%", background: "var(--color-sage)", color: "var(--color-ink)", display: "grid", placeItems: "center" }}>
+                <SocialIcon name="facebook" />
               </span>
               <span>
                 <span style={{ display: "block", fontWeight: 800, fontSize: 18 }}>{site.business.facebookPageName}</span>
@@ -93,8 +94,8 @@ export default async function ContactPage({
               rel="noreferrer"
               style={{ display: "flex", alignItems: "center", gap: 14, background: "rgba(255,255,255,.08)", border: "1px solid rgba(220,232,206,.3)", borderRadius: 14, padding: "15px 16px", marginTop: 10, color: "#fff" }}
             >
-              <span aria-hidden style={{ width: 40, height: 40, borderRadius: "50%", background: "var(--color-sage)", color: "var(--color-ink)", display: "grid", placeItems: "center", fontWeight: 800, fontSize: 14 }}>
-                IG
+              <span aria-hidden style={{ width: 40, height: 40, borderRadius: "50%", background: "var(--color-sage)", color: "var(--color-ink)", display: "grid", placeItems: "center" }}>
+                <SocialIcon name="instagram" />
               </span>
               <span>
                 <span style={{ display: "block", fontWeight: 800, fontSize: 18 }}>{site.business.instagramHandle}</span>
