@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
-import { site } from "@/content/site";
 import { PageIntro } from "@/components/PageIntro";
 import { InsightCard } from "@/components/InsightCard";
 import { CtaBand } from "@/components/CtaBand";
+import { listInsights } from "@/lib/insights";
 
 export const metadata: Metadata = {
   title: "Insights",
@@ -10,7 +10,11 @@ export const metadata: Metadata = {
   alternates: { canonical: "/insights" },
 };
 
-export default function InsightsPage() {
+// Static with ISR: picks up new Sanity notes without a rebuild.
+export const revalidate = 3600;
+
+export default async function InsightsPage() {
+  const insights = await listInsights();
   return (
     <>
       <PageIntro
@@ -19,7 +23,7 @@ export default function InsightsPage() {
         narrow
       >
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: 20 }}>
-          {site.insights.map((insight) => (
+          {insights.map((insight) => (
             <InsightCard key={insight.slug} insight={insight} />
           ))}
         </div>

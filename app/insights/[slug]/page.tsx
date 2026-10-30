@@ -1,13 +1,18 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { site } from "@/content/site";
 import { PageIntro } from "@/components/PageIntro";
 import { Section } from "@/components/Section";
 import { CtaBand } from "@/components/CtaBand";
+import { InsightBody } from "@/components/site/InsightBody";
+import { getInsight, insightSlugs } from "@/lib/insights";
+
+// Static with ISR: new or edited Sanity notes refresh without a rebuild.
+export const revalidate = 3600;
+export const dynamicParams = true;
 
 export function generateStaticParams() {
-  return site.insights.map((insight) => ({ slug: insight.slug }));
+  return insightSlugs().map((slug) => ({ slug }));
 }
 
 export async function generateMetadata({
@@ -16,7 +21,7 @@ export async function generateMetadata({
   params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
   const { slug } = await params;
-  const insight = site.insights.find((i) => i.slug === slug);
+  const insight = await getInsight(slug);
   if (!insight) return {};
   return {
     title: insight.title,
@@ -31,23 +36,17 @@ export default async function InsightPage({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  const insight = site.insights.find((i) => i.slug === slug);
+  const insight = await getInsight(slug);
   if (!insight) notFound();
 
   return (
     <>
-      <PageIntro
-        kicker={insight.tag}
-        title={insight.title}
-        lead={insight.blurb}
-        narrow
-      />
+      <PageIntro kicker={insight.tag} title={insight.title} lead={insight.blurb} narrow />
       <Section narrow>
-        <p style={{ fontSize: 17, lineHeight: 1.75, color: "var(--color-body-dark)", margin: "0 0 22px" }}>
-          The full note is on its way. In the meantime, get in touch and I am happy to talk through this one
-          directly.
-        </p>
-        <Link href="/insights" style={{ fontWeight: 800, fontSize: 16 }}>
+        <article style={{ maxWidth: "68ch" }}>
+          <InsightBody value={insight.body} />
+        </article>
+        <Link href="/insights" style={{ display: "inline-block", marginTop: 12, fontWeight: 800, fontSize: 16 }}>
           &larr; Back to Insights
         </Link>
       </Section>
