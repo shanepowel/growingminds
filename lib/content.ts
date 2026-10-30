@@ -49,6 +49,14 @@ export function facebookHref(): string {
   );
 }
 
+/** Instagram link, with a search fallback until the real profile URL is set. */
+export function instagramHref(): string {
+  return resolveLink(
+    site.business.instagramUrl,
+    "https://www.instagram.com/",
+  );
+}
+
 /**
  * Where a "Sign in" affordance points. When the pupil app is enabled it goes to
  * the app; otherwise straight to Google Classroom (the login at launch), falling

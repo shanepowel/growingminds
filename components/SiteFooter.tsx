@@ -2,6 +2,7 @@ import Link from "next/link";
 import { Logo } from "./LogoMark";
 import { Chip } from "./Chip";
 import { site } from "@/content/site";
+import { facebookHref, instagramHref } from "@/lib/content";
 
 /** Warm paper footer. The dark band on any page is the CTA above it, not this. */
 export function SiteFooter() {
@@ -26,6 +27,15 @@ export function SiteFooter() {
             </a>
             <br />
             <span style={{ color: "var(--color-muted)" }}>{site.business.emailNote}</span>
+            <br />
+            <span style={{ display: "inline-flex", gap: 14, marginTop: 6 }}>
+              <a href={facebookHref()} target="_blank" rel="noreferrer" style={{ fontWeight: 700 }}>
+                Facebook
+              </a>
+              <a href={instagramHref()} target="_blank" rel="noreferrer" style={{ fontWeight: 700 }}>
+                Instagram
+              </a>
+            </span>
           </div>
         </div>
 

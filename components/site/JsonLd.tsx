@@ -14,9 +14,9 @@ function JsonLd({ data }: { data: Record<string, unknown> }) {
 
 /** Service-area LocalBusiness, no street address, areaServed from site.ts. */
 export function OrganizationJsonLd() {
-  const sameAs = hasHref(site.business.facebookUrl)
-    ? [site.business.facebookUrl]
-    : undefined;
+  const sameAs = [site.business.facebookUrl, site.business.instagramUrl].filter(
+    hasHref,
+  );
 
   return (
     <JsonLd
@@ -39,7 +39,7 @@ export function OrganizationJsonLd() {
           addressRegion: "Hampshire",
           addressCountry: "GB",
         },
-        ...(sameAs ? { sameAs } : {}),
+        ...(sameAs.length ? { sameAs } : {}),
       }}
     />
   );

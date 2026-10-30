@@ -18,8 +18,10 @@ export const site = {
     dbsLine: "Enhanced DBS checked, registered on the DBS Update Service.",
     emailNote: "I reply within one working day",
     email: "hello@growingmindstutoring.co",
-    facebookUrl: "[FACEBOOK PAGE URL]",
+    facebookUrl: "https://www.facebook.com/profile.php?id=61589817217653&sk=about",
     facebookPageName: "Growing Minds Tutoring",
+    instagramUrl: "https://www.instagram.com/sbgrowing.minds.tutoring",
+    instagramHandle: "@sbgrowing.minds.tutoring",
     // The live host. Used for canonical URLs, the sitemap, OG and structured data.
     domain: "www.growingmindstutoring.co",
     // Sam is based in Waterlooville. Still to confirm with her which of these she travels to.
@@ -31,7 +33,7 @@ export const site = {
 
   tutor: {
     name: "Sam",
-    fullName: "[FULL NAME]",
+    fullName: "Sam Bryson",
     role: "Qualified Primary School Teacher",
     yearsExperience: 15,
     dbs: { enhanced: true, updateService: true },
@@ -40,7 +42,7 @@ export const site = {
       "Over 15 years teaching in Key Stage 1",
       "Enhanced DBS certificate, registered on the DBS Update Service",
       "Annual safeguarding and child protection training",
-      "Trained in [PHONICS SCHEME] systematic synthetic phonics",
+      "Trained in Little Wandle and Letters and Sounds systematic synthetic phonics",
     ],
     bio: [
       "I have spent my career in Key Stage 1 classrooms, which means I know exactly where children tend to wobble in Reception, Year 1 and Year 2, and how quickly that wobble can turn into confidence with a bit of one to one attention.",
@@ -50,8 +52,9 @@ export const site = {
       "I hold an Enhanced DBS certificate and keep it on the DBS Update Service, so you can check it is current yourself. I complete annual safeguarding training as part of my teaching practice.",
       "For sessions at your home, a parent or carer stays in the property throughout. I never transport children. Online sessions happen in a shared space you can see and hear at any time, and nothing is recorded without your written consent.",
     ],
-    // Replace with Sam's own wording before launch.
-    whyITutor: "[WHY I TUTOR]",
+    // Draft wording for now; Sam can replace it with her own before launch.
+    whyITutor:
+      "After fifteen years in the classroom, the part I loved most was never the big results day. It was the quiet moment a child who had decided they were no good at reading, or maths, or writing suddenly realised they could do it after all. Tutoring lets me chase that moment for one child at a time, at their pace, without a class of thirty to keep moving. I set up Growing Minds so children near me could have calm, patient, one to one help early, while a wobble is still just a wobble, and grow the confidence to carry on by themselves.",
   },
 
   brand: {
@@ -576,11 +579,11 @@ export const site = {
   legal: {
     privacy: {
       title: "Privacy notice",
-      updated: "[DATE]",
+      updated: "October 2026",
       sections: [
         {
           h: "Who I am",
-          p: "Growing Minds Tutoring is run by [FULL NAME], a self employed qualified teacher based in Waterlooville. I am the data controller for the information described here. You can reach me at hello@growingmindstutoring.co.",
+          p: "Growing Minds Tutoring is run by Sam Bryson, a self employed qualified teacher based in Waterlooville. I am the data controller for the information described here. You can reach me at hello@growingmindstutoring.co.",
         },
         {
           h: "What I collect",
@@ -614,7 +617,7 @@ export const site = {
     },
     terms: {
       title: "Tutoring terms",
-      updated: "[DATE]",
+      updated: "October 2026",
       sections: [
         {
           h: "1. Booking a session",

@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import { Mail } from "lucide-react";
 import { site } from "@/content/site";
-import { facebookHref, hasHref } from "@/lib/content";
+import { facebookHref, instagramHref, hasHref } from "@/lib/content";
 import { Section } from "@/components/Section";
 import { PageIntro } from "@/components/PageIntro";
 import { ContactForm } from "@/components/site/ContactForm";
@@ -23,6 +23,7 @@ export default async function ContactPage({
   const prefill = typeof enquiry === "string" ? site.form.prefill[enquiry] : undefined;
   const paused = site.status === "paused";
   const fbHref = facebookHref();
+  const igHref = instagramHref();
   const showBooking = site.booking.enabled;
   const calConfigured = hasHref(site.booking.calUrl);
 
@@ -84,6 +85,20 @@ export default async function ContactPage({
               <span>
                 <span style={{ display: "block", fontWeight: 800, fontSize: 18 }}>{site.business.facebookPageName}</span>
                 <span style={{ display: "block", fontSize: 14, color: "var(--color-on-dark)" }}>Message me on Facebook for enquiries and bookings</span>
+              </span>
+            </a>
+            <a
+              href={igHref}
+              target="_blank"
+              rel="noreferrer"
+              style={{ display: "flex", alignItems: "center", gap: 14, background: "rgba(255,255,255,.08)", border: "1px solid rgba(220,232,206,.3)", borderRadius: 14, padding: "15px 16px", marginTop: 10, color: "#fff" }}
+            >
+              <span aria-hidden style={{ width: 40, height: 40, borderRadius: "50%", background: "var(--color-sage)", color: "var(--color-ink)", display: "grid", placeItems: "center", fontWeight: 800, fontSize: 14 }}>
+                IG
+              </span>
+              <span>
+                <span style={{ display: "block", fontWeight: 800, fontSize: 18 }}>{site.business.instagramHandle}</span>
+                <span style={{ display: "block", fontSize: 14, color: "var(--color-on-dark)" }}>Follow on Instagram for tips and updates</span>
               </span>
             </a>
             <p style={{ margin: "14px 0 0", fontSize: "14.5px", color: "var(--color-on-dark)", lineHeight: 1.6 }}>
